@@ -1,0 +1,25 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+prs = pd.read_csv("prs.csv")
+prs["created_at_dt"] = pd.to_datetime(prs["created_at_dt"])
+prs["week"] = prs["created_at_dt"].dt.to_period("W").dt.start_time
+
+# Kun merged PRs
+m = prs.dropna(subset=["pr_cycle_hours"]).copy()
+
+weekly = (m.groupby(["repo", "week"])["pr_cycle_hours"]
+          .median()
+          .reset_index()
+          .sort_values("week"))
+
+fig, ax = plt.subplots(figsize=(11, 5))
+for repo, sub in weekly.groupby("repo"):
+    ax.plot(sub["week"], sub["pr_cycle_hours"], label=repo)
+
+ax.set_ylabel("Median PR Cycle Time (hours)")
+ax.set_xlabel("Week")
+ax.set_title("Figure 3: PR Cycle Time Over Time (Median per Week)")
+ax.legend()
+plt.tight_layout()
+plt.show()

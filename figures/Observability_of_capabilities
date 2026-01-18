@@ -1,0 +1,22 @@
+import matplotlib.pyplot as plt
+
+caps = [
+    "Continuous Integration",
+    "Trunk-based Development",
+    "Fast Feedback",
+    "Automated Testing",
+    "Observability",
+    "Lean Management",
+    "Culture"
+]
+# 0–3 skala: 3=lett observerbar via GitHub, 0=ikke observerbar
+scores = [3, 3, 3, 2, 1, 0, 0]
+
+fig, ax = plt.subplots(figsize=(10, 4))
+ax.bar(caps, scores)
+ax.set_ylim(0, 3)
+ax.set_ylabel("Observability Score (0–3)")
+ax.set_title("Figure 6: Observability of Accelerate Capabilities via GitHub Data")
+plt.xticks(rotation=30, ha="right")
+plt.tight_layout()
+plt.show()

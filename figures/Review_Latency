@@ -1,0 +1,19 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+prs = pd.read_csv("prs.csv")
+
+data = []
+labels = []
+for repo in prs["repo"].unique():
+    vals = prs.loc[prs["repo"] == repo, "review_latency_hours"].dropna()
+    if len(vals) > 0:
+        data.append(vals)
+        labels.append(repo)
+
+fig, ax = plt.subplots(figsize=(8, 5))
+ax.boxplot(data, labels=labels)
+ax.set_ylabel("Review Latency (hours)")
+ax.set_title("Figure 4: Review Latency Distribution by Project")
+plt.tight_layout()
+plt.show()
