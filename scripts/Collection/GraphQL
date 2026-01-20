@@ -1,0 +1,37 @@
+query($owner:String!, $name:String!, $cursor:String) {
+  repository(owner:$owner, name:$name) {
+    pullRequests(
+      first: 50,
+      after: $cursor,
+      orderBy: {field: CREATED_AT, direction: ASC},
+      states: [OPEN, CLOSED, MERGED]
+    ) {
+      pageInfo { hasNextPage endCursor }
+      nodes {
+        number
+        title
+        createdAt
+        mergedAt
+        closedAt
+        state
+        isDraft
+        additions
+        deletions
+        changedFiles
+        commits { totalCount }
+        author { login }
+        baseRefName
+        headRefName
+        mergeCommit { oid }
+
+        reviews(first: 50) {
+          nodes {
+            createdAt
+            state
+            author { login }
+          }
+        }
+      }
+    }
+  }
+}
