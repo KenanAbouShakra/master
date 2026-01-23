@@ -1,0 +1,3 @@
+Repo,PR Churn (median),CI Flakiness (avg runs/SHA),Review Overhead (median hours),Sonar Debt Ratio (median)
+docker/cli,27.0,6.8490640012403565,2.895,
+prometheus/prometheus,31.0,3.834382033892431,19.693402777777777,
