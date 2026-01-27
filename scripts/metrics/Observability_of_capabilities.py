@@ -23,7 +23,7 @@ ax.bar(caps, scores)
 
 ax.set_ylim(0, 5)
 ax.set_ylabel("Observability Score (0–5)")
-ax.set_title("Figure 6: Observability of Accelerate Capabilities via GitHub Data")
+ax.set_title("Observability of Accelerate Capabilities via GitHub Data")
 
 plt.xticks(rotation=30, ha="right")
 plt.tight_layout()

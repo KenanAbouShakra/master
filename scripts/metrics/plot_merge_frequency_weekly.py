@@ -13,7 +13,11 @@ FIG_DIR.mkdir(parents=True, exist_ok=True)
 # -----------------------------
 # Load PR data
 # -----------------------------
-prs = pd.read_csv(RAW / "prs.csv")
+prs_path = RAW / "prs.csv"
+if not prs_path.exists():
+    raise FileNotFoundError(f"Could not find {prs_path}")
+
+prs = pd.read_csv(prs_path)
 
 # -----------------------------
 # Filter merged PRs
@@ -38,11 +42,11 @@ prs["week"] = (
 weekly = (
     prs.groupby(["repo_full", "week"], as_index=False)
        .agg(merge_count=("pr_number", "count"))
-       .sort_values("week")
+       .sort_values(["repo_full", "week"])
 )
 
 # -----------------------------
-# Optional: 4-week rolling average (recommended)
+#4-week rolling average
 # -----------------------------
 weekly["merge_count_smooth"] = (
     weekly.groupby("repo_full")["merge_count"]
@@ -50,7 +54,36 @@ weekly["merge_count_smooth"] = (
 )
 
 # -----------------------------
-# FIGURE: Merge Frequency Weekly
+# FIGURE 1: Faceted (one row per repo) - weekly + 4w avg
+# -----------------------------
+repos = sorted(weekly["repo_full"].unique())
+
+fig, axes = plt.subplots(len(repos), 1, figsize=(11, 9), sharex=True)
+if len(repos) == 1:
+    axes = [axes]
+
+for ax, repo in zip(axes, repos):
+    sub = weekly[weekly["repo_full"] == repo].sort_values("week")
+
+    ax.plot(sub["week"], sub["merge_count"], linewidth=1, alpha=0.5, label="Weekly")
+    ax.plot(sub["week"], sub["merge_count_smooth"], linewidth=2.5, label="4-week avg")
+
+    ax.set_title(repo)
+    ax.set_ylabel("Merged PRs")
+    ax.grid(True, alpha=0.3)
+    ax.legend(loc="upper left")
+
+axes[-1].set_xlabel("Week")
+fig.suptitle("Merge Frequency per Week (Weekly and 4-week Average)", y=1.02)
+plt.tight_layout()
+
+out1 = FIG_DIR / "Figure_Merge_Frequency_Faceted.png"
+plt.savefig(out1, dpi=300, bbox_inches="tight")
+print("Saved:", out1)
+plt.close(fig)
+
+# -----------------------------
+# FIGURE 2: All repos (4w avg only) - comparison plot
 # -----------------------------
 fig, ax = plt.subplots(figsize=(11, 5))
 
@@ -58,28 +91,21 @@ for repo, sub in weekly.groupby("repo_full"):
     sub = sub.sort_values("week")
     ax.plot(
         sub["week"],
-        sub["merge_count"],
-        linewidth=1,
-        alpha=0.5,
-        label=f"{repo} (weekly)"
-    )
-    ax.plot(
-        sub["week"],
         sub["merge_count_smooth"],
         linewidth=2.5,
-        label=f"{repo} (4-week avg)"
+        label=repo
     )
 
-ax.set_title("Merge Frequency per Week")
+ax.set_title("Merge Frequency per Week (4-week Average Only)")
 ax.set_xlabel("Week")
-ax.set_ylabel("Merged Pull Requests")
+ax.set_ylabel("Merged Pull Requests (4-week avg)")
 ax.grid(True, alpha=0.3)
-ax.legend()
+ax.legend(loc="upper left")
 plt.tight_layout()
 
-out = FIG_DIR / "Figure_Merge_Frequency_Weekly.png"
-plt.savefig(out, dpi=300, bbox_inches="tight")
-print("Saved:", out)
+out2 = FIG_DIR / "Figure_Merge_Frequency_4wAvg_Only_Comparison.png"
+plt.savefig(out2, dpi=300, bbox_inches="tight")
+print("Saved:", out2)
 plt.close(fig)
 
 print("Done.")
