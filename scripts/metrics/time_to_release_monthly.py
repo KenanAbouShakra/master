@@ -16,7 +16,7 @@ rels_path = RAW / "releases.csv"
 prs = pd.read_csv(prs_path)
 rels = pd.read_csv(rels_path)
 
-# --- Configure which repos you want to show in plots (always include docker) ---
+# --- Configure which repos you want to show in plots
 WANTED_REPOS = ["docker/cli", "prometheus/prometheus", "tektoncd/pipeline"]
 
 # --- Sanity checks ---
