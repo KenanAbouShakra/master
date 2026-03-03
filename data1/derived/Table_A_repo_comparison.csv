@@ -1,0 +1,3 @@
+Repository,Median CI Duration (min),Median Failure Rate,Median PR Cycle (h)
+docker/cli,1.9333333333333331,0.1513081165138011,7.842083333333333
+prometheus/prometheus,0.9458333333333333,0.1603180879574711,82.93194444444444

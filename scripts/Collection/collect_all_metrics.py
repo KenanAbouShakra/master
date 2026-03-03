@@ -15,11 +15,9 @@ DAYS_BACK = 750
 CHUNK_DAYS = 14
 
 REPOS = [
-    ("prometheus", "prometheus"),
-    ("docker", "cli"),
-    # You can add more:
-    # ("argoproj", "argo-cd"),
-    # ("grafana", "grafana"),
+("prometheus", "prometheus"),
+("docker", "cli"),
+("tektoncd", "pipeline"),
 ]
 
 CD_WORKFLOW_NAME_PATTERNS = [r"deploy", r"release", r"publish", r"delivery", r"cd"]
@@ -286,11 +284,10 @@ def enrich_prs(prs: pd.DataFrame) -> pd.DataFrame:
     prs["pr_cycle_hours"] = (prs["done_at_dt"] - prs["created_at_dt"]).dt.total_seconds() / 3600.0
     prs["review_latency_hours"] = (prs["first_review_dt"] - prs["created_at_dt"]).dt.total_seconds() / 3600.0
 
-    # ✅ Missing metric you asked for:
     # Review Duration = first review -> merge/done
     prs["review_duration_hours"] = (prs["done_at_dt"] - prs["first_review_dt"]).dt.total_seconds() / 3600.0
 
-    # ✅ TD proxy: PR churn
+    # TD proxy: PR churn
     prs["pr_churn"] = prs["additions"].fillna(0) + prs["deletions"].fillna(0)
 
     return prs
@@ -365,7 +362,7 @@ def derive_tables(prs: pd.DataFrame, runs: pd.DataFrame, rels: pd.DataFrame):
             .sort_values("week")
     )
 
-    # ✅ TD: CI flakiness = retry rate per SHA + volatility
+    # TD: CI flakiness = retry rate per SHA + volatility
     retry = (
         runs.dropna(subset=["week", "head_sha"])
             .groupby(["repo_full", "week", "head_sha"])
@@ -392,7 +389,7 @@ def derive_tables(prs: pd.DataFrame, runs: pd.DataFrame, rels: pd.DataFrame):
               .reset_index(level=0, drop=True)
     )
 
-    # ✅ CD proxy: Release Frequency per month (you asked for this)
+    # CD proxy: Release Frequency per month
     if not rels.empty:
         rels["month"] = rels["release_time_dt"].dt.to_period("M").dt.start_time
         release_frequency_monthly = (
@@ -404,7 +401,7 @@ def derive_tables(prs: pd.DataFrame, runs: pd.DataFrame, rels: pd.DataFrame):
     else:
         release_frequency_monthly = pd.DataFrame(columns=["repo_full", "month", "release_frequency"])
 
-    # ✅ CD proxy: Release/Deploy workflow success rate (weekly)
+    # CD proxy: Release/Deploy workflow success rate (weekly)
     cd_runs = runs[runs["is_cd_workflow"]].copy()
     if not cd_runs.empty:
         cd_weekly = (
@@ -421,7 +418,7 @@ def derive_tables(prs: pd.DataFrame, runs: pd.DataFrame, rels: pd.DataFrame):
     else:
         cd_weekly = pd.DataFrame(columns=["repo_full","week","cd_runs","cd_failure_rate","cd_success_rate","cd_duration_med_min"])
 
-    # ✅ CD proxy: Time-to-Release (merge -> next release)
+    # CD proxy: Time-to-Release (merge -> next release)
     if not rels.empty:
         rel_times = (rels[["repo_full", "release_time_dt"]]
                      .dropna()
