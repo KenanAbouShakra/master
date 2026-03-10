@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Data - Project Index</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .card:hover {
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .card h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+        
+        .card-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .file-list {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .file-list ul {
+            list-style: none;
+        }
+        
+        .file-list li {
+            padding: 8px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #555;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .file-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-top: 10px;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            color: #666;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Master Data Project</h1>
+            <p>Comprehensive index of project structure and resources</p>
+        </header>
+        
+        <div class="content">
+            <!-- Data Section -->
+            <div class="section">
+                <h2>📁 Data Folders</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-icon">📊</div>
+                        <h3>data/</h3>
+                        <p>Primary dataset directory containing raw and derived data files.</p>
+                        <div class="file-list">
+                            <ul>
+                                <li>📂 raw/ - Original data files</li>
+                                <li>📂 derived/ - Processed/transformed data</li>
+                                <li>📂 repos/ - Repository-specific data</li>
+                            </ul>
+                        </div>
+                        <span class="badge">Primary Data</span>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">📈</div>
+                        <h3>data1/</h3>
+                        <p>Secondary dataset directory with additional processed metrics and comparisons.</p>
+                        <div class="file-list">
+                            <ul>
+                                <li>📂 raw/ - Secondary raw data</li>
+                                <li>📂 derived/ - Processed metrics</li>
+                                <li>📂 repos/ - Repository data</li>
+                            </ul>
+                        </div>
+                        <span class="badge">Secondary Data</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scripts Section -->
+            <div class="section">
+                <h2>🐍 Scripts</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-icon">📥</div>
+                        <h3>Collection/</h3>
+                        <p>Data collection scripts for gathering metrics and workflow information.</p>
+                        <div class="file-list">
+                            <ul>
+                                <li>collect_all_metrics.py</li>
+                                <li>Data_Collection.py</li>
+                                <li>GraphQL/ - GraphQL queries</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">📊</div>
+                        <h3>metrics/</h3>
+                        <p>Metric calculation and visualization scripts.</p>
+                        <div class="file-list">
+                            <ul>
+                                <li>Capabilities.py</li>
+                                <li>CI_Duration-Failure-Rate.py</li>
+                                <li>plot_*.py - Visualization scripts</li>
+                                <li>Observability_of_capabilities.py</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Other Folders -->
+            <div class="section">
+                <h2>📚 Project Resources</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-icon">📓</div>
+                        <h3>notebooks/</h3>
+                        <p>Jupyter notebooks for analysis and experimentation.</p>
+                        <span class="badge">Jupyter</span>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">📸</div>
+                        <h3>figures/</h3>
+                        <p>Generated visualizations and plots.</p>
+                        <span class="badge">Output</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="section">
+                <h2>🔗 Key Data Files</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>CI/CD Metrics</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li>✓ ci_weekly.csv</li>
+                            <li>✓ ci_failure_volatility_weekly.csv</li>
+                            <li>✓ ci_flakiness_weekly.csv</li>
+                            <li>✓ cd_workflow_success_weekly.csv</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>PR & Release Metrics</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li>✓ pr_churn_pr_level.csv</li>
+                            <li>✓ review_duration_pr_level.csv</li>
+                            <li>✓ merge_frequency_weekly.csv</li>
+                            <li>✓ release_frequency_monthly.csv</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Analysis Files</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li>✓ Table_A_repo_comparison.csv</li>
+                            <li>✓ time_to_release_monthly.csv</li>
+                            <li>✓ review_overhead_weekly.csv</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Generated Index | Last Updated: March 6, 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
