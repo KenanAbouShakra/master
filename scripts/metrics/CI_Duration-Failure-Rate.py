@@ -34,7 +34,7 @@ else:
 runs[time_col] = pd.to_datetime(runs[time_col], utc=True, errors="coerce")
 
 # -----------------------------
-# Ensure ci_duration_min exists (compute if missing)
+# Ensure ci_duration_min exists
 # -----------------------------
 if "ci_duration_min" not in runs.columns:
     runs["ci_duration_min"] = pd.NA
@@ -44,6 +44,8 @@ if need.any() and ("run_started_at" in runs.columns) and ("updated_at" in runs.c
     rs = pd.to_datetime(runs.loc[need, "run_started_at"], utc=True, errors="coerce")
     up = pd.to_datetime(runs.loc[need, "updated_at"], utc=True, errors="coerce")
     runs.loc[need, "ci_duration_min"] = (up - rs).dt.total_seconds() / 60.0
+
+runs["ci_duration_min"] = pd.to_numeric(runs["ci_duration_min"], errors="coerce")
 
 # -----------------------------
 # Failure flag
@@ -66,33 +68,27 @@ print("  Min:", runs[time_col].min())
 print("  Max:", runs[time_col].max())
 print("  Days:", (runs[time_col].max() - runs[time_col].min()).days)
 print("  Rows:", len(runs))
-print("  Repos:", runs[repo_id_col].unique())
+print("  Repos:", runs[repo_id_col].dropna().unique())
 
 # -----------------------------
-# Outlier handling (THE FIX)
+# Outlier handling
 # -----------------------------
-# Hard cap (recommended): CI runs longer than 6 hours are almost always metadata/outliers in OSS CI.
 MAX_CI_MINUTES = 360  # 6 hours
 
 before = len(runs)
-runs = runs.dropna(subset=["ci_duration_min", time_col])
+runs = runs.dropna(subset=[time_col, "ci_duration_min", repo_id_col])
 runs = runs[runs["ci_duration_min"].between(0, MAX_CI_MINUTES)]
 after = len(runs)
 print(f"Outlier filter: removed {before - after} rows using MAX_CI_MINUTES={MAX_CI_MINUTES}")
 
-# If you want a percentile-based cap instead, comment the hard cap above and use:
-# p99 = runs["ci_duration_min"].quantile(0.99)
-# runs = runs[runs["ci_duration_min"] <= p99]
-# print(f"Outlier filter: clipped at p99={p99:.2f} minutes")
-
 # -----------------------------
-# Week bucket (Monday start) - pandas-safe
+# Week bucket
 # -----------------------------
 runs["week"] = (
     runs[time_col]
-      .dt.tz_convert(None)
-      .dt.to_period("W-MON")
-      .dt.start_time
+    .dt.tz_convert(None)
+    .dt.to_period("W-MON")
+    .dt.start_time
 )
 
 # -----------------------------
@@ -105,44 +101,82 @@ agg = (
             failure_rate=("is_failure", "mean"),
             n=("ci_duration_min", "count"),
         )
-        .sort_values("week")
+        .sort_values([repo_id_col, "week"])
+)
+
+# 4-week smoothing within each repo
+agg["ci_duration_4w"] = (
+    agg.groupby(repo_id_col)["ci_duration_med"]
+       .transform(lambda s: s.rolling(window=4, min_periods=1).median())
+)
+
+agg["failure_rate_4w"] = (
+    agg.groupby(repo_id_col)["failure_rate"]
+       .transform(lambda s: s.rolling(window=4, min_periods=1).mean())
 )
 
 # -----------------------------
-# FIGURE A: CI duration
+# Repo order
 # -----------------------------
-fig, ax = plt.subplots(figsize=(11, 5))
-for repo, sub in agg.groupby(repo_id_col):
-    ax.plot(sub["week"], sub["ci_duration_med"], label=repo, linewidth=2)
+repo_order = [
+    "docker/cli",
+    "prometheus/prometheus",
+    "tektoncd/pipeline",
+]
 
-ax.set_ylabel("Median CI Duration (minutes)")
-ax.set_xlabel("Week")
-ax.set_title("CI Duration (Median) Over Time")
-ax.legend()
-ax.grid(True, alpha=0.3)
-plt.tight_layout()
+available_repos = [r for r in repo_order if r in agg[repo_id_col].unique()]
+if not available_repos:
+    available_repos = list(agg[repo_id_col].unique())
 
-out1 = FIG_DIR / "Figure_CI_Duration_Median_Over_Time.png"
-plt.savefig(out1, dpi=300, bbox_inches="tight")
+# -----------------------------
+# FIGURE 1: CI Duration faceted
+# -----------------------------
+fig, axes = plt.subplots(len(available_repos), 1, figsize=(14, 4 * len(available_repos)), sharex=True)
+
+if len(available_repos) == 1:
+    axes = [axes]
+
+for ax, repo in zip(axes, available_repos):
+    sub = agg[agg[repo_id_col] == repo].sort_values("week")
+    ax.plot(sub["week"], sub["ci_duration_med"], alpha=0.30, label="Weekly median")
+    ax.plot(sub["week"], sub["ci_duration_4w"], linewidth=2.5, label="4-week median")
+    ax.set_title(repo)
+    ax.set_ylabel("Minutes")
+    ax.grid(True, alpha=0.3)
+    ax.legend()
+
+axes[-1].set_xlabel("Week")
+fig.suptitle("CI Duration Over Time (Median, Weekly and 4-week Smoothed)", fontsize=18, y=0.995)
+fig.tight_layout()
+
+out1 = FIG_DIR / "Figure_CI_Duration_Faceted_Weekly_4wMedian.png"
+fig.savefig(out1, dpi=300, bbox_inches="tight")
 print("Saved:", out1)
 plt.close(fig)
 
 # -----------------------------
-# FIGURE B: CI failure rate
+# FIGURE 2: CI Failure Rate faceted
 # -----------------------------
-fig, ax = plt.subplots(figsize=(11, 5))
-for repo, sub in agg.groupby(repo_id_col):
-    ax.plot(sub["week"], sub["failure_rate"], label=repo, linewidth=2)
+fig, axes = plt.subplots(len(available_repos), 1, figsize=(14, 4 * len(available_repos)), sharex=True)
 
-ax.set_ylabel("Failure Rate")
-ax.set_xlabel("Week")
-ax.set_title("CI Failure Rate Over Time")
-ax.legend()
-ax.grid(True, alpha=0.3)
-plt.tight_layout()
+if len(available_repos) == 1:
+    axes = [axes]
 
-out2 = FIG_DIR / "Figure_CI_Failure_Rate_Over_Time.png"
-plt.savefig(out2, dpi=300, bbox_inches="tight")
+for ax, repo in zip(axes, available_repos):
+    sub = agg[agg[repo_id_col] == repo].sort_values("week")
+    ax.plot(sub["week"], sub["failure_rate"], alpha=0.30, label="Weekly rate")
+    ax.plot(sub["week"], sub["failure_rate_4w"], linewidth=2.5, label="4-week mean")
+    ax.set_title(repo)
+    ax.set_ylabel("Failure rate")
+    ax.grid(True, alpha=0.3)
+    ax.legend()
+
+axes[-1].set_xlabel("Week")
+fig.suptitle("CI Failure Rate Over Time (Weekly and 4-week Smoothed)", fontsize=18, y=0.995)
+fig.tight_layout()
+
+out2 = FIG_DIR / "Figure_CI_Failure_Rate_Faceted_Weekly_4wMean.png"
+fig.savefig(out2, dpi=300, bbox_inches="tight")
 print("Saved:", out2)
 plt.close(fig)
 

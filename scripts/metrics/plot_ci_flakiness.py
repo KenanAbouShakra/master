@@ -20,7 +20,7 @@ df = pd.read_csv(in_path)
 # Parse time
 # -----------------------------
 df["week"] = pd.to_datetime(df["week"], errors="coerce")
-df = df.dropna(subset=["week", "repo_full"]).sort_values("week")
+df = df.dropna(subset=["week", "repo_full"]).sort_values(["repo_full", "week"])
 
 # -----------------------------
 # Optional: filter low-volume weeks
@@ -30,53 +30,73 @@ if "n_keys" in df.columns:
     df = df[df["n_keys"] >= MIN_KEYS].copy()
 
 # -----------------------------
-# Smooth: 4-week rolling mean per repo
+# 4-week rolling mean per repo
 # -----------------------------
-df["share_with_retry_smooth"] = (
+df["share_with_retry_4w"] = (
     df.groupby("repo_full")["share_with_retry"]
-      .transform(lambda s: s.rolling(4, min_periods=2).mean())
+      .transform(lambda s: s.rolling(window=4, min_periods=2).mean())
 )
 
-# ============================================================
-# FIGURE A
-# ============================================================
-for repo, sub in df.groupby("repo_full"):
-    sub = sub.sort_values("week")
+# -----------------------------
+# Repo order
+# -----------------------------
+repo_order = [
+    "docker/cli",
+    "prometheus/prometheus",
+    "tektoncd/pipeline",
+]
 
-    fig, ax = plt.subplots(figsize=(11, 5))
-    ax.plot(sub["week"], sub["share_with_retry"], label="Weekly", linewidth=1)
-    ax.plot(sub["week"], sub["share_with_retry_smooth"], label="4-week avg", linewidth=2)
+available_repos = [r for r in repo_order if r in df["repo_full"].unique()]
+if not available_repos:
+    available_repos = list(df["repo_full"].unique())
 
-    ax.set_title(f"CI Flakiness Over Time (True Retry Proxy) — {repo}")
-    ax.set_xlabel("Week")
-    ax.set_ylabel("Share of workflow executions with retries")
+# ============================================================
+# FIGURE A: Faceted CI flakiness
+# ============================================================
+fig, axes = plt.subplots(len(available_repos), 1, figsize=(14, 4 * len(available_repos)), sharex=True)
+
+if len(available_repos) == 1:
+    axes = [axes]
+
+for ax, repo in zip(axes, available_repos):
+    sub = df[df["repo_full"] == repo].sort_values("week")
+
+    ax.plot(sub["week"], sub["share_with_retry"], alpha=0.30, label="Weekly share")
+    ax.plot(sub["week"], sub["share_with_retry_4w"], linewidth=2.5, label="4-week mean")
+
+    ax.set_title(repo)
+    ax.set_ylabel("Retry share")
     ax.grid(True, alpha=0.3)
     ax.legend()
-    plt.tight_layout()
 
-    out_repo = FIG_DIR / f"Figure_CI_Flakiness_{repo.replace('/','__')}.png"
-    plt.savefig(out_repo, dpi=300, bbox_inches="tight")
-    plt.close(fig)
-    print("Saved:", out_repo)
+axes[-1].set_xlabel("Week")
+fig.suptitle("CI Flakiness Over Time (True Retry Proxy, Weekly and 4-week Smoothed)", fontsize=18, y=0.995)
+fig.tight_layout()
+
+out_faceted = FIG_DIR / "Figure_CI_Flakiness_Faceted_Weekly_4wMean.png"
+fig.savefig(out_faceted, dpi=300, bbox_inches="tight")
+plt.close(fig)
+print("Saved:", out_faceted)
 
 # ============================================================
-# FIGURE B
+# FIGURE B: Combined comparison (4-week smooth only)
 # ============================================================
-fig, ax = plt.subplots(figsize=(11, 5))
-for repo, sub in df.groupby("repo_full"):
-    sub = sub.sort_values("week")
-    ax.plot(sub["week"], sub["share_with_retry_smooth"], label=f"{repo} (4w avg)", linewidth=2)
+fig, ax = plt.subplots(figsize=(12, 5))
 
-ax.set_title("CI Flakiness Over Time (True Retry Proxy) — 4-week averages only")
+for repo in available_repos:
+    sub = df[df["repo_full"] == repo].sort_values("week")
+    ax.plot(sub["week"], sub["share_with_retry_4w"], linewidth=2.5, label=repo)
+
+ax.set_title("CI Flakiness Over Time (True Retry Proxy, 4-week Smoothed)")
 ax.set_xlabel("Week")
-ax.set_ylabel("Share of workflow executions with retries")
+ax.set_ylabel("Retry share")
 ax.grid(True, alpha=0.3)
 ax.legend()
 plt.tight_layout()
 
-out_avg = FIG_DIR / "Figure_CI_Flakiness_4wAvg_Only_Comparison.png"
-plt.savefig(out_avg, dpi=300, bbox_inches="tight")
+out_combined = FIG_DIR / "Figure_CI_Flakiness_4wMean_Comparison.png"
+fig.savefig(out_combined, dpi=300, bbox_inches="tight")
 plt.close(fig)
-print("Saved:", out_avg)
+print("Saved:", out_combined)
 
 print("Done.")
