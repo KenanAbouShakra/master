@@ -1,0 +1,4 @@
+Repository,Median PR Cycle Time (h),PR Cycle Time IQR (h),Merged PRs (N),Review Overhead (median h),Review Overhead IQR (h),Reviewed PRs (N),PR Churn (median),PR Churn IQR,PR Churn PRs (N),Median CI Duration (min),CI Failure Rate (mean),CI Failure Rate (median),CI Flakiness (mean runs/SHA),CI Flakiness (median runs/SHA),PR Analysis Window
+docker/cli,6.87,44.21,1422,2.48,20.42,1482,27.0,109.0,1592,1.93,0.15,0.15,6.84,6.0,2024-01 to 2026-01
+prometheus/prometheus,51.16,201.77,2291,18.8,101.92,2465,31.0,121.0,3336,0.94,0.17,0.17,3.89,4.0,2024-01 to 2026-01
+tektoncd/pipeline,36.85,149.94,1091,15.88,85.74,921,33.0,299.0,1405,0.55,0.07,0.07,7.82,4.0,2024-01 to 2026-01

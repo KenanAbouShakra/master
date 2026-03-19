@@ -1,0 +1,4 @@
+Repository,Median CI Duration (min),CI Failure Rate (mean),CI Failure Rate (median),CI Flakiness (mean runs/SHA),CI Flakiness (median runs/SHA)
+docker/cli,1.93,0.15,0.15,6.84,6.0
+prometheus/prometheus,0.94,0.17,0.17,3.89,4.0
+tektoncd/pipeline,0.55,0.07,0.07,7.82,4.0
