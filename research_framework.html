@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Framework</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #f5f6f8;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px;
+      gap: 20px;
+    }
+
+    button {
+      padding: 10px 18px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #75a8ff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+    }
+
+    svg {
+      max-width: 1400px;
+      width: 100%;
+      height: auto;
+      background: #f5f6f8;
+      display: block;
+    }
+
+    .title {
+      font-size: 34px;
+      font-weight: 700;
+      fill: #132033;
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      fill: #132033;
+    }
+    .label {
+      font-size: 18px;
+      font-weight: 700;
+      fill: #132033;
+    }
+    .text {
+      font-size: 16px;
+      fill: #132033;
+    }
+    .small {
+      font-size: 15px;
+      fill: #132033;
+    }
+    .muted {
+      stroke: #a1a8b3;
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .panel {
+      fill: #ffffff;
+      stroke: #bfc6cf;
+      stroke-width: 2;
+    }
+    .main-panel {
+      fill: #ffffff;
+      stroke: #707887;
+      stroke-width: 3;
+    }
+    .workflow {
+      fill: #e6eefc;
+      stroke: #75a8ff;
+      stroke-width: 2;
+    }
+    .cicd {
+      fill: #f2e9fb;
+      stroke: #cf9cff;
+      stroke-width: 2;
+    }
+    .delivery {
+      fill: #e4f5e8;
+      stroke: #75da91;
+      stroke-width: 2;
+    }
+    .quality {
+      fill: #f9f0e1;
+      stroke: #f2aa55;
+      stroke-width: 2;
+    }
+    .pill {
+      fill: #f4f6f8;
+      stroke: none;
+    }
+    .rq1 {
+      fill: #e6eefc;
+      stroke: #75a8ff;
+      stroke-width: 2;
+    }
+    .rq2 {
+      fill: #e4f5e8;
+      stroke: #75da91;
+      stroke-width: 2;
+    }
+    .diamond {
+      fill: #dfe6ff;
+      stroke: #7b8cff;
+      stroke-width: 3;
+    }
+  </style>
+
+  <script>
+    function downloadImage() {
+      const svg = document.querySelector("svg");
+      const style = document.querySelector("style").innerHTML;
+
+      const svgData = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1680">
+          <style>${style}</style>
+          <rect width="1200" height="1680" fill="#f5f6f8"/>
+          ${svg.innerHTML}
+        </svg>
+      `;
+
+      const img = new Image();
+      const svgBlob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
+      const url = URL.createObjectURL(svgBlob);
+
+      img.onload = function () {
+        const scale = 3;
+        const canvas = document.createElement("canvas");
+        canvas.width = 1200 * scale;
+        canvas.height = 1680 * scale;
+
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#f5f6f8";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        const a = document.createElement("a");
+        a.download = "research-framework.png";
+        a.href = canvas.toDataURL("image/png");
+        a.click();
+
+        URL.revokeObjectURL(url);
+      };
+
+      img.src = url;
+    }
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <button onclick="downloadImage()">Download PNG</button>
+
+    <svg viewBox="0 0 1200 1680" xmlns="http://www.w3.org/2000/svg">
+
+      <text x="600" y="55" text-anchor="middle" class="title">Research Framework</text>
+
+      <rect x="130" y="95" rx="10" ry="10" width="940" height="90" class="panel"/>
+      <text x="600" y="130" text-anchor="middle" class="text">Data Sources</text>
+      <text x="600" y="155" text-anchor="middle" class="label" style="font-size:15px; font-weight:600;">
+        GitHub Repositories | GitHub Actions | Releases | SonarQube
+      </text>
+
+      <path d="M600 215 L600 245 M600 245 L592 237 M600 245 L608 237" class="muted"/>
+
+      <rect x="130" y="270" rx="16" ry="16" width="940" height="560" class="main-panel"/>
+      <text x="600" y="315" text-anchor="middle" class="section-title">Four Analytical Layers</text>
+
+      <rect x="155" y="350" rx="10" ry="10" width="890" height="70" class="workflow"/>
+      <text x="185" y="393" class="label">Workflow</text>
+      <rect x="360" y="367" rx="16" ry="16" width="125" height="34" class="pill"/>
+      <text x="422.5" y="389" text-anchor="middle" class="small">• PR Cycle Time</text>
+      <rect x="495" y="367" rx="16" ry="16" width="125" height="34" class="pill"/>
+      <text x="557.5" y="389" text-anchor="middle" class="small">• Review Latency</text>
+      <rect x="630" y="367" rx="16" ry="16" width="132" height="34" class="pill"/>
+      <text x="696" y="389" text-anchor="middle" class="small">• Review Duration</text>
+      <rect x="772" y="367" rx="16" ry="16" width="125" height="34" class="pill"/>
+      <text x="834.5" y="389" text-anchor="middle" class="small">• Merge Frequency</text>
+
+      <path d="M600 435 L600 465 M600 465 L592 457 M600 465 L608 457" class="muted"/>
+
+      <rect x="155" y="480" rx="10" ry="10" width="890" height="70" class="cicd"/>
+      <text x="185" y="523" class="label">CI/CD</text>
+      <rect x="360" y="497" rx="16" ry="16" width="105" height="34" class="pill"/>
+      <text x="412.5" y="519" text-anchor="middle" class="small">• CI Duration</text>
+      <rect x="475" y="497" rx="16" ry="16" width="102" height="34" class="pill"/>
+      <text x="526" y="519" text-anchor="middle" class="small">• Failure Rate</text>
+      <rect x="587" y="497" rx="16" ry="16" width="88" height="34" class="pill"/>
+      <text x="631" y="519" text-anchor="middle" class="small">• Flakiness</text>
+
+      <path d="M600 565 L600 595 M600 595 L592 587 M600 595 L608 587" class="muted"/>
+
+      <rect x="155" y="610" rx="10" ry="10" width="890" height="70" class="delivery"/>
+      <text x="185" y="653" class="label">Delivery (DORA)</text>
+      <rect x="360" y="627" rx="16" ry="16" width="130" height="34" class="pill"/>
+      <text x="425" y="649" text-anchor="middle" class="small">• Release Frequency</text>
+      <rect x="500" y="627" rx="16" ry="16" width="120" height="34" class="pill"/>
+      <text x="560" y="649" text-anchor="middle" class="small">• Time-to-Release</text>
+
+      <path d="M600 695 L600 725 M600 725 L592 717 M600 725 L608 717" class="muted"/>
+
+      <rect x="155" y="740" rx="10" ry="10" width="890" height="70" class="quality"/>
+      <text x="185" y="783" class="label">Code Quality</text>
+      <rect x="360" y="757" rx="16" ry="16" width="100" height="34" class="pill"/>
+      <text x="410" y="779" text-anchor="middle" class="small">• Code Smells</text>
+      <rect x="470" y="757" rx="16" ry="16" width="90" height="34" class="pill"/>
+      <text x="515" y="779" text-anchor="middle" class="small">• Duplication</text>
+      <rect x="570" y="757" rx="16" ry="16" width="150" height="34" class="pill"/>
+      <text x="645" y="779" text-anchor="middle" class="small">• Maintainability Issues</text>
+
+      <path d="M545 850 L545 878 M545 878 L538 871 M545 878 L552 871" class="muted"/>
+      <path d="M582 850 L582 878 M582 878 L575 871 M582 878 L589 871" class="muted"/>
+      <path d="M618 850 L618 878 M618 878 L611 871 M618 878 L625 871" class="muted"/>
+      <path d="M655 850 L655 878 M655 878 L648 871 M655 878 L662 871" class="muted"/>
+
+      <rect x="130" y="900" rx="10" ry="10" width="940" height="210" class="panel"/>
+      <text x="600" y="940" text-anchor="middle" class="section-title">Analytical Dimensions</text>
+
+      <rect x="150" y="975" rx="4" ry="4" width="410" height="48" class="panel"/>
+      <text x="170" y="1005" class="text">• Workflow Efficiency</text>
+      <rect x="575" y="975" rx="4" ry="4" width="445" height="48" class="panel"/>
+      <text x="595" y="1005" class="text">• Pipeline Stability</text>
+      <rect x="150" y="1040" rx="4" ry="4" width="410" height="48" class="panel"/>
+      <text x="170" y="1070" class="text">• Delivery Performance</text>
+      <rect x="575" y="1040" rx="4" ry="4" width="445" height="48" class="panel"/>
+      <text x="595" y="1070" class="text">• Structural Code Quality</text>
+
+      <path d="M520 1130 L470 1175 M470 1175 L480 1175 M470 1175 L470 1165" class="muted"/>
+      <path d="M680 1130 L730 1175 M730 1175 L720 1175 M730 1175 L730 1165" class="muted"/>
+
+      <rect x="190" y="1195" rx="10" ry="10" width="330" height="90" class="rq1"/>
+      <text x="355" y="1235" text-anchor="middle" class="section-title" style="font-size:18px;">RQ1</text>
+      <text x="355" y="1265" text-anchor="middle" class="text">Temporal Dynamics</text>
+
+      <rect x="680" y="1195" rx="10" ry="10" width="330" height="90" class="rq2"/>
+      <text x="845" y="1235" text-anchor="middle" class="section-title" style="font-size:18px;">RQ2</text>
+      <text x="845" y="1265" text-anchor="middle" class="text">Process to Code Quality</text>
+
+      <path d="M485 1305 L565 1380 M565 1380 L554 1379 M565 1380 L564 1369" class="muted"/>
+      <path d="M715 1305 L635 1380 M635 1380 L646 1379 M635 1380 L636 1369" class="muted"/>
+
+      <polygon points="600,1320 760,1460 600,1600 440,1460" class="diamond"/>
+      <text x="600" y="1448" text-anchor="middle" class="section-title" style="font-size:17px;">Multi-dimensional</text>
+      <text x="600" y="1475" text-anchor="middle" class="section-title" style="font-size:17px;">DevOps Performance</text>
+      <text x="600" y="1512" text-anchor="middle" class="text">Socio-technical</text>
+      <text x="600" y="1535" text-anchor="middle" class="text">Interpretation</text>
+
+    </svg>
+  </div>
+</body>
+</html>
