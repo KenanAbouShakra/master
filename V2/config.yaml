@@ -1,0 +1,73 @@
+﻿github:
+  api_version: "2026-03-10"
+  token_env: "GITHUB_TOKEN"
+  timeout_seconds: 30
+  max_retries: 6
+  user_agent: "msc-ci-degradation-research/2.0"
+
+study:
+  start_date: "2025-06-01"
+  end_date: "2026-08-07"
+  workflow_events: []
+  include_drafts: true
+  include_bot_prs: true
+
+storage:
+  sqlite_path: "data/ci_research.sqlite"
+  cache_dir: "data/cache"
+  export_dir: "data/exports"
+
+repository_groups:
+  pilot:
+    - "docker/cli"
+    - "prometheus/prometheus"
+    - "tektoncd/pipeline"
+
+  evaluation:
+    - "containerd/containerd"
+    - "argoproj/argo-cd"
+
+repositories:
+  - "docker/cli"
+  - "prometheus/prometheus"
+  - "tektoncd/pipeline"
+  - "containerd/containerd"
+
+model:
+  states: 2
+  primary_mad_window: 52
+  mad_baseline_weeks:
+    - 26
+    - 52
+    - 78
+    - 104
+  failure_conclusions:
+    - "failure"
+    - "timed_out"
+  pr_validation_events:
+    - "pull_request"
+    - "pull_request_target"
+    - "merge_group"
+
+training:
+  start_date: "2025-06-01"
+  end_date: "2026-02-28"
+
+temporal_holdout:
+  start_date: "2026-03-01"
+  end_date: "2026-08-07"
+
+prescreen:
+  min_history_days: 950
+  min_closed_prs: 500
+  min_actions_runs: 500
+  require_not_archived: true
+  require_not_fork: true
+
+
+
+
+
+
+
+
