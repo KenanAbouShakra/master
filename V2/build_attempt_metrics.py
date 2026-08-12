@@ -16,18 +16,24 @@ REPOSITORIES = (
     "docker/cli",
     "prometheus/prometheus",
     "tektoncd/pipeline",
+    "pytest-dev/pytest",
+    "helm/helm",
     "containerd/containerd",
 )
 
 
-EXTERNAL_REPOSITORIES = ("containerd/containerd",)
+EXTERNAL_REPOSITORIES = (
+    "pytest-dev/pytest",
+    "helm/helm",
+    "containerd/containerd",
+)
 
-ANALYSIS_START = "2024-11-25"
-TRAIN_FEATURE_END = "2025-09-22"
-PURGE_START = "2025-09-29"
-PURGE_END = "2025-10-20"
-HOLDOUT_START = "2025-10-27"
-HOLDOUT_END = "2026-01-26"
+ANALYSIS_START = "2025-06-23"
+TRAIN_FEATURE_END = "2026-02-23"
+PURGE_START = "2026-03-02"
+PURGE_END = "2026-03-23"
+HOLDOUT_START = "2026-03-30"
+HOLDOUT_END = "2026-08-03"
 
 PREDICTION_HORIZON_WEEKS = 4
 
@@ -36,6 +42,13 @@ MAD_WINDOWS = (8, 12, 26)
 PRIMARY_MAD_WINDOW = 8
 
 MAX_VALID_DURATION_MIN = 24 * 60
+MIN_ATTEMPT_COVERAGE = 0.95
+
+PR_VALIDATION_EVENTS = frozenset({
+    "pull_request",
+    "pull_request_target",
+    "merge_group",
+})
 
 SUCCESS = {"success"}
 FAILURE = {"failure", "timed_out", "startup_failure"}
@@ -66,6 +79,7 @@ class StudyConfig:
     mad_windows: tuple[int, ...] = MAD_WINDOWS
     primary_mad_window: int = PRIMARY_MAD_WINDOW
     max_valid_duration_min: float = MAX_VALID_DURATION_MIN
+    min_attempt_coverage: float = MIN_ATTEMPT_COVERAGE
 
 
 def parse_args() -> argparse.Namespace:
@@ -79,6 +93,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--prs", nargs="*", type=Path, default=[])
     parser.add_argument("--releases", nargs="*", type=Path, default=[])
     parser.add_argument("--jobs", nargs="*", type=Path, default=[])
+    parser.add_argument(
+        "--workflow-attempts",
+        "--attempts",
+        dest="workflow_attempts",
+        nargs="*",
+        type=Path,
+        default=[],
+    )
     parser.add_argument("--output-dir", required=True, type=Path)
     parser.add_argument(
         "--allow-missing-repositories",
@@ -104,6 +126,8 @@ def validate_config(cfg: StudyConfig) -> None:
         raise ValueError("All MAD windows must be positive")
     if cfg.prediction_horizon_weeks <= 0:
         raise ValueError("prediction_horizon_weeks must be positive")
+    if not 0 < cfg.min_attempt_coverage <= 1:
+        raise ValueError("min_attempt_coverage must be in (0, 1]")
 
     dates = [
         pd.Timestamp(cfg.analysis_start),
@@ -171,6 +195,18 @@ def monday(series: pd.Series) -> pd.Series:
     ).dt.normalize()
 
 
+def filter_to_pr_validation_runs(
+    runs: pd.DataFrame,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    if "event" not in runs.columns:
+        raise ValueError("workflow runs is missing the 'event' column")
+    event_norm = runs["event"].astype(str).str.strip().str.lower()
+    mask = event_norm.isin(PR_VALIDATION_EVENTS)
+    excluded = runs.loc[~mask].copy()
+    excluded["exclusion_reason"] = "non_pr_validation_event"
+    return runs.loc[mask].copy(), excluded
+
+
 def canonicalize_runs(runs: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
     require_columns(
         runs,
@@ -229,7 +265,6 @@ def job_durations(jobs: pd.DataFrame, maximum: float) -> pd.DataFrame:
     if x.empty:
         return pd.DataFrame(columns=["repo_full", "run_id", "job_duration_min"])
 
-    # Wall-clock span across jobs, not the sum of parallel job durations.
     out = x.groupby(["repo_full", "run_id"], as_index=False).agg(
         first_job_started=("started", "min"),
         last_job_completed=("completed", "max"),
@@ -298,6 +333,30 @@ def canonicalize_entity(
 
 
 def weekly_runs(runs: pd.DataFrame) -> pd.DataFrame:
+    return aggregate_runs(runs, ["repo_full", "week"])
+
+
+def workflow_identifier(runs: pd.DataFrame) -> pd.Series:
+    identifier_column = next(
+        (column for column in ("workflow_id", "workflow_path", "workflow_file") if column in runs),
+        None,
+    )
+    if identifier_column is not None:
+        workflow_id = runs[identifier_column].astype(str).str.strip().str.replace(r"\.0$", "", regex=True)
+        valid = ~workflow_id.isin({"", "nan", "None", "<NA>"})
+    else:
+        workflow_id = pd.Series("", index=runs.index, dtype="string")
+        valid = pd.Series(False, index=runs.index)
+    name = (
+        runs["workflow_name"].astype(str).str.strip()
+        if "workflow_name" in runs
+        else pd.Series("unknown", index=runs.index)
+    )
+    name = name.mask(name.isin({"", "nan", "None", "<NA>"}), "unknown")
+    return workflow_id.where(valid, "name:" + name)
+
+
+def aggregate_runs(runs: pd.DataFrame, keys: list[str]) -> pd.DataFrame:
     x = runs.copy()
     x["week"] = monday(x["created_at_ts"])
     x["status_norm"] = x["status"].astype(str).str.strip().str.lower()
@@ -311,16 +370,14 @@ def weekly_runs(runs: pd.DataFrame) -> pd.DataFrame:
     x["head_sha_norm"] = x["head_sha"].astype(str) if "head_sha" in x else ""
 
     rows: list[dict] = []
-    for (repo, week), group in x.groupby(
-        ["repo_full", "week"], dropna=False
-    ):
+    for group_key, group in x.groupby(keys, dropna=False):
+        group_key = group_key if isinstance(group_key, tuple) else (group_key,)
         eligible = group[group["eligible_outcome"]]
         valid_sha = ~group["head_sha_norm"].isin({"", "nan", "None"})
         sha_counts = group.loc[valid_sha].groupby("head_sha_norm").size()
-        rows.append(
+        row = dict(zip(keys, group_key))
+        row.update(
             {
-                "repo_full": repo,
-                "week": week,
                 "ci_runs": int(len(group)),
                 "ci_outcome_runs": int(len(eligible)),
                 "ci_failures": int(eligible["failure"].sum()),
@@ -341,14 +398,23 @@ def weekly_runs(runs: pd.DataFrame) -> pd.DataFrame:
                 ),
             }
         )
+        rows.append(row)
     return pd.DataFrame(rows)
+
+
+def weekly_workflow_runs(runs: pd.DataFrame) -> pd.DataFrame:
+    x = runs.copy()
+    x["workflow_key"] = workflow_identifier(x)
+    return aggregate_runs(x, ["repo_full", "workflow_key", "week"])
 
 
 def weekly_prs(prs: pd.DataFrame) -> pd.DataFrame:
     if prs.empty:
         return pd.DataFrame(columns=["repo_full", "week"])
     x = prs.copy()
-    x["week"] = monday(x["event_ts"])
+    x["created_week"] = monday(x["event_ts"])
+    x["merged_ts"] = utc(x["merged_at"]) if "merged_at" in x else pd.NaT
+    x["merged_week"] = monday(x["merged_ts"])
     for col in (
         "additions",
         "deletions",
@@ -371,15 +437,94 @@ def weekly_prs(prs: pd.DataFrame) -> pd.DataFrame:
     else:
         x["merged"] = False
 
-    return x.groupby(["repo_full", "week"], as_index=False).agg(
+    created = x.groupby(["repo_full", "created_week"], as_index=False).agg(
         pr_count=("pr_number", "size"),
-        merged_pr_count=("merged", "sum"),
         pr_churn_median=("pr_churn", "median"),
         changed_files_median=("changed_files", "median"),
         commit_count_median=("commit_count", "median"),
         pr_cycle_hours_median=("pr_cycle_hours", "median"),
         review_latency_hours_median=("review_latency_hours", "median"),
         review_count_sum=("review_count", "sum"),
+    )
+    created.rename(columns={"created_week": "week"}, inplace=True)
+    merged = (
+        x[x["merged_ts"].notna()]
+        .groupby(["repo_full", "merged_week"], as_index=False)
+        .agg(merged_pr_count=("pr_number", "size"))
+        .rename(columns={"merged_week": "week"})
+    )
+    return created.merge(merged, on=["repo_full", "week"], how="outer")
+
+
+def weekly_attempts(attempts: pd.DataFrame, runs: pd.DataFrame) -> pd.DataFrame:
+    if attempts.empty:
+        return pd.DataFrame(columns=["repo_full", "week"])
+    require_columns(attempts, ("repo_full", "run_id", "attempt_number"), "attempts")
+    x = attempts.copy()
+    x["repo_full"] = x["repo_full"].astype(str).str.strip()
+    x["run_id"] = x["run_id"].astype(str).str.replace(r"\.0$", "", regex=True)
+    x["attempt_number"] = numeric(x["attempt_number"])
+    eligible_runs = runs[["repo_full", "run_id"]].drop_duplicates()
+    x = x.merge(eligible_runs, on=["repo_full", "run_id"], how="inner")
+    date_col = next((c for c in ("created_at", "run_created_at", "started_at") if c in x), None)
+    if date_col is None:
+        raise ValueError("attempts is missing an attempt date column")
+    x["week"] = monday(x[date_col])
+    x = x[x["attempt_number"].ge(1) & x["week"].notna()].copy()
+    x.sort_values(["repo_full", "run_id", "attempt_number", "week", "_source_row"], inplace=True)
+    x.drop_duplicates(["repo_full", "run_id", "attempt_number"], keep="last", inplace=True)
+    first_week = x.groupby(["repo_full", "run_id"])["week"].min().reset_index()
+    max_attempt = (
+        x.groupby(["repo_full", "run_id"])["attempt_number"]
+        .max()
+        .reset_index(name="max_attempt")
+    )
+    run_level = first_week.merge(max_attempt, on=["repo_full", "run_id"])
+
+    return run_level.groupby(["repo_full", "week"], as_index=False).agg(
+        rerun_count=("max_attempt", lambda s: int((s > 1).sum())),
+        rerun_eligible_runs=("max_attempt", "size"),
+        total_attempts=("max_attempt", "sum"),
+        avg_attempts=("max_attempt", "mean"),
+    )
+
+
+def weekly_workflow_attempts(
+    attempts: pd.DataFrame, runs: pd.DataFrame
+) -> pd.DataFrame:
+    if attempts.empty:
+        return pd.DataFrame(columns=["repo_full", "workflow_key", "week"])
+    mapping = runs[["repo_full", "run_id"]].copy()
+    mapping["workflow_key"] = workflow_identifier(runs).values
+    x = attempts.copy()
+    x["repo_full"] = x["repo_full"].astype(str).str.strip()
+    x["run_id"] = x["run_id"].astype(str).str.replace(r"\.0$", "", regex=True)
+    x = x.merge(mapping, on=["repo_full", "run_id"], how="inner")
+    if x.empty:
+        return pd.DataFrame(columns=["repo_full", "workflow_key", "week"])
+    date_col = next((c for c in ("created_at", "run_created_at", "started_at") if c in x), None)
+    if date_col is None:
+        raise ValueError("attempts is missing an attempt date column")
+    x["attempt_number"] = numeric(x["attempt_number"])
+    x["week"] = monday(x[date_col])
+    x = x[x["attempt_number"].ge(1) & x["week"].notna()].copy()
+    x.sort_values(
+        ["repo_full", "run_id", "attempt_number", "week", "_source_row"],
+        inplace=True,
+    )
+    x.drop_duplicates(
+        ["repo_full", "run_id", "attempt_number"], keep="last", inplace=True
+    )
+    run_level = x.groupby(
+        ["repo_full", "workflow_key", "run_id"], as_index=False
+    ).agg(week=("week", "min"), max_attempt=("attempt_number", "max"))
+    return run_level.groupby(
+        ["repo_full", "workflow_key", "week"], as_index=False
+    ).agg(
+        rerun_count=("max_attempt", lambda s: int((s > 1).sum())),
+        rerun_eligible_runs=("max_attempt", "size"),
+        total_attempts=("max_attempt", "sum"),
+        avg_attempts=("max_attempt", "mean"),
     )
 
 
@@ -409,13 +554,26 @@ def complete_grid(cfg: StudyConfig) -> pd.DataFrame:
     ).to_frame(index=False)
 
 
+def complete_workflow_grid(runs: pd.DataFrame, cfg: StudyConfig) -> pd.DataFrame:
+    identities = runs[["repo_full"]].copy()
+    identities["workflow_key"] = workflow_identifier(runs).values
+    identities.drop_duplicates(inplace=True)
+    weeks = pd.DataFrame(
+        {"week": pd.date_range(cfg.analysis_start, cfg.holdout_end, freq="W-MON")}
+    )
+    identities["_join"] = 1
+    weeks["_join"] = 1
+    return identities.merge(weeks, on="_join").drop(columns="_join")
+
+
 def add_temporal_features(panel: pd.DataFrame) -> pd.DataFrame:
     x = panel.sort_values(["repo_full", "week"]).copy()
     base = [
         "ci_failure_rate",
         "ci_duration_median_min",
         "ci_runs",
-        "avg_runs_per_sha",
+        "rerun_rate",
+        "avg_attempts",
         "pr_count",
         "pr_churn_median",
         "review_latency_hours_median",
@@ -449,8 +607,10 @@ def rolling_median_mad(
     history = values.shift(1).rolling(window, min_periods=window)
     median = history.median()
     mad = history.apply(
-        lambda values: float(
-            np.median(np.abs(values - np.median(values)))
+        lambda values: (
+            float(np.median(np.abs(values - np.median(values))))
+            if np.isfinite(values).all()
+            else np.nan
         ),
         raw=True,
     )
@@ -471,12 +631,14 @@ def add_degradation(panel: pd.DataFrame, cfg: StudyConfig) -> pd.DataFrame:
             group = x.loc[indexes]
             components: list[pd.Series] = []
 
-            for metric in ("ci_failure_rate", "ci_duration_median_min"):
+            for metric in (
+                "ci_failure_rate",
+                "ci_duration_median_min",
+                "rerun_rate",
+            ):
                 median, mad = rolling_median_mad(group[metric], window)
                 threshold = median + 3.0 * 1.4826 * mad
 
-                # If historical MAD is zero, a strict increase above the
-                # historical median is still required.
                 threshold = threshold.where(mad.ne(0), median)
                 development_flag = (
                     group[metric]
@@ -508,10 +670,10 @@ def add_degradation(panel: pd.DataFrame, cfg: StudyConfig) -> pd.DataFrame:
                     )
                 components.append(development_flag)
 
-            valid = components[0].notna() | components[1].notna()
-            combined = (
-                components[0].fillna(False) | components[1].fillna(False)
-            ).where(valid)
+            valid = pd.concat([item.notna() for item in components], axis=1).any(axis=1)
+            combined = pd.concat(
+                [item.fillna(False) for item in components], axis=1
+            ).any(axis=1).where(valid)
             flags.loc[indexes] = combined.astype("boolean").array
 
         x[f"degradation_mad{window}"] = flags
@@ -537,7 +699,7 @@ def add_degradation(panel: pd.DataFrame, cfg: StudyConfig) -> pd.DataFrame:
         )
         target.loc[indexes] = value.array
 
-    x[f"target_next_{cfg.prediction_horizon_weeks}w"] = target
+    x[f"mad_alarm_next_{cfg.prediction_horizon_weeks}w"] = target
     return x
 
 
@@ -588,6 +750,8 @@ def quality_report(
     invalid_durations: pd.DataFrame,
     pr_dupes: int,
     release_dupes: int,
+    attempts: pd.DataFrame,
+    workflow_panel: pd.DataFrame,
     allow_missing: bool,
 ) -> tuple[dict, list[str]]:
     errors: list[str] = []
@@ -597,6 +761,8 @@ def quality_report(
 
     if missing and not allow_missing:
         errors.append("Missing repositories: " + ", ".join(missing))
+    if unexpected:
+        errors.append("Unexpected repositories in runs: " + ", ".join(unexpected))
     if runs.duplicated(["repo_full", "run_id"]).any():
         errors.append(
             "Canonical workflow runs still contain duplicate "
@@ -614,8 +780,69 @@ def quality_report(
         errors.append("Not all panel weeks start on Monday")
     if panel.duplicated(["repo_full", "week"]).any():
         errors.append("Panel contains duplicate repository-week rows")
+    if workflow_panel.duplicated(["repo_full", "workflow_key", "week"]).any():
+        errors.append("Workflow panel contains duplicate workflow-week rows")
+    stable_workflow_columns = {
+        "workflow_id", "workflow_path", "workflow_file"
+    }.intersection(runs.columns)
+    if not stable_workflow_columns:
+        errors.append(
+            "Workflow runs require workflow_id, workflow_path, or workflow_file "
+            "for a stable workflow-week panel"
+        )
 
-    target_col = f"target_next_{cfg.prediction_horizon_weeks}w"
+    coverage_rows: list[dict] = []
+    attempts_keys = pd.DataFrame(columns=["repo_full", "run_id"])
+    if attempts.empty:
+        errors.append("Attempt data are required for the final analysis")
+    else:
+        require_columns(attempts, ("repo_full", "run_id", "attempt_number"), "attempts")
+        attempts_keys = attempts[["repo_full", "run_id"]].copy()
+        attempts_keys["repo_full"] = attempts_keys["repo_full"].astype(str).str.strip()
+        attempts_keys["run_id"] = attempts_keys["run_id"].astype(str).str.replace(r"\.0$", "", regex=True)
+        attempts_keys.drop_duplicates(inplace=True)
+    for repository in cfg.repositories:
+        repo_runs = runs.loc[runs["repo_full"].eq(repository), ["repo_full", "run_id"]]
+        repo_attempts = attempts_keys[attempts_keys["repo_full"].eq(repository)]
+        matched = repo_runs.merge(repo_attempts, on=["repo_full", "run_id"], how="inner")
+        missing_run_ids = sorted(
+            set(repo_runs["run_id"]) - set(repo_attempts["run_id"])
+        )[:20]
+        fraction = len(matched) / len(repo_runs) if len(repo_runs) else 0.0
+        coverage_rows.append(
+            {
+                "repo_full": repository,
+                "pr_validation_runs": int(len(repo_runs)),
+                "runs_with_attempt_data": int(len(matched)),
+                "missing_run_ids_sample": missing_run_ids,
+                "fraction": float(fraction),
+            }
+        )
+        if not allow_missing and fraction < cfg.min_attempt_coverage:
+            errors.append(
+                f"Attempt coverage for {repository} is {fraction:.3f}; "
+                f"required minimum is {cfg.min_attempt_coverage:.3f}"
+            )
+
+    coverage_by_repo: list[dict] = []
+    for repository in cfg.repositories:
+        repo_runs = runs[runs["repo_full"].eq(repository)]
+        weeks = monday(repo_runs["created_at_ts"]).dropna()
+        minimum = weeks.min() if len(weeks) else pd.NaT
+        maximum = weeks.max() if len(weeks) else pd.NaT
+        coverage_by_repo.append(
+            {
+                "repo_full": repository,
+                "first_week": None if pd.isna(minimum) else str(minimum.date()),
+                "last_week": None if pd.isna(maximum) else str(maximum.date()),
+            }
+        )
+        if not allow_missing and (pd.isna(minimum) or minimum > pd.Timestamp(cfg.analysis_start)):
+            errors.append(f"Run coverage for {repository} starts after analysis_start")
+        if not allow_missing and (pd.isna(maximum) or maximum < pd.Timestamp(cfg.holdout_end)):
+            errors.append(f"Run coverage for {repository} ends before holdout_end")
+
+    target_col = f"mad_alarm_next_{cfg.prediction_horizon_weeks}w"
     training_mask = panel["split"].eq("train")
     train_target_missing = int(
         panel.loc[training_mask, target_col].isna().sum()
@@ -664,7 +891,10 @@ def quality_report(
         },
         "duplicate_pr_rows_removed": pr_dupes,
         "duplicate_release_rows_removed": release_dupes,
+        "attempt_coverage_by_repository": coverage_rows,
+        "run_week_coverage_by_repository": coverage_by_repo,
         "panel_rows": int(len(panel)),
+        "workflow_panel_rows": int(len(workflow_panel)),
         "zero_run_repository_weeks": int(panel["ci_runs"].eq(0).sum()),
         "rows_by_split": {
             str(key): int(value)
@@ -692,10 +922,19 @@ def main() -> int:
     raw_prs = read_csvs(args.prs, "pull requests")
     raw_releases = read_csvs(args.releases, "releases")
     raw_jobs = read_csvs(args.jobs, "jobs")
+    raw_attempts = read_csvs(args.workflow_attempts, "attempts")
 
-    runs, run_exclusions = canonicalize_runs(raw_runs)
+    runs, canonical_exclusions = canonicalize_runs(raw_runs)
+    runs, event_exclusions = filter_to_pr_validation_runs(runs)
+    run_exclusions = pd.concat(
+        [canonical_exclusions, event_exclusions],
+        ignore_index=True,
+        sort=False,
+    )
     runs, invalid_durations = attach_valid_duration(
-        runs, raw_jobs, cfg.max_valid_duration_min
+        runs,
+        raw_jobs,
+        cfg.max_valid_duration_min,
     )
     prs, pr_dupes = canonicalize_entity(
         raw_prs, "pr_number", "created_at", "pull requests"
@@ -716,9 +955,16 @@ def main() -> int:
         weekly_runs(runs),
         weekly_prs(prs),
         weekly_releases(releases),
+        weekly_attempts(raw_attempts, runs),
     )
     for weekly in weekly_tables:
         panel = panel.merge(weekly, on=["repo_full", "week"], how="left")
+
+    if "rerun_count" in panel.columns:
+        panel["rerun_rate"] = panel["rerun_count"] / panel["rerun_eligible_runs"].replace(0, np.nan)
+    else:
+        panel["rerun_rate"] = np.nan
+        panel["avg_attempts"] = np.nan
 
     count_cols = (
         "ci_runs",
@@ -729,6 +975,9 @@ def main() -> int:
         "merged_pr_count",
         "review_count_sum",
         "release_count",
+        "rerun_count",
+        "rerun_eligible_runs",
+        "total_attempts",
     )
     for col in count_cols:
         if col not in panel:
@@ -742,6 +991,36 @@ def main() -> int:
     )
     panel["week"] = pd.to_datetime(panel["week"])
 
+    workflow_panel = complete_workflow_grid(runs, cfg)
+    workflow_tables = (
+        weekly_workflow_runs(runs),
+        weekly_workflow_attempts(raw_attempts, runs),
+    )
+    for weekly in workflow_tables:
+        workflow_panel = workflow_panel.merge(
+            weekly, on=["repo_full", "workflow_key", "week"], how="left"
+        )
+    workflow_count_cols = (
+        "ci_runs",
+        "ci_outcome_runs",
+        "ci_failures",
+        "ci_duration_valid_n",
+        "rerun_count",
+        "rerun_eligible_runs",
+        "total_attempts",
+    )
+    for col in workflow_count_cols:
+        if col not in workflow_panel:
+            workflow_panel[col] = 0
+        workflow_panel[col] = workflow_panel[col].fillna(0).astype("int64")
+    workflow_panel["rerun_rate"] = workflow_panel["rerun_count"] / workflow_panel[
+        "rerun_eligible_runs"
+    ].replace(0, np.nan)
+    workflow_panel["split"] = assign_split(
+        workflow_panel["week"], workflow_panel["repo_full"], cfg
+    )
+    workflow_panel["week"] = pd.to_datetime(workflow_panel["week"])
+
     report, errors = quality_report(
         panel,
         runs,
@@ -750,15 +1029,19 @@ def main() -> int:
         invalid_durations,
         pr_dupes,
         release_dupes,
+        raw_attempts,
+        workflow_panel,
         args.allow_missing_repositories,
     )
 
     panel_out = args.output_dir / "repository_week_modelling_panel.csv"
+    workflow_panel_out = args.output_dir / "workflow_week_modelling_panel.csv"
     exclusions_out = args.output_dir / "excluded_rows.csv"
     report_out = args.output_dir / "data_quality_report.json"
     metadata_out = args.output_dir / "run_metadata.json"
 
     panel.to_csv(panel_out, index=False, date_format="%Y-%m-%d")
+    workflow_panel.to_csv(workflow_panel_out, index=False, date_format="%Y-%m-%d")
     pd.concat(
         [run_exclusions, invalid_durations],
         ignore_index=True,
@@ -773,8 +1056,9 @@ def main() -> int:
         *args.prs,
         *args.releases,
         *args.jobs,
+        *args.workflow_attempts,
     ]
-    target_col = f"target_next_{cfg.prediction_horizon_weeks}w"
+    target_col = f"mad_alarm_next_{cfg.prediction_horizon_weeks}w"
     metadata = {
         "script_scope": (
             "Weekly panel and MAD-baseline construction; no HMM is fitted"
@@ -795,10 +1079,10 @@ def main() -> int:
             "Frozen from the final W non-missing observations ending no later "
             "than train_feature_end; purge observations are excluded"
         ),
-        "target_column": target_col,
-        "target_definition": (
-            f"1 if primary degradation occurs in any of t+1..t+"
-            f"{cfg.prediction_horizon_weeks}"
+        "alarm_column": target_col,
+        "alarm_definition": (
+            f"1 if MAD baseline fires in any of t+1..t+"
+            f"{cfg.prediction_horizon_weeks}; baseline signal only, not ground truth"
         ),
         "input_sha256": {
             str(path.resolve()): file_sha256(path)
@@ -807,7 +1091,7 @@ def main() -> int:
         },
         "outputs": {
             str(path.name): file_sha256(path)
-            for path in (panel_out, exclusions_out, report_out)
+            for path in (panel_out, workflow_panel_out, exclusions_out, report_out)
         },
     }
     metadata_out.write_text(

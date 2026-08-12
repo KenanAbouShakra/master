@@ -24,13 +24,16 @@ repository_groups:
     - "tektoncd/pipeline"
 
   evaluation:
+    - "pytest-dev/pytest"
+    - "helm/helm"
     - "containerd/containerd"
-    - "argoproj/argo-cd"
 
 repositories:
   - "docker/cli"
   - "prometheus/prometheus"
   - "tektoncd/pipeline"
+  - "pytest-dev/pytest"
+  - "helm/helm"
   - "containerd/containerd"
 
 model:
