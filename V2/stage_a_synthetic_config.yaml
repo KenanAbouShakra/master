@@ -1,0 +1,73 @@
+version: 1
+
+approved_inputs:
+  measurement_manifest:
+    path: analysis_outputs/MEASUREMENT_FROZEN.json
+    sha256: df6b047fcb9b7203596e236f503238d139ea6d7698645ce4ae56e413ae88c2c9
+  analysis_config:
+    path: analysis_config.yaml
+    sha256: fc0f3c711c259e601d9ff62bf1e48455c2bb54ad91f49f7fbf6d1f14db8907b7
+  baseline_source:
+    path: 03_fit_baselines.py
+    sha256: 02d4155f4b9594f703b24430d378a29400b29a5f72c80f6e9691cf0f3ed6d9fd
+  baseline_metadata:
+    path: analysis_outputs/baseline_metadata.json
+    sha256: 2b2d01850bc74178de175e428c779c5cca96923f6abc1002b5c8c6fc652d11f3
+  baseline_results:
+    path: analysis_outputs/baseline_results.csv
+    sha256: cf79206ee7f3fe7d601c43b4719df0ca9ac7f7715053e1830a1733fcbe4f131f
+  workflow_week_panel:
+    path: analysis_outputs/workflow_week_panel.csv
+    sha256: 461bf4d69d7ca00f2a88684b8e6fba22be921eef24a6e469b536692f6a8f77fc
+
+scenario_design:
+  random_seed: 20260816
+  repetitions: 100
+  earliest_injection_index: 26
+  latency_relative_shifts: [0.10, 0.25, 0.50]
+  failure_probability_shifts: [0.05, 0.10, 0.20]
+  rerun_probability_shifts: [0.05, 0.10, 0.20]
+  durations_weeks: [1, 2, 4, 8]
+  signal_combinations:
+    - [latency_log]
+    - [failure_rate]
+    - [rerun_rate]
+    - [latency_log, failure_rate]
+    - [latency_log, rerun_rate]
+    - [failure_rate, rerun_rate]
+    - [latency_log, failure_rate, rerun_rate]
+  condition_profiles:
+    - name: observed
+      volume_condition: observed
+      missingness_condition: none
+      magnitude_levels: [low, medium, high]
+    - name: low_volume
+      volume_condition: low_volume
+      missingness_condition: none
+      magnitude_levels: [medium]
+    - name: controlled_missingness
+      volume_condition: observed
+      missingness_condition: controlled
+      magnitude_levels: [medium]
+  low_volume:
+    sampling_fraction: 0.25
+    minimum_denominator: 5
+  controlled_missingness:
+    fraction_of_affected_cells: 0.25
+    minimum_cells: 1
+  workflow_composition:
+    status: unsupported
+    reason: >-
+      The frozen workflow-week panel contains aggregated workflow diagnostics but
+      does not preserve a validated counterfactual mapping from workflow weights
+      to repository-level failure, rerun, and workflow-adjusted latency metrics.
+      Reweighting would therefore not preserve the frozen aggregate definitions.
+
+outputs:
+  directory: analysis_outputs
+  files:
+    - stage_a_synthetic_scenarios.csv
+    - stage_a_synthetic_week_results.csv.gz
+    - stage_a_synthetic_detector_results.csv.gz
+    - stage_a_synthetic_summary.csv
+    - stage_a_synthetic_metadata.json

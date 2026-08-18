@@ -1,0 +1,249 @@
+{
+  "measurement_freeze": {
+    "manifest": "analysis_outputs/MEASUREMENT_FROZEN.json",
+    "manifest_sha256": "df6b047fcb9b7203596e236f503238d139ea6d7698645ce4ae56e413ae88c2c9",
+    "manifest_version": 1,
+    "validated_files": 16
+  },
+  "output_protection": {
+    "status": "PASS",
+    "protected_frozen_path_count": 16,
+    "intended_output_count": 5,
+    "output_directory": "C:\\Users\\keabo7623\\Desktop\\master\\V2\\analysis_outputs",
+    "collision_count": 0,
+    "plain_filenames_only": true,
+    "duplicate_names": false,
+    "all_outputs_within_output_directory": true
+  },
+  "quality_status": "PASS",
+  "input": {
+    "panel": "analysis_outputs/repository_week_panel_audited.csv",
+    "panel_sha256": "73e06ac4ad67c5c8ff01fbc298544f41b3fe4a2ad5f1c2d07d3a1fd254e78061",
+    "rows": 354,
+    "repositories": [
+      "containerd/containerd",
+      "docker/cli",
+      "helm/helm",
+      "prometheus/prometheus",
+      "pytest-dev/pytest",
+      "tektoncd/pipeline"
+    ]
+  },
+  "mad": {
+    "family": "causal_rolling_mad",
+    "current_week_excluded": true,
+    "primary_window_weeks": 13,
+    "sensitivity_windows_weeks": [
+      26
+    ],
+    "thresholds": [
+      2.5,
+      3.0,
+      3.5
+    ],
+    "primary_threshold": 3.0,
+    "persistence_weeks": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "primary_persistence_weeks": 2,
+    "zero_mad_policy": "unevaluable",
+    "incomplete_warmup_policy": "unevaluable",
+    "composite_support": "all_three_components_required",
+    "interpretation": "detector signals, not ground truth"
+  },
+  "mewma": {
+    "lambda": 0.2,
+    "lambda_role": "fixed_from_frozen_configuration",
+    "calibration_quantile": 0.99,
+    "empirical_limit": 7.150034791553729,
+    "control_limit_reference": "development_training_rows_only",
+    "training_statistics_used": 108,
+    "all_missing_policy": "statistic_and_alarm_remain_missing",
+    "standardization": {
+      "containerd/containerd": {
+        "reference": "external_first_observed_13_weeks",
+        "reference_weeks": 13,
+        "metrics": {
+          "latency_log": {
+            "median": -0.0019794016421998,
+            "scale": 0.035451737307914954,
+            "scale_method": "scaled_mad",
+            "reference_observations": 13
+          },
+          "failure_rate": {
+            "median": 0.25,
+            "scale": 0.04778414634146351,
+            "scale_method": "scaled_mad",
+            "reference_observations": 13
+          },
+          "rerun_rate": {
+            "median": 0.0398406374501992,
+            "scale": 0.011719226089653478,
+            "scale_method": "scaled_mad",
+            "reference_observations": 13
+          }
+        }
+      },
+      "docker/cli": {
+        "reference": "development_training_split",
+        "reference_weeks": 36,
+        "metrics": {
+          "latency_log": {
+            "median": -0.0001971217406579,
+            "scale": 0.020426504806774787,
+            "scale_method": "scaled_mad",
+            "reference_observations": 36
+          },
+          "failure_rate": {
+            "median": 0.15964912280701749,
+            "scale": 0.060648682262363106,
+            "scale_method": "scaled_mad",
+            "reference_observations": 36
+          },
+          "rerun_rate": {
+            "median": 0.06222982708933715,
+            "scale": 0.03270199966810484,
+            "scale_method": "scaled_mad",
+            "reference_observations": 36
+          }
+        }
+      },
+      "helm/helm": {
+        "reference": "external_first_observed_13_weeks",
+        "reference_weeks": 13,
+        "metrics": {
+          "latency_log": {
+            "median": -0.0067564329057476,
+            "scale": 0.03543716029478177,
+            "scale_method": "scaled_mad",
+            "reference_observations": 13
+          },
+          "failure_rate": {
+            "median": 0.1134020618556701,
+            "scale": 0.049899514857489266,
+            "scale_method": "scaled_mad",
+            "reference_observations": 13
+          },
+          "rerun_rate": {
+            "median": 0.1879194630872483,
+            "scale": 0.13034939597315431,
+            "scale_method": "scaled_mad",
+            "reference_observations": 13
+          }
+        }
+      },
+      "prometheus/prometheus": {
+        "reference": "development_training_split",
+        "reference_weeks": 36,
+        "metrics": {
+          "latency_log": {
+            "median": 0.0587704460120476,
+            "scale": 0.05993948229230021,
+            "scale_method": "scaled_mad",
+            "reference_observations": 36
+          },
+          "failure_rate": {
+            "median": 0.26163342830009495,
+            "scale": 0.05155666909538553,
+            "scale_method": "scaled_mad",
+            "reference_observations": 36
+          },
+          "rerun_rate": {
+            "median": 0.0105539249359895,
+            "scale": 0.007227863870138709,
+            "scale_method": "scaled_mad",
+            "reference_observations": 36
+          }
+        }
+      },
+      "pytest-dev/pytest": {
+        "reference": "external_first_observed_13_weeks",
+        "reference_weeks": 13,
+        "metrics": {
+          "latency_log": {
+            "median": 0.0,
+            "scale": 0.060624407713210045,
+            "scale_method": "scaled_mad",
+            "reference_observations": 13
+          },
+          "failure_rate": {
+            "median": 0.1428571428571428,
+            "scale": 0.0847200000000001,
+            "scale_method": "scaled_mad",
+            "reference_observations": 13
+          },
+          "rerun_rate": {
+            "median": 0.0,
+            "scale": 0.026823953851566554,
+            "scale_method": "sample_standard_deviation_fallback",
+            "reference_observations": 13
+          }
+        }
+      },
+      "tektoncd/pipeline": {
+        "reference": "development_training_split",
+        "reference_weeks": 36,
+        "metrics": {
+          "latency_log": {
+            "median": -0.0057217273754225,
+            "scale": 0.05354451868050091,
+            "scale_method": "scaled_mad",
+            "reference_observations": 36
+          },
+          "failure_rate": {
+            "median": 0.16645988420181965,
+            "scale": 0.08199141989369782,
+            "scale_method": "scaled_mad",
+            "reference_observations": 36
+          },
+          "rerun_rate": {
+            "median": 0.1103448275862069,
+            "scale": 0.07528577999481732,
+            "scale_method": "scaled_mad",
+            "reference_observations": 36
+          }
+        }
+      }
+    }
+  },
+  "change_point_robustness": {
+    "algorithm": "exact_unpruned_optimal_partitioning",
+    "minimum_segment_length": 2,
+    "pruning": false,
+    "role": "robustness_analysis_only",
+    "ground_truth": false,
+    "penalty": "3 * natural_log(sequence_length)",
+    "minimum_finite_observations": 8,
+    "missingness": "linear_interpolation_with_boundary_fill",
+    "sequences_evaluated": 9
+  },
+  "external_evaluation": {
+    "calibration_weeks_excluded_from_scoring": true,
+    "eligible_flag": "external_evaluation_eligible"
+  },
+  "outputs": {
+    "baseline_results.csv": {
+      "rows": 354,
+      "role": "modelling_output_not_measurement_artifact"
+    },
+    "mad_summary_long.csv": {
+      "rows": 1440,
+      "role": "modelling_output_not_measurement_artifact"
+    },
+    "mewma_summary.csv": {
+      "rows": 12,
+      "role": "modelling_output_not_measurement_artifact"
+    },
+    "optimal_partitioning_robustness_change_points.csv": {
+      "rows": 0,
+      "role": "modelling_output_not_measurement_artifact"
+    }
+  },
+  "interpretation": {
+    "alarms_are_ground_truth": false,
+    "change_points_are_ground_truth": false
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "development_repositories": [
+    "docker/cli",
+    "prometheus/prometheus",
+    "tektoncd/pipeline"
+  ],
+  "development_training_only": true,
+  "evaluable_scenario_count": 42300,
+  "frozen_detectors": {
+    "mad": {
+      "composite_support": "all_three_components_required",
+      "current_week_excluded": true,
+      "family": "causal_rolling_mad",
+      "incomplete_warmup_policy": "unevaluable",
+      "interpretation": "detector signals, not ground truth",
+      "persistence_weeks": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "primary_persistence_weeks": 2,
+      "primary_threshold": 3.0,
+      "primary_window_weeks": 13,
+      "sensitivity_windows_weeks": [
+        26
+      ],
+      "thresholds": [
+        2.5,
+        3.0,
+        3.5
+      ],
+      "zero_mad_policy": "unevaluable"
+    },
+    "mewma_empirical_limit": 7.150034791553729,
+    "mewma_lambda": 0.2,
+    "mewma_refitted": false,
+    "mewma_standardization": {
+      "containerd/containerd": {
+        "metrics": {
+          "failure_rate": {
+            "median": 0.25,
+            "reference_observations": 13,
+            "scale": 0.04778414634146351,
+            "scale_method": "scaled_mad"
+          },
+          "latency_log": {
+            "median": -0.0019794016421998,
+            "reference_observations": 13,
+            "scale": 0.035451737307914954,
+            "scale_method": "scaled_mad"
+          },
+          "rerun_rate": {
+            "median": 0.0398406374501992,
+            "reference_observations": 13,
+            "scale": 0.011719226089653478,
+            "scale_method": "scaled_mad"
+          }
+        },
+        "reference": "external_first_observed_13_weeks",
+        "reference_weeks": 13
+      },
+      "docker/cli": {
+        "metrics": {
+          "failure_rate": {
+            "median": 0.15964912280701749,
+            "reference_observations": 36,
+            "scale": 0.060648682262363106,
+            "scale_method": "scaled_mad"
+          },
+          "latency_log": {
+            "median": -0.0001971217406579,
+            "reference_observations": 36,
+            "scale": 0.020426504806774787,
+            "scale_method": "scaled_mad"
+          },
+          "rerun_rate": {
+            "median": 0.06222982708933715,
+            "reference_observations": 36,
+            "scale": 0.03270199966810484,
+            "scale_method": "scaled_mad"
+          }
+        },
+        "reference": "development_training_split",
+        "reference_weeks": 36
+      },
+      "helm/helm": {
+        "metrics": {
+          "failure_rate": {
+            "median": 0.1134020618556701,
+            "reference_observations": 13,
+            "scale": 0.049899514857489266,
+            "scale_method": "scaled_mad"
+          },
+          "latency_log": {
+            "median": -0.0067564329057476,
+            "reference_observations": 13,
+            "scale": 0.03543716029478177,
+            "scale_method": "scaled_mad"
+          },
+          "rerun_rate": {
+            "median": 0.1879194630872483,
+            "reference_observations": 13,
+            "scale": 0.13034939597315431,
+            "scale_method": "scaled_mad"
+          }
+        },
+        "reference": "external_first_observed_13_weeks",
+        "reference_weeks": 13
+      },
+      "prometheus/prometheus": {
+        "metrics": {
+          "failure_rate": {
+            "median": 0.26163342830009495,
+            "reference_observations": 36,
+            "scale": 0.05155666909538553,
+            "scale_method": "scaled_mad"
+          },
+          "latency_log": {
+            "median": 0.0587704460120476,
+            "reference_observations": 36,
+            "scale": 0.05993948229230021,
+            "scale_method": "scaled_mad"
+          },
+          "rerun_rate": {
+            "median": 0.0105539249359895,
+            "reference_observations": 36,
+            "scale": 0.007227863870138709,
+            "scale_method": "scaled_mad"
+          }
+        },
+        "reference": "development_training_split",
+        "reference_weeks": 36
+      },
+      "pytest-dev/pytest": {
+        "metrics": {
+          "failure_rate": {
+            "median": 0.1428571428571428,
+            "reference_observations": 13,
+            "scale": 0.0847200000000001,
+            "scale_method": "scaled_mad"
+          },
+          "latency_log": {
+            "median": 0.0,
+            "reference_observations": 13,
+            "scale": 0.060624407713210045,
+            "scale_method": "scaled_mad"
+          },
+          "rerun_rate": {
+            "median": 0.0,
+            "reference_observations": 13,
+            "scale": 0.026823953851566554,
+            "scale_method": "sample_standard_deviation_fallback"
+          }
+        },
+        "reference": "external_first_observed_13_weeks",
+        "reference_weeks": 13
+      },
+      "tektoncd/pipeline": {
+        "metrics": {
+          "failure_rate": {
+            "median": 0.16645988420181965,
+            "reference_observations": 36,
+            "scale": 0.08199141989369782,
+            "scale_method": "scaled_mad"
+          },
+          "latency_log": {
+            "median": -0.0057217273754225,
+            "reference_observations": 36,
+            "scale": 0.05354451868050091,
+            "scale_method": "scaled_mad"
+          },
+          "rerun_rate": {
+            "median": 0.1103448275862069,
+            "reference_observations": 36,
+            "scale": 0.07528577999481732,
+            "scale_method": "scaled_mad"
+          }
+        },
+        "reference": "development_training_split",
+        "reference_weeks": 36
+      }
+    }
+  },
+  "injected_missing_cells": 15300,
+  "injection_semantics": {
+    "failure_and_rerun": "absolute probability shift, clipped to [0,1], then deterministic seeded binomial realization",
+    "latency": "latency_log + log1p(relative_shift)",
+    "low_volume": "deterministic seeded hypergeometric count subsampling",
+    "missingness": "affected cells remain missing and reduce detector evaluability",
+    "workflow_composition": {
+      "reason": "The frozen workflow-week panel contains aggregated workflow diagnostics but does not preserve a validated counterfactual mapping from workflow weights to repository-level failure, rerun, and workflow-adjusted latency metrics. Reweighting would therefore not preserve the frozen aggregate definitions.",
+      "status": "unsupported"
+    }
+  },
+  "input_verification": {
+    "approved_inputs": {
+      "analysis_config": {
+        "actual_sha256": "fc0f3c711c259e601d9ff62bf1e48455c2bb54ad91f49f7fbf6d1f14db8907b7",
+        "exists": true,
+        "expected_sha256": "fc0f3c711c259e601d9ff62bf1e48455c2bb54ad91f49f7fbf6d1f14db8907b7",
+        "matches": true,
+        "path": "analysis_config.yaml"
+      },
+      "baseline_metadata": {
+        "actual_sha256": "2b2d01850bc74178de175e428c779c5cca96923f6abc1002b5c8c6fc652d11f3",
+        "exists": true,
+        "expected_sha256": "2b2d01850bc74178de175e428c779c5cca96923f6abc1002b5c8c6fc652d11f3",
+        "matches": true,
+        "path": "analysis_outputs/baseline_metadata.json"
+      },
+      "baseline_results": {
+        "actual_sha256": "cf79206ee7f3fe7d601c43b4719df0ca9ac7f7715053e1830a1733fcbe4f131f",
+        "exists": true,
+        "expected_sha256": "cf79206ee7f3fe7d601c43b4719df0ca9ac7f7715053e1830a1733fcbe4f131f",
+        "matches": true,
+        "path": "analysis_outputs/baseline_results.csv"
+      },
+      "baseline_source": {
+        "actual_sha256": "02d4155f4b9594f703b24430d378a29400b29a5f72c80f6e9691cf0f3ed6d9fd",
+        "exists": true,
+        "expected_sha256": "02d4155f4b9594f703b24430d378a29400b29a5f72c80f6e9691cf0f3ed6d9fd",
+        "matches": true,
+        "path": "03_fit_baselines.py"
+      },
+      "measurement_manifest": {
+        "actual_sha256": "df6b047fcb9b7203596e236f503238d139ea6d7698645ce4ae56e413ae88c2c9",
+        "exists": true,
+        "expected_sha256": "df6b047fcb9b7203596e236f503238d139ea6d7698645ce4ae56e413ae88c2c9",
+        "matches": true,
+        "path": "analysis_outputs/MEASUREMENT_FROZEN.json"
+      },
+      "workflow_week_panel": {
+        "actual_sha256": "461bf4d69d7ca00f2a88684b8e6fba22be921eef24a6e469b536692f6a8f77fc",
+        "exists": true,
+        "expected_sha256": "461bf4d69d7ca00f2a88684b8e6fba22be921eef24a6e469b536692f6a8f77fc",
+        "matches": true,
+        "path": "analysis_outputs/workflow_week_panel.csv"
+      }
+    },
+    "measurement_files_verified": 16,
+    "measurement_manifest_sha256": "df6b047fcb9b7203596e236f503238d139ea6d7698645ce4ae56e413ae88c2c9"
+  },
+  "outputs": [
+    "stage_a_synthetic_scenarios.csv",
+    "stage_a_synthetic_week_results.csv.gz",
+    "stage_a_synthetic_detector_results.csv.gz",
+    "stage_a_synthetic_summary.csv",
+    "stage_a_synthetic_metadata.json"
+  ],
+  "probability_clipping_count": 2557,
+  "random_seed": 20260816,
+  "scenario_count": 42303,
+  "scenario_grid_sha256": "072385619e15a08ce3607422dd701a2f8024c044bb4edf8d1eebe0f4b3b0f402",
+  "stage_config_sha256": "e8a9b0882906de7778b0afe3753eec0107472ca1bd367bc4d1ff354e738af61b",
+  "status": "PASS",
+  "unsupported_scenario_count": 3
+}

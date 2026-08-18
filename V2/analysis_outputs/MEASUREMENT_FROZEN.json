@@ -1,0 +1,111 @@
+{
+  "manifest_version": 1,
+  "freeze": {
+    "timestamp_utc": "2026-08-17T11:52:49.847963+00:00",
+    "python_executable": "C:\\Users\\keabo7623\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "python_version": "3.12.10",
+    "python_version_full": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "files": {
+    "data/ci_research.sqlite": {
+      "sha256": "7a34e346f04051b303203d944f7e274d0a758d6fba8d7dee8425ac436a47605e",
+      "bytes": 1575813120
+    },
+    "analysis_config.yaml": {
+      "sha256": "fc0f3c711c259e601d9ff62bf1e48455c2bb54ad91f49f7fbf6d1f14db8907b7",
+      "bytes": 1634
+    },
+    "requirements-lock.txt": {
+      "sha256": "40425353333f82fac7fff55c82214f9f646d177cc3453c83972ff0c7b98e5c41",
+      "bytes": 377
+    },
+    "ci_common.py": {
+      "sha256": "666df11c2251420ba286779a17f724f06f0002b35964b8ac287f9230dca55cf0",
+      "bytes": 19075
+    },
+    "01_build_measurement_panels.py": {
+      "sha256": "4db09a0592d6b881f502e27bb92e54151daf8feeb56ac379d5900dc72ae93575",
+      "bytes": 16002
+    },
+    "02_validate_measurements.py": {
+      "sha256": "6c957dea4b1457de353a8e2a16890451325db4909b444e8fc1399e1a1c31fb0b",
+      "bytes": 7759
+    },
+    "smoke_test.py": {
+      "sha256": "3ee0f992ba37e5bd06b77e7e0e6322676a0a60feaa53c755f7c9cecfa92b50b8",
+      "bytes": 6851
+    },
+    "analysis_outputs/attempt_measurements.csv.gz": {
+      "sha256": "9c704760d24733df07d324a8d99ab846479a5c66dccfa2256969a21a9866f8f7",
+      "bytes": 4640802
+    },
+    "analysis_outputs/measurement_exclusions.csv.gz": {
+      "sha256": "c5d37f69a8056af3d67826877e2db21fea551d399f50c78abd118c7f47151cbf",
+      "bytes": 101421
+    },
+    "analysis_outputs/repository_week_panel.csv": {
+      "sha256": "1fea2a69989213d90aea4177d3bdc7014ab35c128502bbe245c425a3a0759c6c",
+      "bytes": 112491
+    },
+    "analysis_outputs/repository_week_panel_audited.csv": {
+      "sha256": "73e06ac4ad67c5c8ff01fbc298544f41b3fe4a2ad5f1c2d07d3a1fd254e78061",
+      "bytes": 114931
+    },
+    "analysis_outputs/workflow_week_panel.csv": {
+      "sha256": "461bf4d69d7ca00f2a88684b8e6fba22be921eef24a6e469b536692f6a8f77fc",
+      "bytes": 349645
+    },
+    "analysis_outputs/measurement_metadata.json": {
+      "sha256": "4b0e4283f2d40f4791e8b66a2ddcfcb36d9a8cc11d13d28a0e9fc976dd3ab4e6",
+      "bytes": 1617
+    },
+    "analysis_outputs/data_quality_report.json": {
+      "sha256": "c71809a7d798198cea04df2a3f223578e79a9fd5123a21269aac32ba202f70c0",
+      "bytes": 4212
+    },
+    "analysis_outputs/metric_review_by_repository.csv": {
+      "sha256": "aba681df9ffee7a4cabc498f5dd89b80720fd6b9b0136c58d59684ce98f141f5",
+      "bytes": 5993
+    },
+    "analysis_outputs/metric_review_global.json": {
+      "sha256": "cf11919331bd2498ebe07db51a417040db9661c3228120fd59cc3c33a0409896",
+      "bytes": 26467
+    }
+  },
+  "methodology": {
+    "analysis_start": "2025-06-23",
+    "analysis_end": "2026-08-03",
+    "repositories": 6,
+    "repository_weeks": 354,
+    "attempt_rows": 123028,
+    "exclusion_rows": 16103,
+    "external_calibration_weeks": 13,
+    "external_evaluation_weeks_per_repository": {
+      "pytest-dev/pytest": 46,
+      "helm/helm": 46,
+      "containerd/containerd": 46
+    },
+    "primary_MAD_window_weeks": 13,
+    "sensitivity_MAD_window_weeks": 26,
+    "quality_status": "PASS",
+    "model_artifact_count": 0
+  },
+  "repositories": {
+    "development": [
+      "docker/cli",
+      "prometheus/prometheus",
+      "tektoncd/pipeline"
+    ],
+    "external": [
+      "pytest-dev/pytest",
+      "helm/helm",
+      "containerd/containerd"
+    ]
+  },
+  "active_limitations": [
+    "Release context is unavailable; candidate episodes must be triangulated against releases separately"
+  ],
+  "external_calibration_declaration": "External calibration parameters are repository-specific and frozen from each external repository's first 13 observed analysis weeks. Those calibration weeks are excluded from external performance scoring.",
+  "modelling_declaration": "No step-03-or-later research modelling command had run at freeze time.",
+  "model_artifacts_present": []
+}

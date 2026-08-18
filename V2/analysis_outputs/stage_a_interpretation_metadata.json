@@ -1,0 +1,253 @@
+{
+  "created_files": [
+    "stage_a_methodological_report.md",
+    "stage_a_table_primary_by_repository.csv",
+    "stage_a_table_primary_by_metric_combination.csv",
+    "stage_a_table_primary_by_condition.csv",
+    "stage_a_table_sensitivity.csv",
+    "stage_a_figure_detection_by_magnitude_duration.png",
+    "stage_a_figure_conditions.png",
+    "stage_a_figure_repository_comparison.png",
+    "stage_a_interpretation_metadata.json"
+  ],
+  "denominator_audit": {
+    "changes_by_table": {
+      "stage_a_table_primary_by_condition.csv": {
+        "alarm_duration_weeks": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 4.440892098500626e-16
+        },
+        "boundary_overlap": {
+          "affected_rows": 12,
+          "maximum_absolute_change": 0.02084882643870442
+        },
+        "detection_delay_weeks": {
+          "affected_rows": 47,
+          "maximum_absolute_change": 0.6235383642579952
+        },
+        "episode_detection_rate": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 8.326672684688674e-17
+        },
+        "false_alarm_rate": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 9.71445146547012e-17
+        },
+        "precision": {
+          "affected_rows": 24,
+          "maximum_absolute_change": 0.15751136003565902
+        },
+        "recall": {
+          "affected_rows": 14,
+          "maximum_absolute_change": 0.0241677948270434
+        },
+        "unevaluable_fraction": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 5.551115123125783e-17
+        }
+      },
+      "stage_a_table_primary_by_metric_combination.csv": {
+        "alarm_duration_weeks": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 0.0
+        },
+        "boundary_overlap": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 1.1102230246251565e-16
+        },
+        "detection_delay_weeks": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 8.881784197001252e-16
+        },
+        "episode_detection_rate": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 0.0
+        },
+        "false_alarm_rate": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 9.71445146547012e-17
+        },
+        "precision": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 2.220446049250313e-16
+        },
+        "recall": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 1.1102230246251565e-16
+        },
+        "unevaluable_fraction": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 5.551115123125783e-17
+        }
+      },
+      "stage_a_table_primary_by_repository.csv": {
+        "alarm_duration_weeks": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 4.440892098500626e-16
+        },
+        "boundary_overlap": {
+          "affected_rows": 13,
+          "maximum_absolute_change": 0.022385996685508613
+        },
+        "detection_delay_weeks": {
+          "affected_rows": 16,
+          "maximum_absolute_change": 0.43939393939393945
+        },
+        "episode_detection_rate": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 8.326672684688674e-17
+        },
+        "false_alarm_rate": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 7.28583859910259e-17
+        },
+        "precision": {
+          "affected_rows": 9,
+          "maximum_absolute_change": 0.09723439165577052
+        },
+        "recall": {
+          "affected_rows": 15,
+          "maximum_absolute_change": 0.013661326408266894
+        },
+        "unevaluable_fraction": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 5.551115123125783e-17
+        }
+      },
+      "stage_a_table_sensitivity.csv": {
+        "alarm_duration_weeks": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 0.0
+        },
+        "boundary_overlap": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 2.220446049250313e-16
+        },
+        "detection_delay_weeks": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 8.881784197001252e-16
+        },
+        "episode_detection_rate": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 0.0
+        },
+        "false_alarm_rate": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 1.6653345369377348e-16
+        },
+        "precision": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 2.220446049250313e-16
+        },
+        "recall": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 2.220446049250313e-16
+        },
+        "unevaluable_fraction": {
+          "affected_rows": 0,
+          "maximum_absolute_change": 1.1102230246251565e-16
+        }
+      }
+    },
+    "conclusions_remain_supported": true,
+    "figures_affected": {
+      "stage_a_figure_conditions.png": false,
+      "stage_a_figure_detection_by_magnitude_duration.png": true,
+      "stage_a_figure_repository_comparison.png": true
+    },
+    "maximum_absolute_change_by_metric": {
+      "alarm_duration_weeks": 4.440892098500626e-16,
+      "boundary_overlap": 0.022385996685508613,
+      "detection_delay_weeks": 0.6235383642579952,
+      "episode_detection_rate": 8.326672684688674e-17,
+      "false_alarm_rate": 1.6653345369377348e-16,
+      "precision": 0.15751136003565902,
+      "recall": 0.0241677948270434,
+      "unevaluable_fraction": 1.1102230246251565e-16
+    },
+    "metric_observation_count_ranges": {
+      "alarm_duration_weeks": {
+        "equal_to_scenarios_for_every_stratum": true,
+        "maximum": 100,
+        "minimum": 100
+      },
+      "boundary_overlap": {
+        "equal_to_scenarios_for_every_stratum": false,
+        "maximum": 100,
+        "minimum": 0
+      },
+      "detection_delay_weeks": {
+        "equal_to_scenarios_for_every_stratum": false,
+        "maximum": 100,
+        "minimum": 0
+      },
+      "episode_detection_rate": {
+        "equal_to_scenarios_for_every_stratum": false,
+        "maximum": 100,
+        "minimum": 0
+      },
+      "false_alarm_rate": {
+        "equal_to_scenarios_for_every_stratum": false,
+        "maximum": 100,
+        "minimum": 0
+      },
+      "precision": {
+        "equal_to_scenarios_for_every_stratum": false,
+        "maximum": 100,
+        "minimum": 0
+      },
+      "recall": {
+        "equal_to_scenarios_for_every_stratum": false,
+        "maximum": 100,
+        "minimum": 0
+      },
+      "unevaluable_fraction": {
+        "equal_to_scenarios_for_every_stratum": true,
+        "maximum": 100,
+        "minimum": 100
+      }
+    },
+    "raw_detector_rows": 5118300,
+    "summary_counts_reconstructed_from_raw": true,
+    "summary_max_absolute_difference": 1.887379141862766e-15
+  },
+  "limitations": [
+    "workflow composition unsupported",
+    "synthetic evidence is not ground truth",
+    "probability rates use seeded binomial realization",
+    "metric-specific denominators required"
+  ],
+  "primary_definition": {
+    "mad": {
+      "persistence": 2,
+      "threshold": 3.0,
+      "window": 13
+    },
+    "mewma": "frozen"
+  },
+  "recommendation": "READY_TO_FREEZE_STAGE_A",
+  "sensitivity_kept_separate": true,
+  "source_outputs": {
+    "stage_a_synthetic_detector_results.csv.gz": {
+      "bytes": 37956024,
+      "sha256": "570a1678b9a3c554f5a0d8beabb4751d3cd16dcfb4b254c660f12a62b66a7063"
+    },
+    "stage_a_synthetic_metadata.json": {
+      "bytes": 9369,
+      "sha256": "90e3e43de81f13cabe991139d75581381bfa169938405ec864137e3ddd84ba5e"
+    },
+    "stage_a_synthetic_scenarios.csv": {
+      "bytes": 9852015,
+      "sha256": "072385619e15a08ce3607422dd701a2f8024c044bb4edf8d1eebe0f4b3b0f402"
+    },
+    "stage_a_synthetic_summary.csv": {
+      "bytes": 14996420,
+      "sha256": "a0df17298046c26e0903611c7e454a70968358592f74c467fc63bdf2a8ccbd8c"
+    },
+    "stage_a_synthetic_week_results.csv.gz": {
+      "bytes": 2320362,
+      "sha256": "dfc6b5d46895d5062907d4f149d76d3e67b9e7b48193d1f199dbdf3b38c1310c"
+    }
+  },
+  "status": "PASS"
+}

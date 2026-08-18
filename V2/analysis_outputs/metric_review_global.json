@@ -1,0 +1,751 @@
+{
+  "review_scope": "Read-only review of step 01 and 02 outputs; no detector or model fitted",
+  "failure_rate_reconstruction": {
+    "exact_within_absolute_tolerance_1e-15": true,
+    "mismatch_rows": 0,
+    "maximum_absolute_difference": 9.71445146547012e-17,
+    "numerator_column": "failure_count",
+    "denominator_column": "outcome_n",
+    "rate_column": "failure_rate"
+  },
+  "rerun_rate_reconstruction": {
+    "exact_within_absolute_tolerance_1e-15": true,
+    "mismatch_rows": 0,
+    "maximum_absolute_difference": 9.71445146547012e-17,
+    "numerator_column": "rerun_count",
+    "denominator_column": "logical_run_n",
+    "rate_column": "rerun_rate"
+  },
+  "durations": {
+    "attempt_rows": 123028,
+    "analysis_window_attempt_rows": 123012,
+    "attempts_with_missing_job_group": 5537,
+    "attempts_without_any_completed_job": 5541,
+    "attempts_without_valid_feedback_latency": 5578,
+    "missing_created_at": 0,
+    "missing_latest_job_completion": 5541,
+    "negative_feedback_duration": 1,
+    "feedback_duration_over_maximum": 36,
+    "negative_queue_duration": 3875,
+    "negative_execution_span": 2696,
+    "decomposition_mismatch_over_1e-9_minutes": 0,
+    "valid_output_negative_feedback": 0,
+    "valid_output_feedback_over_maximum": 0
+  },
+  "support_and_missingness": {
+    "repository_weeks": 354,
+    "weeks_with_outcome_n_below_5": 0,
+    "weeks_with_latency_n_below_5": 0,
+    "weeks_with_missing_workflow_adjusted_latency": 0,
+    "core_metric_missing_weeks": {
+      "latency_log": 0,
+      "failure_rate": 0,
+      "rerun_rate": 0
+    }
+  },
+  "duplicate_keys": {
+    "repository_week": 0,
+    "workflow_week": 0,
+    "attempt": 0
+  },
+  "all_zero_or_zero_variance_metrics_by_repository_split": [
+    {
+      "repo_full": "prometheus/prometheus",
+      "split": "purge",
+      "metric": "queue_latency_median_min",
+      "nonmissing": 4,
+      "all_missing": false,
+      "all_zero": false,
+      "zero_variance": true
+    },
+    {
+      "repo_full": "tektoncd/pipeline",
+      "split": "purge",
+      "metric": "execution_span_median_min",
+      "nonmissing": 4,
+      "all_missing": false,
+      "all_zero": false,
+      "zero_variance": true
+    }
+  ],
+  "core_metric_correlations": [
+    {
+      "repo_full": "GLOBAL",
+      "split": "all",
+      "weeks": 354,
+      "pairs": {
+        "latency_log__failure_rate": -0.046440606725458876,
+        "latency_log__rerun_rate": -0.07436526521689717,
+        "failure_rate__rerun_rate": -0.17543419240561756
+      }
+    },
+    {
+      "repo_full": "containerd/containerd",
+      "split": "external",
+      "weeks": 59,
+      "pairs": {
+        "latency_log__failure_rate": 0.010929679482542002,
+        "latency_log__rerun_rate": 0.04451910327478453,
+        "failure_rate__rerun_rate": 0.18685931579710924
+      }
+    },
+    {
+      "repo_full": "docker/cli",
+      "split": "holdout",
+      "weeks": 19,
+      "pairs": {
+        "latency_log__failure_rate": 0.40302419016798163,
+        "latency_log__rerun_rate": -0.24452503575738238,
+        "failure_rate__rerun_rate": -0.25972716738535667
+      }
+    },
+    {
+      "repo_full": "docker/cli",
+      "split": "purge",
+      "weeks": 4,
+      "pairs": {
+        "latency_log__failure_rate": 0.3964656504002312,
+        "latency_log__rerun_rate": -0.7840164353331844,
+        "failure_rate__rerun_rate": -0.1662174261416615
+      }
+    },
+    {
+      "repo_full": "docker/cli",
+      "split": "train",
+      "weeks": 36,
+      "pairs": {
+        "latency_log__failure_rate": -0.19970468531886085,
+        "latency_log__rerun_rate": 0.38748132016676257,
+        "failure_rate__rerun_rate": -0.1435545962746898
+      }
+    },
+    {
+      "repo_full": "helm/helm",
+      "split": "external",
+      "weeks": 59,
+      "pairs": {
+        "latency_log__failure_rate": 0.04396601409173363,
+        "latency_log__rerun_rate": -0.06609650187533611,
+        "failure_rate__rerun_rate": 0.05805928584586478
+      }
+    },
+    {
+      "repo_full": "prometheus/prometheus",
+      "split": "holdout",
+      "weeks": 19,
+      "pairs": {
+        "latency_log__failure_rate": 0.6062008341648182,
+        "latency_log__rerun_rate": 0.6069770938756531,
+        "failure_rate__rerun_rate": 0.6763025820860219
+      }
+    },
+    {
+      "repo_full": "prometheus/prometheus",
+      "split": "purge",
+      "weeks": 4,
+      "pairs": {
+        "latency_log__failure_rate": 0.270244289865308,
+        "latency_log__rerun_rate": -0.47913196654116097,
+        "failure_rate__rerun_rate": -0.6355558405212397
+      }
+    },
+    {
+      "repo_full": "prometheus/prometheus",
+      "split": "train",
+      "weeks": 36,
+      "pairs": {
+        "latency_log__failure_rate": 0.01662508381605776,
+        "latency_log__rerun_rate": -0.046174588231935085,
+        "failure_rate__rerun_rate": 0.3869063492482815
+      }
+    },
+    {
+      "repo_full": "pytest-dev/pytest",
+      "split": "external",
+      "weeks": 59,
+      "pairs": {
+        "latency_log__failure_rate": -0.20387025751852497,
+        "latency_log__rerun_rate": 0.06916589382058606,
+        "failure_rate__rerun_rate": 0.21193627084658195
+      }
+    },
+    {
+      "repo_full": "tektoncd/pipeline",
+      "split": "holdout",
+      "weeks": 19,
+      "pairs": {
+        "latency_log__failure_rate": 0.36765094379086966,
+        "latency_log__rerun_rate": -0.13673129853438865,
+        "failure_rate__rerun_rate": -0.2401863110195241
+      }
+    },
+    {
+      "repo_full": "tektoncd/pipeline",
+      "split": "purge",
+      "weeks": 4,
+      "pairs": {
+        "latency_log__failure_rate": 0.2472959727549856,
+        "latency_log__rerun_rate": 0.041077368233600746,
+        "failure_rate__rerun_rate": -0.9400498801270519
+      }
+    },
+    {
+      "repo_full": "tektoncd/pipeline",
+      "split": "train",
+      "weeks": 36,
+      "pairs": {
+        "latency_log__failure_rate": -0.20629852528700163,
+        "latency_log__rerun_rate": -0.12280533182592734,
+        "failure_rate__rerun_rate": 0.3129761946813689
+      }
+    }
+  ],
+  "pr_outcome_coverage": [
+    {
+      "repo_full": "containerd/containerd",
+      "split": "external",
+      "weeks": 59,
+      "cycle_time_nonmissing_weeks": 59,
+      "cycle_time_coverage": 1.0,
+      "review_latency_nonmissing_weeks": 59,
+      "review_latency_coverage": 1.0,
+      "weeks_with_created_prs": 59,
+      "weeks_with_merged_prs": 59
+    },
+    {
+      "repo_full": "docker/cli",
+      "split": "holdout",
+      "weeks": 19,
+      "cycle_time_nonmissing_weeks": 18,
+      "cycle_time_coverage": 0.9473684210526315,
+      "review_latency_nonmissing_weeks": 18,
+      "review_latency_coverage": 0.9473684210526315,
+      "weeks_with_created_prs": 19,
+      "weeks_with_merged_prs": 18
+    },
+    {
+      "repo_full": "docker/cli",
+      "split": "purge",
+      "weeks": 4,
+      "cycle_time_nonmissing_weeks": 4,
+      "cycle_time_coverage": 1.0,
+      "review_latency_nonmissing_weeks": 4,
+      "review_latency_coverage": 1.0,
+      "weeks_with_created_prs": 4,
+      "weeks_with_merged_prs": 4
+    },
+    {
+      "repo_full": "docker/cli",
+      "split": "train",
+      "weeks": 36,
+      "cycle_time_nonmissing_weeks": 35,
+      "cycle_time_coverage": 0.9722222222222222,
+      "review_latency_nonmissing_weeks": 35,
+      "review_latency_coverage": 0.9722222222222222,
+      "weeks_with_created_prs": 36,
+      "weeks_with_merged_prs": 35
+    },
+    {
+      "repo_full": "helm/helm",
+      "split": "external",
+      "weeks": 59,
+      "cycle_time_nonmissing_weeks": 58,
+      "cycle_time_coverage": 0.9830508474576272,
+      "review_latency_nonmissing_weeks": 58,
+      "review_latency_coverage": 0.9830508474576272,
+      "weeks_with_created_prs": 59,
+      "weeks_with_merged_prs": 58
+    },
+    {
+      "repo_full": "prometheus/prometheus",
+      "split": "holdout",
+      "weeks": 19,
+      "cycle_time_nonmissing_weeks": 19,
+      "cycle_time_coverage": 1.0,
+      "review_latency_nonmissing_weeks": 19,
+      "review_latency_coverage": 1.0,
+      "weeks_with_created_prs": 19,
+      "weeks_with_merged_prs": 19
+    },
+    {
+      "repo_full": "prometheus/prometheus",
+      "split": "purge",
+      "weeks": 4,
+      "cycle_time_nonmissing_weeks": 4,
+      "cycle_time_coverage": 1.0,
+      "review_latency_nonmissing_weeks": 4,
+      "review_latency_coverage": 1.0,
+      "weeks_with_created_prs": 4,
+      "weeks_with_merged_prs": 4
+    },
+    {
+      "repo_full": "prometheus/prometheus",
+      "split": "train",
+      "weeks": 36,
+      "cycle_time_nonmissing_weeks": 36,
+      "cycle_time_coverage": 1.0,
+      "review_latency_nonmissing_weeks": 36,
+      "review_latency_coverage": 1.0,
+      "weeks_with_created_prs": 36,
+      "weeks_with_merged_prs": 36
+    },
+    {
+      "repo_full": "pytest-dev/pytest",
+      "split": "external",
+      "weeks": 59,
+      "cycle_time_nonmissing_weeks": 59,
+      "cycle_time_coverage": 1.0,
+      "review_latency_nonmissing_weeks": 59,
+      "review_latency_coverage": 1.0,
+      "weeks_with_created_prs": 59,
+      "weeks_with_merged_prs": 59
+    },
+    {
+      "repo_full": "tektoncd/pipeline",
+      "split": "holdout",
+      "weeks": 19,
+      "cycle_time_nonmissing_weeks": 19,
+      "cycle_time_coverage": 1.0,
+      "review_latency_nonmissing_weeks": 19,
+      "review_latency_coverage": 1.0,
+      "weeks_with_created_prs": 19,
+      "weeks_with_merged_prs": 19
+    },
+    {
+      "repo_full": "tektoncd/pipeline",
+      "split": "purge",
+      "weeks": 4,
+      "cycle_time_nonmissing_weeks": 4,
+      "cycle_time_coverage": 1.0,
+      "review_latency_nonmissing_weeks": 4,
+      "review_latency_coverage": 1.0,
+      "weeks_with_created_prs": 4,
+      "weeks_with_merged_prs": 4
+    },
+    {
+      "repo_full": "tektoncd/pipeline",
+      "split": "train",
+      "weeks": 36,
+      "cycle_time_nonmissing_weeks": 34,
+      "cycle_time_coverage": 0.9444444444444444,
+      "review_latency_nonmissing_weeks": 33,
+      "review_latency_coverage": 0.9166666666666666,
+      "weeks_with_created_prs": 36,
+      "weeks_with_merged_prs": 34
+    }
+  ],
+  "bot_review_exclusions": [
+    {
+      "repo_full": "containerd/containerd",
+      "reviews_total": 6468,
+      "bot_reviews_total": 1037,
+      "qualified_reviews_total": 6454,
+      "qualified_bot_reviews_excluded": 1036,
+      "qualified_human_reviews_retained": 5418
+    },
+    {
+      "repo_full": "docker/cli",
+      "reviews_total": 4584,
+      "bot_reviews_total": 97,
+      "qualified_reviews_total": 4565,
+      "qualified_bot_reviews_excluded": 97,
+      "qualified_human_reviews_retained": 4468
+    },
+    {
+      "repo_full": "helm/helm",
+      "reviews_total": 5620,
+      "bot_reviews_total": 869,
+      "qualified_reviews_total": 5393,
+      "qualified_bot_reviews_excluded": 869,
+      "qualified_human_reviews_retained": 4524
+    },
+    {
+      "repo_full": "prometheus/prometheus",
+      "reviews_total": 11518,
+      "bot_reviews_total": 148,
+      "qualified_reviews_total": 11341,
+      "qualified_bot_reviews_excluded": 148,
+      "qualified_human_reviews_retained": 11193
+    },
+    {
+      "repo_full": "pytest-dev/pytest",
+      "reviews_total": 3851,
+      "bot_reviews_total": 41,
+      "qualified_reviews_total": 3832,
+      "qualified_bot_reviews_excluded": 41,
+      "qualified_human_reviews_retained": 3791
+    },
+    {
+      "repo_full": "tektoncd/pipeline",
+      "reviews_total": 4328,
+      "bot_reviews_total": 170,
+      "qualified_reviews_total": 4302,
+      "qualified_bot_reviews_excluded": 170,
+      "qualified_human_reviews_retained": 4132
+    }
+  ],
+  "mad_evaluable_observations": [
+    {
+      "repo_full": "containerd/containerd",
+      "split": "external",
+      "window_weeks": 13,
+      "weeks": 59,
+      "latency_log_evaluable": 46,
+      "failure_rate_evaluable": 46,
+      "rerun_rate_evaluable": 46,
+      "any_core_metric_evaluable": 46,
+      "all_core_metrics_evaluable": 46,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "containerd/containerd",
+      "split": "external",
+      "window_weeks": 26,
+      "weeks": 59,
+      "latency_log_evaluable": 33,
+      "failure_rate_evaluable": 33,
+      "rerun_rate_evaluable": 33,
+      "any_core_metric_evaluable": 33,
+      "all_core_metrics_evaluable": 33,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "docker/cli",
+      "split": "holdout",
+      "window_weeks": 13,
+      "weeks": 19,
+      "latency_log_evaluable": 19,
+      "failure_rate_evaluable": 19,
+      "rerun_rate_evaluable": 19,
+      "any_core_metric_evaluable": 19,
+      "all_core_metrics_evaluable": 19,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "docker/cli",
+      "split": "holdout",
+      "window_weeks": 26,
+      "weeks": 19,
+      "latency_log_evaluable": 19,
+      "failure_rate_evaluable": 19,
+      "rerun_rate_evaluable": 19,
+      "any_core_metric_evaluable": 19,
+      "all_core_metrics_evaluable": 19,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "docker/cli",
+      "split": "purge",
+      "window_weeks": 13,
+      "weeks": 4,
+      "latency_log_evaluable": 4,
+      "failure_rate_evaluable": 4,
+      "rerun_rate_evaluable": 4,
+      "any_core_metric_evaluable": 4,
+      "all_core_metrics_evaluable": 4,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "docker/cli",
+      "split": "purge",
+      "window_weeks": 26,
+      "weeks": 4,
+      "latency_log_evaluable": 4,
+      "failure_rate_evaluable": 4,
+      "rerun_rate_evaluable": 4,
+      "any_core_metric_evaluable": 4,
+      "all_core_metrics_evaluable": 4,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "docker/cli",
+      "split": "train",
+      "window_weeks": 13,
+      "weeks": 36,
+      "latency_log_evaluable": 23,
+      "failure_rate_evaluable": 23,
+      "rerun_rate_evaluable": 23,
+      "any_core_metric_evaluable": 23,
+      "all_core_metrics_evaluable": 23,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "docker/cli",
+      "split": "train",
+      "window_weeks": 26,
+      "weeks": 36,
+      "latency_log_evaluable": 10,
+      "failure_rate_evaluable": 10,
+      "rerun_rate_evaluable": 10,
+      "any_core_metric_evaluable": 10,
+      "all_core_metrics_evaluable": 10,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "helm/helm",
+      "split": "external",
+      "window_weeks": 13,
+      "weeks": 59,
+      "latency_log_evaluable": 46,
+      "failure_rate_evaluable": 46,
+      "rerun_rate_evaluable": 46,
+      "any_core_metric_evaluable": 46,
+      "all_core_metrics_evaluable": 46,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "helm/helm",
+      "split": "external",
+      "window_weeks": 26,
+      "weeks": 59,
+      "latency_log_evaluable": 33,
+      "failure_rate_evaluable": 33,
+      "rerun_rate_evaluable": 33,
+      "any_core_metric_evaluable": 33,
+      "all_core_metrics_evaluable": 33,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "prometheus/prometheus",
+      "split": "holdout",
+      "window_weeks": 13,
+      "weeks": 19,
+      "latency_log_evaluable": 19,
+      "failure_rate_evaluable": 19,
+      "rerun_rate_evaluable": 19,
+      "any_core_metric_evaluable": 19,
+      "all_core_metrics_evaluable": 19,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "prometheus/prometheus",
+      "split": "holdout",
+      "window_weeks": 26,
+      "weeks": 19,
+      "latency_log_evaluable": 19,
+      "failure_rate_evaluable": 19,
+      "rerun_rate_evaluable": 19,
+      "any_core_metric_evaluable": 19,
+      "all_core_metrics_evaluable": 19,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "prometheus/prometheus",
+      "split": "purge",
+      "window_weeks": 13,
+      "weeks": 4,
+      "latency_log_evaluable": 4,
+      "failure_rate_evaluable": 4,
+      "rerun_rate_evaluable": 4,
+      "any_core_metric_evaluable": 4,
+      "all_core_metrics_evaluable": 4,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "prometheus/prometheus",
+      "split": "purge",
+      "window_weeks": 26,
+      "weeks": 4,
+      "latency_log_evaluable": 4,
+      "failure_rate_evaluable": 4,
+      "rerun_rate_evaluable": 4,
+      "any_core_metric_evaluable": 4,
+      "all_core_metrics_evaluable": 4,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "prometheus/prometheus",
+      "split": "train",
+      "window_weeks": 13,
+      "weeks": 36,
+      "latency_log_evaluable": 23,
+      "failure_rate_evaluable": 23,
+      "rerun_rate_evaluable": 23,
+      "any_core_metric_evaluable": 23,
+      "all_core_metrics_evaluable": 23,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "prometheus/prometheus",
+      "split": "train",
+      "window_weeks": 26,
+      "weeks": 36,
+      "latency_log_evaluable": 10,
+      "failure_rate_evaluable": 10,
+      "rerun_rate_evaluable": 10,
+      "any_core_metric_evaluable": 10,
+      "all_core_metrics_evaluable": 10,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "pytest-dev/pytest",
+      "split": "external",
+      "window_weeks": 13,
+      "weeks": 59,
+      "latency_log_evaluable": 46,
+      "failure_rate_evaluable": 46,
+      "rerun_rate_evaluable": 7,
+      "any_core_metric_evaluable": 46,
+      "all_core_metrics_evaluable": 7,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "pytest-dev/pytest",
+      "split": "external",
+      "window_weeks": 26,
+      "weeks": 59,
+      "latency_log_evaluable": 33,
+      "failure_rate_evaluable": 33,
+      "rerun_rate_evaluable": 6,
+      "any_core_metric_evaluable": 33,
+      "all_core_metrics_evaluable": 6,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "tektoncd/pipeline",
+      "split": "holdout",
+      "window_weeks": 13,
+      "weeks": 19,
+      "latency_log_evaluable": 19,
+      "failure_rate_evaluable": 19,
+      "rerun_rate_evaluable": 19,
+      "any_core_metric_evaluable": 19,
+      "all_core_metrics_evaluable": 19,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "tektoncd/pipeline",
+      "split": "holdout",
+      "window_weeks": 26,
+      "weeks": 19,
+      "latency_log_evaluable": 19,
+      "failure_rate_evaluable": 19,
+      "rerun_rate_evaluable": 19,
+      "any_core_metric_evaluable": 19,
+      "all_core_metrics_evaluable": 19,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "tektoncd/pipeline",
+      "split": "purge",
+      "window_weeks": 13,
+      "weeks": 4,
+      "latency_log_evaluable": 4,
+      "failure_rate_evaluable": 4,
+      "rerun_rate_evaluable": 4,
+      "any_core_metric_evaluable": 4,
+      "all_core_metrics_evaluable": 4,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "tektoncd/pipeline",
+      "split": "purge",
+      "window_weeks": 26,
+      "weeks": 4,
+      "latency_log_evaluable": 4,
+      "failure_rate_evaluable": 4,
+      "rerun_rate_evaluable": 4,
+      "any_core_metric_evaluable": 4,
+      "all_core_metrics_evaluable": 4,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "tektoncd/pipeline",
+      "split": "train",
+      "window_weeks": 13,
+      "weeks": 36,
+      "latency_log_evaluable": 23,
+      "failure_rate_evaluable": 23,
+      "rerun_rate_evaluable": 23,
+      "any_core_metric_evaluable": 23,
+      "all_core_metrics_evaluable": 23,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    },
+    {
+      "repo_full": "tektoncd/pipeline",
+      "split": "train",
+      "window_weeks": 26,
+      "weeks": 36,
+      "latency_log_evaluable": 10,
+      "failure_rate_evaluable": 10,
+      "rerun_rate_evaluable": 10,
+      "any_core_metric_evaluable": 10,
+      "all_core_metrics_evaluable": 10,
+      "definition": "current value present, W prior values present, and prior-window MAD greater than zero"
+    }
+  ],
+  "workflow_panel_semantics": {
+    "actual_rows": 1630,
+    "distinct_workflows_across_repositories": 57,
+    "analysis_weeks": 59,
+    "complete_workflow_by_analysis_week_grid_rows": 3363,
+    "previous_panel_rows": 3363,
+    "observed_only": true,
+    "missing_workflow_weeks_inside_first_to_last_observed_span": 165,
+    "weeks_outside_repository_panel_period": 8,
+    "consequence": "Absent workflow-week rows conflate workflow inactivity, entry/exit, and missing collection; concentration uses observed attempts only and cannot diagnose absent workflows without an explicit grid."
+  },
+  "definition_verification": {
+    "feedback_latency": "Verified in 01_build_measurement_panels.py:52 as latest job completed_at minus attempt created_at.",
+    "updated_at_endpoint": "Verified absent from duration calculations; updated_at is not selected into the attempt measurement query.",
+    "logical_run_week": "Verified from workflow_runs.created_at (logical_run_created_at) at lines 32 and 51, not attempt creation time.",
+    "numerators_denominators": "failure_count/outcome_n and rerun_count/logical_run_n are retained and reconstruct their rates.",
+    "external_isolation": "UNRESOLVED PRE-MODELLING ISSUE: workflow baselines are repository-specific and date-limited, but ci_common.robust_training_standardize() estimates each repository from split=train rows. External repositories contain only split=external rows, so their medians and scales are NaN. This may produce NaN-standardized external failure and rerun metrics and invalidate external HMM evaluation. No model was run and this issue was not fixed.",
+    "holdout_isolation": "Workflow baselines use dates through train_end only; robust standardization uses split=train only. No fitted transformation uses holdout rows in steps 01 or 02.",
+    "logical_runs_assigned_to_multiple_weeks": 0,
+    "logical_run_week_mismatches": 0
+  },
+  "resolved_warnings": [
+    {
+      "warning": "Mean of empty slice",
+      "historical_count": 8,
+      "source": "01_build_measurement_panels.py aggregate_ci: formerly the unguarded queue and execution-span medians",
+      "affected_groups": [
+        {
+          "repo_full": "pytest-dev/pytest",
+          "workflow_key": "22159234",
+          "week": "2025-11-03 00:00:00",
+          "eligible_attempts": 1,
+          "queue_warning_line_97": true,
+          "execution_warning_line_98": true
+        },
+        {
+          "repo_full": "tektoncd/pipeline",
+          "workflow_key": "131244538",
+          "week": "2025-09-29 00:00:00",
+          "eligible_attempts": 1,
+          "queue_warning_line_97": true,
+          "execution_warning_line_98": true
+        },
+        {
+          "repo_full": "tektoncd/pipeline",
+          "workflow_key": "131244538",
+          "week": "2025-11-24 00:00:00",
+          "eligible_attempts": 2,
+          "queue_warning_line_97": true,
+          "execution_warning_line_98": true
+        },
+        {
+          "repo_full": "tektoncd/pipeline",
+          "workflow_key": "194873551",
+          "week": "2025-09-29 00:00:00",
+          "eligible_attempts": 2,
+          "queue_warning_line_97": true,
+          "execution_warning_line_98": true
+        }
+      ],
+      "reason": "Each affected observed workflow-week has eligible outcomes but no valid job-derived duration for any eligible attempt. Pandas median delegates an all-NaN array to NumPy nanmedian.",
+      "resolution": "The medians now drop missing values and explicitly return NaN when no valid values remain; no values are replaced with zero and no warnings are suppressed.",
+      "impact": "The four workflow-weeks retain missing latency diagnostics and contribute no workflow-adjusted latency residual. Repository-week core metrics remain unchanged because other workflows provide valid observations."
+    }
+  ],
+  "warnings": [
+    {
+      "warning": "Release context is unavailable; candidate episodes must be triangulated against releases separately",
+      "count": 1,
+      "source": "02_validate_measurements.py",
+      "reason": "No releases table or configured releases.csv was available.",
+      "impact": "Release context remains missing rather than being interpreted as zero; core CI and PR metrics are unaffected."
+    }
+  ]
+}

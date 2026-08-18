@@ -1,0 +1,60 @@
+study:
+  development_repositories:
+    - docker/cli
+    - prometheus/prometheus
+    - tektoncd/pipeline
+  external_repositories:
+    - pytest-dev/pytest
+    - helm/helm
+    - containerd/containerd
+  analysis_start: "2025-06-23"
+  analysis_end: "2026-08-03"
+  train_end: "2026-02-23"
+  purge_start: "2026-03-02"
+  purge_end: "2026-03-23"
+  holdout_start: "2026-03-30"
+  holdout_end: "2026-08-03"
+  external_calibration_weeks: 13
+
+measurement:
+  pr_validation_events: [pull_request, pull_request_target, merge_group]
+  success_conclusions: [success]
+  failure_conclusions: [failure, timed_out, startup_failure]
+  excluded_conclusions: [cancelled, skipped, neutral, stale, action_required]
+  maximum_feedback_minutes: 1440
+  minimum_attempt_coverage: 0.95
+  minimum_weekly_outcomes: 5
+  minimum_weekly_duration_observations: 5
+  qualified_review_states: [APPROVED, CHANGES_REQUESTED, COMMENTED]
+
+mad:
+  primary_window_weeks: 13
+  sensitivity_windows_weeks: [26]
+  thresholds: [2.5, 3.0, 3.5]
+  primary_threshold: 3.0
+  persistence_weeks: [1, 2, 3, 4]
+  primary_persistence_weeks: 2
+
+mewma:
+  lambda: 0.20
+  calibration_quantile: 0.99
+
+hmm:
+  states: 2
+  random_starts: 30
+  maximum_iterations: 500
+  tolerance: 1.0e-6
+  minimum_state_occupancy: 0.05
+  random_seed: 20260816
+
+synthetic_validation:
+  repetitions: 100
+  latency_relative_shifts: [0.10, 0.25, 0.50]
+  probability_absolute_shifts: [0.05, 0.10, 0.20]
+  durations_weeks: [1, 2, 4, 8]
+  random_seed: 20260816
+
+paths:
+  sqlite: data/ci_research.sqlite
+  releases_csv: data/exports/releases.csv
+  output: analysis_outputs

@@ -1,0 +1,297 @@
+{
+  "created_at_utc": "2026-08-18T10:41:03.324575+00:00",
+  "declarations": {
+    "parameter_tuning_authorized": false,
+    "statement_on_ground_truth": "Synthetic injection evidence is not real-world degradation ground truth.",
+    "statement_on_selection": "This freeze does not select a winning detector and does not authorize parameter tuning.",
+    "synthetic_evidence_is_real_world_ground_truth": false,
+    "winning_detector_selected": false,
+    "workflow_composition_supported": false
+  },
+  "denominator_audit": {
+    "conclusions_remain_supported": true,
+    "metric_specific_valid_observation_counts_required": true,
+    "raw_detector_rows_verified": 5118300,
+    "status": "PASS",
+    "summary_max_absolute_difference": 1.887379141862766e-15
+  },
+  "files": {
+    "03_fit_baselines.py": {
+      "bytes": 30286,
+      "role": "frozen_baseline_detector_source",
+      "sha256": "02d4155f4b9594f703b24430d378a29400b29a5f72c80f6e9691cf0f3ed6d9fd"
+    },
+    "analysis_config.yaml": {
+      "bytes": 1634,
+      "role": "frozen_analysis_configuration",
+      "sha256": "fc0f3c711c259e601d9ff62bf1e48455c2bb54ad91f49f7fbf6d1f14db8907b7"
+    },
+    "analysis_outputs/stage_a_figure_conditions.png": {
+      "bytes": 53127,
+      "role": "denominator_audited_thesis_figure",
+      "sha256": "160bee76a9317a490de13ad983520dd360da456b25b4a96346db59a023c53689"
+    },
+    "analysis_outputs/stage_a_figure_detection_by_magnitude_duration.png": {
+      "bytes": 172809,
+      "role": "denominator_corrected_thesis_figure",
+      "sha256": "a4025f5464f46e470ff64af18268f7495bec1f6a3521aa9847635d5932461767"
+    },
+    "analysis_outputs/stage_a_figure_repository_comparison.png": {
+      "bytes": 77346,
+      "role": "denominator_corrected_thesis_figure",
+      "sha256": "f67dd9328305aa68f16d9baa57e7229eb49ee293df8841e75ace0adf5f6d55ad"
+    },
+    "analysis_outputs/stage_a_interpretation_metadata.json": {
+      "bytes": 8314,
+      "role": "denominator_audit_and_interpretation_metadata",
+      "sha256": "1e56ee9f94ae460dace569de5ad1e94f27c9e8199e5c68627f76823f302b85f5"
+    },
+    "analysis_outputs/stage_a_methodological_report.md": {
+      "bytes": 2526,
+      "role": "denominator_corrected_methodological_report",
+      "sha256": "7c0d7c526ad92df40d9371356fa48dc23ac8e0f012dca40bb1f9e56c083c63ab"
+    },
+    "analysis_outputs/stage_a_synthetic_detector_results.csv.gz": {
+      "bytes": 37956024,
+      "role": "frozen_detector_level_results",
+      "sha256": "570a1678b9a3c554f5a0d8beabb4751d3cd16dcfb4b254c660f12a62b66a7063"
+    },
+    "analysis_outputs/stage_a_synthetic_metadata.json": {
+      "bytes": 9369,
+      "role": "frozen_evaluation_metadata",
+      "sha256": "90e3e43de81f13cabe991139d75581381bfa169938405ec864137e3ddd84ba5e"
+    },
+    "analysis_outputs/stage_a_synthetic_scenarios.csv": {
+      "bytes": 9852015,
+      "role": "frozen_scenario_grid",
+      "sha256": "072385619e15a08ce3607422dd701a2f8024c044bb4edf8d1eebe0f4b3b0f402"
+    },
+    "analysis_outputs/stage_a_synthetic_summary.csv": {
+      "bytes": 14996420,
+      "role": "frozen_stratum_summary",
+      "sha256": "a0df17298046c26e0903611c7e454a70968358592f74c467fc63bdf2a8ccbd8c"
+    },
+    "analysis_outputs/stage_a_synthetic_week_results.csv.gz": {
+      "bytes": 2320362,
+      "role": "frozen_injected_week_audit_trail",
+      "sha256": "dfc6b5d46895d5062907d4f149d76d3e67b9e7b48193d1f199dbdf3b38c1310c"
+    },
+    "analysis_outputs/stage_a_table_primary_by_condition.csv": {
+      "bytes": 13343,
+      "role": "denominator_corrected_condition_table",
+      "sha256": "6518d5654719d45d08487e00e02a605160b85e6aa16320c03d08af5bff1e9dc7"
+    },
+    "analysis_outputs/stage_a_table_primary_by_metric_combination.csv": {
+      "bytes": 601074,
+      "role": "denominator_corrected_full_stratum_table",
+      "sha256": "3184936b13dbde6bae18f99757c4089c0d64405bbc0abc3c57d75e018ac6f240"
+    },
+    "analysis_outputs/stage_a_table_primary_by_repository.csv": {
+      "bytes": 4773,
+      "role": "denominator_corrected_thesis_table",
+      "sha256": "92544ba332528a2d2ade224cce223a0cfa7e198d9f089543dec65fb8604348ff"
+    },
+    "analysis_outputs/stage_a_table_sensitivity.csv": {
+      "bytes": 12588417,
+      "role": "denominator_corrected_sensitivity_table",
+      "sha256": "fc6bb0fd791924269fb4292595d1b9402ca861533f741fce161134e9a8c41754"
+    },
+    "stage_a_synthetic_config.yaml": {
+      "bytes": 2659,
+      "role": "frozen_scenario_configuration",
+      "sha256": "e8a9b0882906de7778b0afe3753eec0107472ca1bd367bc4d1ff354e738af61b"
+    },
+    "test_stage_a_synthetic_validation.py": {
+      "bytes": 16904,
+      "role": "frozen_stage_a_test_source",
+      "sha256": "336b8b47efad820dbbf961c08cdf4fdb27d09ce768bc36c0a9d9c46f66a199cd"
+    },
+    "validate_stage_a_baselines.py": {
+      "bytes": 37131,
+      "role": "frozen_stage_a_evaluator_source",
+      "sha256": "0795a0ca6c851143e47df3a052b3ea577ab625c1bb0324c8a2375b560335334a"
+    }
+  },
+  "frozen_mewma_specification": {
+    "control_limit_reference": "development_training_rows_only",
+    "empirical_control_limit": 7.150034791553729,
+    "lambda": 0.2,
+    "refitted_during_synthetic_evaluation": false,
+    "standardization_parameters": {
+      "containerd/containerd": {
+        "metrics": {
+          "failure_rate": {
+            "median": 0.25,
+            "reference_observations": 13,
+            "scale": 0.04778414634146351,
+            "scale_method": "scaled_mad"
+          },
+          "latency_log": {
+            "median": -0.0019794016421998,
+            "reference_observations": 13,
+            "scale": 0.035451737307914954,
+            "scale_method": "scaled_mad"
+          },
+          "rerun_rate": {
+            "median": 0.0398406374501992,
+            "reference_observations": 13,
+            "scale": 0.011719226089653478,
+            "scale_method": "scaled_mad"
+          }
+        },
+        "reference": "external_first_observed_13_weeks",
+        "reference_weeks": 13
+      },
+      "docker/cli": {
+        "metrics": {
+          "failure_rate": {
+            "median": 0.15964912280701749,
+            "reference_observations": 36,
+            "scale": 0.060648682262363106,
+            "scale_method": "scaled_mad"
+          },
+          "latency_log": {
+            "median": -0.0001971217406579,
+            "reference_observations": 36,
+            "scale": 0.020426504806774787,
+            "scale_method": "scaled_mad"
+          },
+          "rerun_rate": {
+            "median": 0.06222982708933715,
+            "reference_observations": 36,
+            "scale": 0.03270199966810484,
+            "scale_method": "scaled_mad"
+          }
+        },
+        "reference": "development_training_split",
+        "reference_weeks": 36
+      },
+      "helm/helm": {
+        "metrics": {
+          "failure_rate": {
+            "median": 0.1134020618556701,
+            "reference_observations": 13,
+            "scale": 0.049899514857489266,
+            "scale_method": "scaled_mad"
+          },
+          "latency_log": {
+            "median": -0.0067564329057476,
+            "reference_observations": 13,
+            "scale": 0.03543716029478177,
+            "scale_method": "scaled_mad"
+          },
+          "rerun_rate": {
+            "median": 0.1879194630872483,
+            "reference_observations": 13,
+            "scale": 0.13034939597315431,
+            "scale_method": "scaled_mad"
+          }
+        },
+        "reference": "external_first_observed_13_weeks",
+        "reference_weeks": 13
+      },
+      "prometheus/prometheus": {
+        "metrics": {
+          "failure_rate": {
+            "median": 0.26163342830009495,
+            "reference_observations": 36,
+            "scale": 0.05155666909538553,
+            "scale_method": "scaled_mad"
+          },
+          "latency_log": {
+            "median": 0.0587704460120476,
+            "reference_observations": 36,
+            "scale": 0.05993948229230021,
+            "scale_method": "scaled_mad"
+          },
+          "rerun_rate": {
+            "median": 0.0105539249359895,
+            "reference_observations": 36,
+            "scale": 0.007227863870138709,
+            "scale_method": "scaled_mad"
+          }
+        },
+        "reference": "development_training_split",
+        "reference_weeks": 36
+      },
+      "pytest-dev/pytest": {
+        "metrics": {
+          "failure_rate": {
+            "median": 0.1428571428571428,
+            "reference_observations": 13,
+            "scale": 0.0847200000000001,
+            "scale_method": "scaled_mad"
+          },
+          "latency_log": {
+            "median": 0.0,
+            "reference_observations": 13,
+            "scale": 0.060624407713210045,
+            "scale_method": "scaled_mad"
+          },
+          "rerun_rate": {
+            "median": 0.0,
+            "reference_observations": 13,
+            "scale": 0.026823953851566554,
+            "scale_method": "sample_standard_deviation_fallback"
+          }
+        },
+        "reference": "external_first_observed_13_weeks",
+        "reference_weeks": 13
+      },
+      "tektoncd/pipeline": {
+        "metrics": {
+          "failure_rate": {
+            "median": 0.16645988420181965,
+            "reference_observations": 36,
+            "scale": 0.08199141989369782,
+            "scale_method": "scaled_mad"
+          },
+          "latency_log": {
+            "median": -0.0057217273754225,
+            "reference_observations": 36,
+            "scale": 0.05354451868050091,
+            "scale_method": "scaled_mad"
+          },
+          "rerun_rate": {
+            "median": 0.1103448275862069,
+            "reference_observations": 36,
+            "scale": 0.07528577999481732,
+            "scale_method": "scaled_mad"
+          }
+        },
+        "reference": "development_training_split",
+        "reference_weeks": 36
+      }
+    }
+  },
+  "known_limitations": [
+    "workflow composition unsupported",
+    "synthetic evidence is not ground truth",
+    "probability rates use seeded binomial realization",
+    "metric-specific denominators required"
+  ],
+  "manifest_version": 1,
+  "primary_mad_specification": {
+    "current_week_excluded": true,
+    "interpretation": "detector signal, not ground truth",
+    "persistence_weeks": 2,
+    "threshold_scaled_mad": 3.0,
+    "variants": [
+      "latency_log",
+      "failure_rate",
+      "rerun_rate",
+      "union",
+      "two_of_three"
+    ],
+    "window_weeks": 13
+  },
+  "stage_a": {
+    "detector_result_rows": 5118300,
+    "development_training_only": true,
+    "evaluable_scenario_count": 42300,
+    "random_seed": 20260816,
+    "scenario_count": 42303,
+    "status": "FROZEN",
+    "unsupported_scenario_count": 3
+  }
+}

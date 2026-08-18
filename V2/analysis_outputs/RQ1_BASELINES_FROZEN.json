@@ -1,0 +1,251 @@
+{
+  "created_at_utc": "2026-08-18T21:48:01.443280+00:00",
+  "declarations": {
+    "detector_selected_by_observed_results": false,
+    "hmm_included": false,
+    "observed_ground_truth_available": false,
+    "parameter_tuning_authorized": false,
+    "rq2_authorized": false
+  },
+  "detectors": [
+    "causal rolling MAD",
+    "MEWMA"
+  ],
+  "files": {
+    "analysis_outputs/rq1_baseline_candidate_episodes.csv": {
+      "bytes": 6190,
+      "path": "analysis_outputs/rq1_baseline_candidate_episodes.csv",
+      "role": "baseline_only_confirmatory_rq1_output",
+      "row_count": 24,
+      "schema": [
+        "repo_full",
+        "evaluation_population",
+        "detector_family",
+        "detector_variant",
+        "metric",
+        "start_week",
+        "end_week",
+        "left_censored",
+        "right_censored",
+        "observed_duration_weeks",
+        "median_magnitude",
+        "maximum_magnitude",
+        "attempts_total_sum",
+        "outcome_n_sum",
+        "latency_n_sum",
+        "logical_run_n_sum",
+        "minimum_attempts_total",
+        "minimum_outcome_n",
+        "minimum_latency_n",
+        "minimum_logical_run_n",
+        "median_workflow_count",
+        "maximum_workflow_concentration_hhi",
+        "low_support_week_count",
+        "missing_core_metric_week_count",
+        "interpretation"
+      ],
+      "sha256": "f1e85e35a251140736bcb3b393ac4d12aed0119fb18c8534a3762c28e780170d"
+    },
+    "analysis_outputs/rq1_baseline_detector_agreement.csv": {
+      "bytes": 3793,
+      "path": "analysis_outputs/rq1_baseline_detector_agreement.csv",
+      "role": "baseline_only_confirmatory_rq1_output",
+      "row_count": 30,
+      "schema": [
+        "repo_full",
+        "evaluation_population",
+        "mad_variant",
+        "mewma_variant",
+        "both_evaluable_weeks",
+        "both_alarm_weeks",
+        "neither_alarm_weeks",
+        "mad_only_alarm_weeks",
+        "mewma_only_alarm_weeks",
+        "observed_agreement",
+        "jaccard_alarm_overlap",
+        "interpretation"
+      ],
+      "sha256": "44448455b54567ccfc7545d1f479a617c8d2a823d0db9f21adfef46d83742e0a"
+    },
+    "analysis_outputs/rq1_baseline_summary.csv": {
+      "bytes": 14638,
+      "path": "analysis_outputs/rq1_baseline_summary.csv",
+      "role": "baseline_only_confirmatory_rq1_output",
+      "row_count": 54,
+      "schema": [
+        "evidence_domain",
+        "repo_full",
+        "evaluation_population",
+        "detector_family",
+        "detector_variant",
+        "metric",
+        "specification_role",
+        "total_weeks",
+        "evaluable_weeks",
+        "unevaluable_weeks",
+        "alarm_weeks",
+        "alarm_prevalence",
+        "episode_count",
+        "complete_episode_count",
+        "left_censored_episode_count",
+        "right_censored_episode_count",
+        "total_observed_episode_weeks",
+        "median_observed_duration_weeks",
+        "maximum_observed_duration_weeks",
+        "median_alarm_magnitude",
+        "maximum_alarm_magnitude",
+        "attempts_total_sum",
+        "outcome_n_sum",
+        "latency_n_sum",
+        "logical_run_n_sum",
+        "synthetic_scenarios",
+        "precision",
+        "precision_valid_observations",
+        "recall",
+        "recall_valid_observations",
+        "false_alarm_rate",
+        "false_alarm_rate_valid_observations",
+        "episode_detection_rate",
+        "episode_detection_rate_valid_observations",
+        "detection_delay_weeks",
+        "detection_delay_weeks_valid_observations",
+        "boundary_overlap",
+        "boundary_overlap_valid_observations",
+        "alarm_duration_weeks",
+        "alarm_duration_weeks_valid_observations",
+        "unevaluable_fraction",
+        "unevaluable_fraction_valid_observations"
+      ],
+      "sha256": "c82e094e82d315339081ffad33d4c9779982928734172139d870d0b416ca61d1"
+    },
+    "analysis_outputs/rq1_baseline_support_diagnostics.csv": {
+      "bytes": 930,
+      "path": "analysis_outputs/rq1_baseline_support_diagnostics.csv",
+      "role": "baseline_only_confirmatory_rq1_output",
+      "row_count": 6,
+      "schema": [
+        "repo_full",
+        "evaluation_population",
+        "total_weeks",
+        "attempts_total_sum",
+        "outcome_n_sum",
+        "latency_n_sum",
+        "logical_run_n_sum",
+        "low_outcome_support_weeks",
+        "low_latency_support_weeks",
+        "missing_core_metric_weeks",
+        "median_workflow_count",
+        "median_workflow_concentration_hhi",
+        "maximum_workflow_concentration_hhi",
+        "release_context_available"
+      ],
+      "sha256": "ce6023f539282c992d0f814b2674ce6ae8ef182eb381c0f65b0fdcd6acdd7bf3"
+    },
+    "analysis_outputs/rq1_baseline_validation_status.json": {
+      "bytes": 10736,
+      "path": "analysis_outputs/rq1_baseline_validation_status.json",
+      "role": "baseline_only_confirmatory_rq1_validation_status",
+      "row_count": 1,
+      "schema": [
+        "causal_history",
+        "contracts",
+        "declarations",
+        "episode_contract",
+        "mewma_panel_validation",
+        "observed_denominators",
+        "output_artifacts",
+        "provenance",
+        "repository_denominators",
+        "row_counts",
+        "status",
+        "status_artifact",
+        "warnings",
+        "week_detector_contract"
+      ],
+      "sha256": "59d96fb4eba243b479bafe2dfe77c74073dc987cb3f37a0310c0109b05d08249"
+    },
+    "analysis_outputs/rq1_baseline_week_results.csv": {
+      "bytes": 416355,
+      "path": "analysis_outputs/rq1_baseline_week_results.csv",
+      "role": "baseline_only_confirmatory_rq1_output",
+      "row_count": 1170,
+      "schema": [
+        "evidence_domain",
+        "repo_full",
+        "week",
+        "evaluation_population",
+        "source_split",
+        "detector_family",
+        "detector_variant",
+        "metric",
+        "specification_role",
+        "window_weeks",
+        "threshold_scaled_mad",
+        "persistence_weeks",
+        "evaluable",
+        "alarm",
+        "magnitude",
+        "magnitude_definition",
+        "raw_mewma_stat",
+        "frozen_control_limit",
+        "attempts_total",
+        "outcome_n",
+        "failure_count",
+        "latency_n",
+        "logical_run_n",
+        "rerun_count",
+        "low_outcome_support",
+        "low_latency_support",
+        "missing_core_metric_count",
+        "workflow_count",
+        "workflow_concentration_hhi",
+        "external_calibration",
+        "external_evaluation_eligible",
+        "causal_history_policy"
+      ],
+      "sha256": "bac4965c3af6f5f7d41586553760d19c26b9ac419ec77af5de90bf5fb349644c"
+    }
+  },
+  "manifest_version": 1,
+  "provenance": {
+    "analysis_config": {
+      "bytes": 1634,
+      "path": "analysis_config.yaml",
+      "sha256": "fc0f3c711c259e601d9ff62bf1e48455c2bb54ad91f49f7fbf6d1f14db8907b7"
+    },
+    "freeze_source": {
+      "bytes": 13014,
+      "path": "freeze_rq1_baselines.py",
+      "sha256": "96958bc71cc9f10a7c625cffbe2da274fc426e99cddc6d8692c23d403d189723"
+    },
+    "hmm_rejection": {
+      "bytes": 34770,
+      "path": "analysis_outputs/HMM_REJECTION_REPORT.json",
+      "sha256": "472823506335c4297a38cbaae1ed01a8797398266ba15faf266322c82907a02d"
+    },
+    "measurement_freeze": {
+      "bytes": 4248,
+      "files_verified": 16,
+      "path": "analysis_outputs/MEASUREMENT_FROZEN.json",
+      "sha256": "df6b047fcb9b7203596e236f503238d139ea6d7698645ce4ae56e413ae88c2c9"
+    },
+    "stage_a_freeze": {
+      "bytes": 10972,
+      "files_verified": 19,
+      "path": "analysis_outputs/STAGE_A_FROZEN.json",
+      "sha256": "aaa51548f571e71ff7e44fe6150943ed71ea5ed6849cb8314706a0e0b55534e0"
+    },
+    "validation_source": {
+      "bytes": 40423,
+      "path": "validate_rq1_baselines.py",
+      "sha256": "f2ed5c5755886baec02e1fb389834678629e148764c40d9c31e1d5af2514adeb"
+    },
+    "validation_test": {
+      "bytes": 23125,
+      "path": "test_rq1_baseline_validation.py",
+      "sha256": "0cdf64e4ff9ebfd6622d89b4f16d5beee623c44fc7bcf3d7da37b10db0a6e8c9"
+    }
+  },
+  "rule": "No detector setting, threshold, repository, evaluation denominator, or reporting rule may be changed to maximize downstream associations.",
+  "status": "FROZEN"
+}

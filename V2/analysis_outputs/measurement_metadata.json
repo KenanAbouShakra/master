@@ -1,0 +1,52 @@
+{
+  "database_sha256": "7a34e346f04051b303203d944f7e274d0a758d6fba8d7dee8425ac436a47605e",
+  "database_bytes": 1575813120,
+  "attempt_rows": 123028,
+  "repository_week_rows": 354,
+  "workflow_week_rows": 1630,
+  "measurement_definition": "attempt created_at to latest completed job; logical runs assigned to original run week",
+  "external_calibration_policy": {
+    "weeks": 13,
+    "definition": "first observed analysis weeks per external repository",
+    "uses": "repository-specific unsupervised centering and scaling only",
+    "excluded_from_external_evaluation": true
+  },
+  "attempt_coverage_by_repository": [
+    {
+      "repo_full": "containerd/containerd",
+      "eligible_event_runs": 25926,
+      "runs_with_attempts": 25901,
+      "attempt_coverage": 0.9990357170408084
+    },
+    {
+      "repo_full": "docker/cli",
+      "eligible_event_runs": 14903,
+      "runs_with_attempts": 14903,
+      "attempt_coverage": 1.0
+    },
+    {
+      "repo_full": "helm/helm",
+      "eligible_event_runs": 7424,
+      "runs_with_attempts": 7424,
+      "attempt_coverage": 1.0
+    },
+    {
+      "repo_full": "prometheus/prometheus",
+      "eligible_event_runs": 36939,
+      "runs_with_attempts": 36939,
+      "attempt_coverage": 1.0
+    },
+    {
+      "repo_full": "pytest-dev/pytest",
+      "eligible_event_runs": 2847,
+      "runs_with_attempts": 2847,
+      "attempt_coverage": 1.0
+    },
+    {
+      "repo_full": "tektoncd/pipeline",
+      "eligible_event_runs": 27329,
+      "runs_with_attempts": 27322,
+      "attempt_coverage": 0.9997438618317538
+    }
+  ]
+}

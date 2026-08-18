@@ -1,0 +1,13 @@
+repo_full,split,detector_family,total_weeks,evaluable_weeks,excluded_weeks,alarm_weeks,alarm_prevalence,external_scoring_eligible,interpretation
+containerd/containerd,external_evaluation,mewma,46,46,0,0,0.0,True,"detector signal, not ground truth"
+docker/cli,holdout,mewma,19,19,0,18,0.9473684210526315,False,"detector signal, not ground truth"
+docker/cli,purge,mewma,4,4,0,3,0.75,False,"detector signal, not ground truth"
+docker/cli,train,mewma,36,36,0,2,0.05555555555555555,False,"detector signal, not ground truth"
+helm/helm,external_evaluation,mewma,46,46,0,0,0.0,True,"detector signal, not ground truth"
+prometheus/prometheus,holdout,mewma,19,19,0,0,0.0,False,"detector signal, not ground truth"
+prometheus/prometheus,purge,mewma,4,4,0,0,0.0,False,"detector signal, not ground truth"
+prometheus/prometheus,train,mewma,36,36,0,0,0.0,False,"detector signal, not ground truth"
+pytest-dev/pytest,external_evaluation,mewma,46,46,0,3,0.06521739130434782,True,"detector signal, not ground truth"
+tektoncd/pipeline,holdout,mewma,19,19,0,16,0.8421052631578947,False,"detector signal, not ground truth"
+tektoncd/pipeline,purge,mewma,4,4,0,1,0.25,False,"detector signal, not ground truth"
+tektoncd/pipeline,train,mewma,36,36,0,0,0.0,False,"detector signal, not ground truth"

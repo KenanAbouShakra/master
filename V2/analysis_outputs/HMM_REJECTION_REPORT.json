@@ -1,0 +1,1121 @@
+{
+  "candidate_diagnostics": [
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260816,
+      "selected": false,
+      "start_index": 0,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260817,
+      "selected": false,
+      "start_index": 1,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260818,
+      "selected": false,
+      "start_index": 2,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260819,
+      "selected": false,
+      "start_index": 3,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260820,
+      "selected": false,
+      "start_index": 4,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260821,
+      "selected": false,
+      "start_index": 5,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260822,
+      "selected": false,
+      "start_index": 6,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260823,
+      "selected": false,
+      "start_index": 7,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260824,
+      "selected": false,
+      "start_index": 8,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260825,
+      "selected": false,
+      "start_index": 9,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260826,
+      "selected": false,
+      "start_index": 10,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260827,
+      "selected": false,
+      "start_index": 11,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260828,
+      "selected": false,
+      "start_index": 12,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260829,
+      "selected": false,
+      "start_index": 13,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260830,
+      "selected": false,
+      "start_index": 14,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260831,
+      "selected": false,
+      "start_index": 15,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260832,
+      "selected": false,
+      "start_index": 16,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260833,
+      "selected": false,
+      "start_index": 17,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260834,
+      "selected": false,
+      "start_index": 18,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260835,
+      "selected": false,
+      "start_index": 19,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260836,
+      "selected": false,
+      "start_index": 20,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260837,
+      "selected": false,
+      "start_index": 21,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260838,
+      "selected": false,
+      "start_index": 22,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260839,
+      "selected": false,
+      "start_index": 23,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260840,
+      "selected": false,
+      "start_index": 24,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260841,
+      "selected": false,
+      "start_index": 25,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260842,
+      "selected": false,
+      "start_index": 26,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260843,
+      "selected": false,
+      "start_index": 27,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260844,
+      "selected": false,
+      "start_index": 28,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    },
+    {
+      "canonicalization_valid": true,
+      "converged": true,
+      "final_log_likelihood": -563.3400875710718,
+      "iterations": 2,
+      "likelihood_monotonic": true,
+      "likelihood_trace": [
+        -578.6927945621458,
+        -563.3400875710863,
+        -563.3400875710718
+      ],
+      "minimum_occupancy_threshold": 0.05,
+      "minimum_severity_gap": 31.2278001743,
+      "occupancy_valid": false,
+      "parameter_valid": true,
+      "pooled_smoothed_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "pooled_viterbi_occupancy": [
+        0.9907407407407407,
+        0.009259259259259259
+      ],
+      "rejection_reason": "pooled smoothed occupancy violates frozen minimum 0.05",
+      "seed": 20260845,
+      "selected": false,
+      "start_index": 29,
+      "state_severity_scores": [
+        0.5202942942998604,
+        31.74809446860186
+      ],
+      "status": "occupancy_invalid"
+    }
+  ],
+  "created_at_utc": "2026-08-18T12:32:13.800368+00:00",
+  "decision": {
+    "confirmatory_rq1_inclusion": false,
+    "hmm_outputs_created": false,
+    "reason": "All 30 deterministic starts converged to the same canonically identifiable solution, but the adverse state occupied only 1 of 108 training weeks (0.9259%), below the frozen 5% minimum.",
+    "settings_changed": false,
+    "supported_primary_detectors": [
+      "causal rolling MAD",
+      "MEWMA"
+    ],
+    "two_state_hmm_supported": false
+  },
+  "decision_criterion": {
+    "metric": "pooled smoothed training occupancy",
+    "minimum_fraction": 0.05,
+    "observed_adverse_state_fraction": 0.009259259259259259,
+    "observed_adverse_state_percent": 0.9259259259259259,
+    "observed_adverse_state_weeks_equivalent": 1,
+    "repository_weeks_denominator": 108,
+    "scope": "three development-repository training sequences only"
+  },
+  "declarations": {
+    "hmm_rerun_authorized": false,
+    "mad_and_mewma_remain_primary_supported_detectors": true,
+    "occupancy_threshold_change_authorized": false,
+    "state_count_change_authorized": false
+  },
+  "diagnostic_summary": {
+    "adverse_state_occupancy_fraction": 0.009259259259259259,
+    "adverse_state_occupancy_percent": 0.9259259259259259,
+    "adverse_state_weeks": 1,
+    "all_starts_same_solution": true,
+    "best_admissible_log_likelihood": null,
+    "best_overall_log_likelihood": -563.3400875710718,
+    "canonical_starts": 30,
+    "converged_starts": 30,
+    "frozen_minimum_occupancy_fraction": 0.05,
+    "monotonic_starts": 30,
+    "occupancy_valid_starts": 0,
+    "parameter_valid_starts": 30,
+    "random_starts": 30,
+    "selected_model": null,
+    "training_weeks": 108
+  },
+  "freeze_references": {
+    "measurement_manifest": {
+      "path": "analysis_outputs/MEASUREMENT_FROZEN.json",
+      "sha256": "df6b047fcb9b7203596e236f503238d139ea6d7698645ce4ae56e413ae88c2c9"
+    },
+    "stage_a_manifest": {
+      "path": "analysis_outputs/STAGE_A_FROZEN.json",
+      "sha256": "aaa51548f571e71ff7e44fe6150943ed71ea5ed6849cb8314706a0e0b55534e0"
+    }
+  },
+  "model_use": {
+    "confirmatory_rq1_hmm_analysis_performed": false,
+    "model_selected": false,
+    "model_used_for_repository_scoring": false,
+    "normal_hmm_outputs_created": false
+  },
+  "next_non_hmm_rq1_audit": {
+    "blocking_dependencies": [
+      "04_fit_hmm import",
+      "hmm_results.csv",
+      "hmm_model.json",
+      "hmm_filtered_adverse_probability",
+      "hmm_viterbi_adverse"
+    ],
+    "current_script": "05_validate_rq1.py",
+    "existing_supported_evidence": [
+      "analysis_outputs/STAGE_A_FROZEN.json",
+      "analysis_outputs/stage_a_synthetic_summary.csv",
+      "analysis_outputs/stage_a_table_primary_by_repository.csv",
+      "analysis_outputs/baseline_results.csv",
+      "analysis_outputs/mad_summary_long.csv",
+      "analysis_outputs/mewma_summary.csv"
+    ],
+    "finding": "The current step 05 imports step 04, requires hmm_results.csv and hmm_model.json, evaluates HMM-only synthetic probabilities, and cannot execute a baseline-only confirmatory RQ1 path.",
+    "required_next_action": "Implement and pre-audit a separate MAD/MEWMA-only confirmatory RQ1 validation and freeze path. Do not run the current HMM-based step 05 or step 06.",
+    "status": "NOT_READY"
+  },
+  "provenance": {
+    "analysis_config": {
+      "bytes": 1634,
+      "path": "analysis_config.yaml",
+      "role": "frozen research configuration",
+      "sha256": "fc0f3c711c259e601d9ff62bf1e48455c2bb54ad91f49f7fbf6d1f14db8907b7"
+    },
+    "baseline_metadata": {
+      "bytes": 7935,
+      "path": "analysis_outputs/baseline_metadata.json",
+      "role": "frozen Stage-A detector metadata and standardization parameters",
+      "sha256": "2b2d01850bc74178de175e428c779c5cca96923f6abc1002b5c8c6fc652d11f3"
+    },
+    "baseline_results": {
+      "bytes": 433149,
+      "path": "analysis_outputs/baseline_results.csv",
+      "role": "frozen Stage-A baseline panel used for diagnostic fitting",
+      "sha256": "cf79206ee7f3fe7d601c43b4719df0ca9ac7f7715053e1830a1733fcbe4f131f"
+    },
+    "hmm_source": {
+      "bytes": 35911,
+      "path": "04_fit_hmm.py",
+      "role": "corrected HMM implementation used for candidate-level diagnostic fitting",
+      "sha256": "731c8d42efcfef92574ea93eb893913586c5f3f766acdf0ce22c3877bcb18adf"
+    },
+    "hmm_test": {
+      "bytes": 31996,
+      "path": "test_hmm_invariance.py",
+      "role": "temporary synthetic HMM invariance test",
+      "sha256": "ca70a0c3f8b3295796e1cbecbbe0eef78b24605f3fbc2e2db1ff405cc6710cf9"
+    },
+    "measurement_freeze": {
+      "bytes": 4248,
+      "path": "analysis_outputs/MEASUREMENT_FROZEN.json",
+      "role": "measurement freeze manifest",
+      "sha256": "df6b047fcb9b7203596e236f503238d139ea6d7698645ce4ae56e413ae88c2c9"
+    },
+    "stage_a_freeze": {
+      "bytes": 10972,
+      "path": "analysis_outputs/STAGE_A_FROZEN.json",
+      "role": "Stage-A freeze manifest",
+      "sha256": "aaa51548f571e71ff7e44fe6150943ed71ea5ed6849cb8314706a0e0b55534e0"
+    }
+  },
+  "report_version": 1,
+  "status": "HMM_REJECTED"
+}

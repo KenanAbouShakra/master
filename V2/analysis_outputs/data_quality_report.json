@@ -1,0 +1,153 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "warnings": [
+    "Release context is unavailable; candidate episodes must be triangulated against releases separately"
+  ],
+  "coverage_by_repository": [
+    {
+      "repo_full": "containerd/containerd",
+      "first_week": "2025-06-23",
+      "last_week": "2026-08-03",
+      "weeks": 59,
+      "zero_attempt_weeks": 0,
+      "outcome_support_median": 448.0,
+      "latency_coverage": 1.0,
+      "failure_coverage": 1.0,
+      "rerun_coverage": 1.0,
+      "pr_cycle_coverage": 1.0,
+      "review_coverage": 1.0
+    },
+    {
+      "repo_full": "docker/cli",
+      "first_week": "2025-06-23",
+      "last_week": "2026-08-03",
+      "weeks": 59,
+      "zero_attempt_weeks": 0,
+      "outcome_support_median": 171.0,
+      "latency_coverage": 1.0,
+      "failure_coverage": 1.0,
+      "rerun_coverage": 1.0,
+      "pr_cycle_coverage": 0.9661016949152542,
+      "review_coverage": 0.9661016949152542
+    },
+    {
+      "repo_full": "helm/helm",
+      "first_week": "2025-06-23",
+      "last_week": "2026-08-03",
+      "weeks": 59,
+      "zero_attempt_weeks": 0,
+      "outcome_support_median": 102.0,
+      "latency_coverage": 1.0,
+      "failure_coverage": 1.0,
+      "rerun_coverage": 1.0,
+      "pr_cycle_coverage": 0.9830508474576272,
+      "review_coverage": 0.9830508474576272
+    },
+    {
+      "repo_full": "prometheus/prometheus",
+      "first_week": "2025-06-23",
+      "last_week": "2026-08-03",
+      "weeks": 59,
+      "zero_attempt_weeks": 0,
+      "outcome_support_median": 498.0,
+      "latency_coverage": 1.0,
+      "failure_coverage": 1.0,
+      "rerun_coverage": 1.0,
+      "pr_cycle_coverage": 1.0,
+      "review_coverage": 1.0
+    },
+    {
+      "repo_full": "pytest-dev/pytest",
+      "first_week": "2025-06-23",
+      "last_week": "2026-08-03",
+      "weeks": 59,
+      "zero_attempt_weeks": 0,
+      "outcome_support_median": 28.0,
+      "latency_coverage": 1.0,
+      "failure_coverage": 1.0,
+      "rerun_coverage": 1.0,
+      "pr_cycle_coverage": 1.0,
+      "review_coverage": 1.0
+    },
+    {
+      "repo_full": "tektoncd/pipeline",
+      "first_week": "2025-06-23",
+      "last_week": "2026-08-03",
+      "weeks": 59,
+      "zero_attempt_weeks": 0,
+      "outcome_support_median": 418.0,
+      "latency_coverage": 1.0,
+      "failure_coverage": 1.0,
+      "rerun_coverage": 1.0,
+      "pr_cycle_coverage": 0.9661016949152542,
+      "review_coverage": 0.9491525423728814
+    }
+  ],
+  "rows_by_split": {
+    "external": 177,
+    "train": 108,
+    "holdout": 57,
+    "purge": 12
+  },
+  "workflow_count_by_repository": {
+    "containerd/containerd": 13,
+    "docker/cli": 10,
+    "helm/helm": 6,
+    "prometheus/prometheus": 14,
+    "pytest-dev/pytest": 5,
+    "tektoncd/pipeline": 9
+  },
+  "attempt_coverage_by_repository": [
+    {
+      "repo_full": "containerd/containerd",
+      "eligible_event_runs": 25926,
+      "runs_with_attempts": 25901,
+      "attempt_coverage": 0.9990357170408084
+    },
+    {
+      "repo_full": "docker/cli",
+      "eligible_event_runs": 14903,
+      "runs_with_attempts": 14903,
+      "attempt_coverage": 1.0
+    },
+    {
+      "repo_full": "helm/helm",
+      "eligible_event_runs": 7424,
+      "runs_with_attempts": 7424,
+      "attempt_coverage": 1.0
+    },
+    {
+      "repo_full": "prometheus/prometheus",
+      "eligible_event_runs": 36939,
+      "runs_with_attempts": 36939,
+      "attempt_coverage": 1.0
+    },
+    {
+      "repo_full": "pytest-dev/pytest",
+      "eligible_event_runs": 2847,
+      "runs_with_attempts": 2847,
+      "attempt_coverage": 1.0
+    },
+    {
+      "repo_full": "tektoncd/pipeline",
+      "eligible_event_runs": 27329,
+      "runs_with_attempts": 27322,
+      "attempt_coverage": 0.9997438618317538
+    }
+  ],
+  "external_calibration_by_repository": {
+    "pytest-dev/pytest": {
+      "calibration_weeks": 13,
+      "evaluation_weeks": 46
+    },
+    "helm/helm": {
+      "calibration_weeks": 13,
+      "evaluation_weeks": 46
+    },
+    "containerd/containerd": {
+      "calibration_weeks": 13,
+      "evaluation_weeks": 46
+    }
+  }
+}
