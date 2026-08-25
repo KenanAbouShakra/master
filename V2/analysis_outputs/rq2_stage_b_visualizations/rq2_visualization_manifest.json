@@ -1,0 +1,69 @@
+{
+  "binary_intervals": "reconstructed Wilson 95% intervals from aggregated successes and denominators",
+  "files": {
+    "figure_data_detection_by_duration.csv": {
+      "bytes": 1890,
+      "sha256": "f65b7fc6eb772a6286ee86c86db12e74d32a67585e068173c2c42bdef5823070"
+    },
+    "figure_data_detection_by_magnitude.csv": {
+      "bytes": 1430,
+      "sha256": "a5c6953309d4248d34e0e8b280f6e349b1c3330779c289feafc32c9d0d003ade"
+    },
+    "figure_data_missingness_contrast.csv": {
+      "bytes": 253,
+      "sha256": "348dc5058935699432ab2f34561b38f345f9ec72fb7c1c7ce57f1442d09f3985"
+    },
+    "figure_data_operating_tradeoff.csv": {
+      "bytes": 751,
+      "sha256": "6b68435b8b361e0b679da4e6eb76dfbf6e2b4e79504af821ffe392d0dbfce916"
+    },
+    "figure_data_repository_responsiveness.csv": {
+      "bytes": 1698,
+      "sha256": "f076f6e007354594d622918351fa7fcb76c709332765a89e0fbf044520e69a91"
+    },
+    "figure_rq2_1_operating_tradeoff.pdf": {
+      "bytes": 20776,
+      "sha256": "bfafbe4db54103c2fc3d4a43105be0d62d98584630329a6a4123757f632cb0b8"
+    },
+    "figure_rq2_1_operating_tradeoff.png": {
+      "bytes": 128922,
+      "sha256": "d0f07ac3691c295b49a18f38d1aeb40ef521e98653831d9369e3106c4834b645"
+    },
+    "figure_rq2_2_detection_by_duration.pdf": {
+      "bytes": 22453,
+      "sha256": "791873e203616c0fb80484d802afe73578a83ced98731b2b078edf8dc30499ac"
+    },
+    "figure_rq2_2_detection_by_duration.png": {
+      "bytes": 281643,
+      "sha256": "3f1c7444e89243c8330f6fe8ee5af973474f5e5b009a328f5747c6390c7eb94b"
+    },
+    "figure_rq2_3_detection_by_magnitude.pdf": {
+      "bytes": 21949,
+      "sha256": "cb97e7cc372431fad3d08215b56d595b19bfd4a060b55e807b53ff3cd1fd55c4"
+    },
+    "figure_rq2_3_detection_by_magnitude.png": {
+      "bytes": 313424,
+      "sha256": "c34e7e82eee70f4a0b49c41dd6bdd23615f3d27a9b8db7e08aa7881caa0acaea"
+    },
+    "figure_rq2_4_repository_responsiveness.pdf": {
+      "bytes": 17871,
+      "sha256": "f6e827dbcbd17065a3ec1682bc0b94d1f0faa8d304004b72ba4de38c602587c2"
+    },
+    "figure_rq2_4_repository_responsiveness.png": {
+      "bytes": 99970,
+      "sha256": "1cc9e4ac3f00b733ccc1f0e14ed7f6f39ecbdcf361020acbd56452af1efb18a2"
+    },
+    "figure_rq2_5_missingness_contrast.pdf": {
+      "bytes": 18572,
+      "sha256": "e1fbfe1d50c83dd9b1cbf463d140983f5b655a54c6fb792c29183452f33be3cd"
+    },
+    "figure_rq2_5_missingness_contrast.png": {
+      "bytes": 88023,
+      "sha256": "cc1fbcc50adc85898ee58a4ed0a7f719f0f7284968d9e70e8c3e3c969f631c97"
+    }
+  },
+  "point_estimates_only_for_continuous_metrics": true,
+  "source_analysis_metadata_sha256": "0e7e0162624642bbe2951d007a74e2d38c1bee8470546f3f374a32d91938650a",
+  "status": "PASS",
+  "terminology": "controlled/injected CI deviation; never operational degradation"
+}

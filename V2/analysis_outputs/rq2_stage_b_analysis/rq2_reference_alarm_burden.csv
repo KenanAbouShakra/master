@@ -1,0 +1,19 @@
+repo_full,detector_family,detector_variant,scenario_detector_rows,reference_alarm_burden,unique_reference_burden_values,minimum,maximum,interpretation
+containerd/containerd,causal_rolling_mad,failure_rate,14001,0.021970217268355605,23,0.0,0.0416666666666666,alarm burden on unaltered external series; not a false-alarm rate
+containerd/containerd,causal_rolling_mad,latency_log,14001,0.0,1,0.0,0.0,alarm burden on unaltered external series; not a false-alarm rate
+containerd/containerd,causal_rolling_mad,rerun_rate,14001,0.0,1,0.0,0.0,alarm burden on unaltered external series; not a false-alarm rate
+containerd/containerd,causal_rolling_mad,two_of_three,14001,0.0,1,0.0,0.0,alarm burden on unaltered external series; not a false-alarm rate
+containerd/containerd,causal_rolling_mad,union,14001,0.04341955717905836,33,0.0,0.0869565217391304,alarm burden on unaltered external series; not a false-alarm rate
+containerd/containerd,mewma,mewma,14001,0.0,1,0.0,0.0,alarm burden on unaltered external series; not a false-alarm rate
+helm/helm,causal_rolling_mad,failure_rate,14001,0.022029236320533052,23,0.0,0.0416666666666666,alarm burden on unaltered external series; not a false-alarm rate
+helm/helm,causal_rolling_mad,latency_log,14001,0.0,1,0.0,0.0,alarm burden on unaltered external series; not a false-alarm rate
+helm/helm,causal_rolling_mad,rerun_rate,14001,0.04459924633807132,32,0.0,0.0869565217391304,alarm burden on unaltered external series; not a false-alarm rate
+helm/helm,causal_rolling_mad,two_of_three,14001,0.0,1,0.0,0.0,alarm burden on unaltered external series; not a false-alarm rate
+helm/helm,causal_rolling_mad,union,14001,0.10978200980008056,45,0.0,0.1666666666666666,alarm burden on unaltered external series; not a false-alarm rate
+helm/helm,mewma,mewma,14001,0.0,1,0.0,0.0,alarm burden on unaltered external series; not a false-alarm rate
+pytest-dev/pytest,causal_rolling_mad,failure_rate,14001,0.0,1,0.0,0.0,alarm burden on unaltered external series; not a false-alarm rate
+pytest-dev/pytest,causal_rolling_mad,latency_log,14001,0.13381254010870017,48,0.0666666666666666,0.2608695652173913,alarm burden on unaltered external series; not a false-alarm rate
+pytest-dev/pytest,causal_rolling_mad,rerun_rate,14001,0.0,1,0.0,0.0,alarm burden on unaltered external series; not a false-alarm rate
+pytest-dev/pytest,causal_rolling_mad,two_of_three,14001,0.0,1,0.0,0.0,alarm burden on unaltered external series; not a false-alarm rate
+pytest-dev/pytest,causal_rolling_mad,union,14001,0.34151684544493127,7,0.0,1.0,alarm burden on unaltered external series; not a false-alarm rate
+pytest-dev/pytest,mewma,mewma,14001,0.06521821940254781,2,0.0652173913043478,0.0666666666666666,alarm burden on unaltered external series; not a false-alarm rate

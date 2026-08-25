@@ -1,0 +1,7 @@
+detector,difference_percentage_points,design_cells
+MEWMA,-9.476190476190476,84
+MAD latency,-20.023809523809526,84
+MAD union,-32.58333333333333,84
+MAD two-of-three,-13.261904761904761,84
+MAD failure,-6.047619047619047,84
+MAD rerun,-7.7857142857142865,84

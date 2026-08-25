@@ -1,0 +1,48 @@
+{
+  "interpretation_limits": {
+    "causal_effect": false,
+    "population_transportability": false,
+    "real_world_ground_truth": false,
+    "universal_winner": false
+  },
+  "methods": {
+    "binary_uncertainty": "Wilson 95% interval",
+    "continuous_uncertainty": "scenario-level mean plus normal-approximation 95% Monte Carlo interval",
+    "cross_repository_stability": "descriptive range and SD across three repositories",
+    "data_quality_comparisons": "difference in means within matched design cells at medium magnitude; injection starts are independently seeded across condition profiles",
+    "delay_denominator": "detected scenarios only; always reported with detection proportion"
+  },
+  "outputs": {
+    "rq2_cross_repository_stability.csv": {
+      "rows": 4200,
+      "sha256": "26ff9e97afe86f5d86127844bc23eedce74be1f244395b29620f737a7f0f6946"
+    },
+    "rq2_data_quality_contrasts.csv": {
+      "rows": 15120,
+      "sha256": "96e900c842fe33194b721ea1a45bc3ddd8b078ed8314518990b87e6895e845cb"
+    },
+    "rq2_dimensionality_profiles.csv": {
+      "rows": 648,
+      "sha256": "fc56a750e0ab73b562bb0f9d865815cf2e094a063744a2de7a5fe09f0b9ee0b0"
+    },
+    "rq2_duration_profiles.csv": {
+      "rows": 504,
+      "sha256": "f946c823e5e7a9da5c634f6bc63c6d0e0202be6109f1577318605c9bc938ea3e"
+    },
+    "rq2_magnitude_profiles.csv": {
+      "rows": 378,
+      "sha256": "91c97bbbcd66277be3c5f51f64338836a80bc44bf7386e82ce32b19eca2301a1"
+    },
+    "rq2_operating_profiles.csv": {
+      "rows": 2520,
+      "sha256": "38e1909e972bc829643b9b764f523923d68b4a7cf0717b1d02b813f532c31ab3"
+    },
+    "rq2_reference_alarm_burden.csv": {
+      "rows": 18,
+      "sha256": "52abc4388d9fb034f5c60dfe46a6b9c1cd6b2122534e4c477aead3e12fc94aff"
+    }
+  },
+  "source_detector_rows": 252018,
+  "source_results_manifest_sha256": "3edd5fb241ba6828b0db44ba80b9316a71693f3467b3990c22b671d2dfe6d4e7",
+  "status": "PASS"
+}
