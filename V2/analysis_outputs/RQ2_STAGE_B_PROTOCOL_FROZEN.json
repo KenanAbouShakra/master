@@ -1,0 +1,55 @@
+{
+  "config_sha256": "64e3a304dc81abba993f6cb6bd6a4c8d51b4b0557375f80f9490c0f7f7ce92d4",
+  "created_at_utc": "2026-08-25T21:45:16.354789+00:00",
+  "declarations": {
+    "confirmatory_run_authorized": true,
+    "detector_refitting_authorized": false,
+    "protocol_changes_after_freeze_authorized": false,
+    "research_outputs_written_by_freeze": false
+  },
+  "expected_detector_rows": 252018,
+  "files": {
+    "RQ2_Stage_B_Confirmatory_Contract.md": {
+      "bytes": 8946,
+      "sha256": "9377199a8e4ef921cbbeece087af8bc6a6e484b27269f60415f8fa50a5b611d8"
+    },
+    "freeze_rq2_stage_b_protocol.py": {
+      "bytes": 7258,
+      "sha256": "986c30d0396bf24e3d1fcd0abe18ebad171bc40eceb96808c08efe4585b26ec5"
+    },
+    "preflight_rq2_stage_b.py": {
+      "bytes": 13520,
+      "sha256": "bd3b19bb62909fcdefe8dda2ab6d6f6471a77cf63a878e25d672dfb5c630b0b2"
+    },
+    "rq2_run_stage_b.py": {
+      "bytes": 16600,
+      "sha256": "4b93b8b431b4b7e267fa68541c3f74eaa289c33ba3141b8a674f240879f766a0"
+    },
+    "rq2_stage_b_core.py": {
+      "bytes": 13235,
+      "sha256": "95549249fbfb0fa2bc06e6e5eb1a951255ba0ac91687be2d99340141306670ff"
+    },
+    "stage_b_confirmatory_config.yaml": {
+      "bytes": 4895,
+      "sha256": "64e3a304dc81abba993f6cb6bd6a4c8d51b4b0557375f80f9490c0f7f7ce92d4"
+    },
+    "test_rq2_stage_b_core.py": {
+      "bytes": 5717,
+      "sha256": "7a25f705447fa037f21cac0cf40313b3e0faf9119f124f22764fc3386448f280"
+    },
+    "test_rq2_stage_b_runner.py": {
+      "bytes": 2923,
+      "sha256": "477d6070eb86586cde943bcb2db803453a183b4f2685b2f1960c0a7c1e06712e"
+    }
+  },
+  "manifest_version": 1,
+  "response_horizons_weeks": [
+    0,
+    1,
+    2,
+    4
+  ],
+  "scenario_grid_sha256": "b17550141accf12d8b01729baa7dc48e8fb7a63d226d747639bbbce6e2f17937",
+  "scenario_rows": 42003,
+  "status": "FROZEN"
+}

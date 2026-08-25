@@ -1,0 +1,160 @@
+version: 1
+protocol_status: frozen_confirmatory
+research_question: How do deviation magnitude, duration, dimensionality, data volume, and
+  missingness affect the sensitivity, timeliness, and alarm burden of repository-relative
+  CI monitoring, and how stable are these operating characteristics across repositories?
+approved_frozen_inputs:
+  stage_a_manifest:
+    path: analysis_outputs/STAGE_A_FROZEN.json
+    sha256: aaa51548f571e71ff7e44fe6150943ed71ea5ed6849cb8314706a0e0b55534e0
+  rq1_manifest:
+    path: analysis_outputs/RQ1_BASELINES_FROZEN.json
+    sha256: d871b9c08870c57486985e601d448466c0baecbbd505679dce767ddf385bf55d
+  analysis_config:
+    path: analysis_config.yaml
+    sha256: fc0f3c711c259e601d9ff62bf1e48455c2bb54ad91f49f7fbf6d1f14db8907b7
+  baseline_source:
+    path: 03_fit_baselines.py
+    sha256: 02d4155f4b9594f703b24430d378a29400b29a5f72c80f6e9691cf0f3ed6d9fd
+  baseline_metadata:
+    path: analysis_outputs/baseline_metadata.json
+    sha256: 2b2d01850bc74178de175e428c779c5cca96923f6abc1002b5c8c6fc652d11f3
+  baseline_results:
+    path: analysis_outputs/baseline_results.csv
+    sha256: cf79206ee7f3fe7d601c43b4719df0ca9ac7f7715053e1830a1733fcbe4f131f
+  stage_a_evaluator_source:
+    path: validate_stage_a_baselines.py
+    sha256: 0795a0ca6c851143e47df3a052b3ea577ab625c1bb0324c8a2375b560335334a
+evidence_domain:
+  repositories:
+  - containerd/containerd
+  - helm/helm
+  - pytest-dev/pytest
+  source_split: external
+  calibration_weeks: 13
+  injection_and_scoring_flag: external_evaluation_eligible
+  development_repositories_prohibited: true
+detector_contract:
+  causal_rolling_mad:
+    window_weeks: 13
+    threshold_scaled_mad: 3.0
+    persistence_weeks: 2
+    variants:
+    - latency_log
+    - failure_rate
+    - rerun_rate
+    - union
+    - two_of_three
+  mewma:
+    lambda: 0.2
+    empirical_control_limit: 7.150034791553729
+    standardization: frozen_repository_specific
+    refit_authorized: false
+scenario_design:
+  base_seed: 2026082501
+  stage_a_seed_reuse_prohibited: true
+  repetitions_per_injected_cell: 100
+  no_injection_repetitions_per_repository: 1
+  earliest_injection_rule: First external-evaluation-eligible index with at least 13 prior
+    observed repository weeks; all injected weeks must be external-evaluation-eligible.
+  latency_relative_shifts:
+  - 0.1
+  - 0.25
+  - 0.5
+  failure_probability_shifts:
+  - 0.05
+  - 0.1
+  - 0.2
+  rerun_probability_shifts:
+  - 0.05
+  - 0.1
+  - 0.2
+  durations_weeks:
+  - 1
+  - 2
+  - 4
+  - 8
+  signal_combinations:
+  - - latency_log
+  - - failure_rate
+  - - rerun_rate
+  - - latency_log
+    - failure_rate
+  - - latency_log
+    - rerun_rate
+  - - failure_rate
+    - rerun_rate
+  - - latency_log
+    - failure_rate
+    - rerun_rate
+  condition_profiles:
+  - name: observed
+    volume_condition: observed
+    missingness_condition: none
+    magnitude_levels:
+    - low
+    - medium
+    - high
+  - name: low_volume
+    volume_condition: low_volume
+    missingness_condition: none
+    magnitude_levels:
+    - medium
+  - name: controlled_missingness
+    volume_condition: observed
+    missingness_condition: controlled
+    magnitude_levels:
+    - medium
+  low_volume:
+    sampling_fraction: 0.25
+    minimum_denominator: 5
+  controlled_missingness:
+    fraction_of_affected_cells: 0.25
+    minimum_cells: 1
+  workflow_composition:
+    included: false
+    reason: no_validated_counterfactual_mapping
+  one_week_role: transient_comparator
+paired_evaluation:
+  reference_series: unaltered_external_repository_sequence
+  injected_series: paired_copy_with_single_locked_scenario
+  incremental_alarm_definition: injected_alarm_and_not_reference_alarm
+  calibration_weeks_scored: false
+  natural_reference_alarms_label: reference_alarm_burden_not_false_alarms
+  response_horizons_weeks:
+  - 0
+  - 1
+  - 2
+  - 4
+primary_estimands:
+- strict_incremental_episode_detection_rate
+- strict_incremental_detection_delay_weeks
+- reference_alarm_burden
+- injection_attributable_spillover_burden
+secondary_estimands:
+- total_operational_episode_detection_rate
+- reference_alarm_overlap_with_injection
+- incremental_alarm_duration_weeks
+- incremental_boundary_overlap
+- unevaluable_fraction
+- probability_clipping_count
+- injection_relative_precision
+- injection_relative_false_alarm_rate
+- extended_response_window_detection
+reporting_contract:
+  universal_winner_score_authorized: false
+  repository_specific_results_required: true
+  pooled_results_without_repository_results_authorized: false
+  effect_sizes_and_uncertainty_primary: true
+  real_world_ground_truth_claim_authorized: false
+  causal_claim_authorized: false
+outputs:
+  directory: analysis_outputs/rq2_stage_b
+  refuse_overwrite: true
+  required_files:
+  - rq2_stage_b_scenarios.csv
+  - rq2_stage_b_paired_week_results.csv.gz
+  - rq2_stage_b_detector_results.csv.gz
+  - rq2_stage_b_primary_summary.csv
+  - rq2_stage_b_metadata.json
+  - rq2_stage_b_validation_status.json

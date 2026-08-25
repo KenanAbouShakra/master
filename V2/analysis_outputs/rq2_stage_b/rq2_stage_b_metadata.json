@@ -1,0 +1,30 @@
+{
+  "claim_scope": "controlled perturbation responsiveness; not real-world ground truth",
+  "configuration_sha256": "64e3a304dc81abba993f6cb6bd6a4c8d51b4b0557375f80f9490c0f7f7ce92d4",
+  "contract_sha256": "9377199a8e4ef921cbbeece087af8bc6a6e484b27269f60415f8fa50a5b611d8",
+  "detector_refitted": false,
+  "detector_result_rows": 252018,
+  "outputs": [
+    "rq2_stage_b_scenarios.csv",
+    "rq2_stage_b_paired_week_results.csv.gz",
+    "rq2_stage_b_detector_results.csv.gz",
+    "rq2_stage_b_primary_summary.csv",
+    "rq2_stage_b_metadata.json",
+    "rq2_stage_b_validation_status.json"
+  ],
+  "paired_week_rows": 11592828,
+  "protocol_freeze": {
+    "path": "analysis_outputs\\RQ2_STAGE_B_PROTOCOL_FROZEN.json",
+    "sha256": "f497e208726361488e981078a842b9dc0147cc6f0335034a82a610aeb60e9ba6"
+  },
+  "response_horizons_weeks": [
+    0,
+    1,
+    2,
+    4
+  ],
+  "scenario_grid_sha256": "b17550141accf12d8b01729baa7dc48e8fb7a63d226d747639bbbce6e2f17937",
+  "scenario_rows": 42003,
+  "status": "PASS",
+  "summary_rows": 2538
+}

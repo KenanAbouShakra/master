@@ -1,0 +1,326 @@
+{
+  "status": "PASS",
+  "preflight": {
+    "status": "PASS",
+    "failures": {},
+    "contract": {
+      "primary_states": [
+        "unreviewed",
+        "reviewed",
+        "resolved"
+      ],
+      "transitions": [
+        "unreviewed_to_reviewed",
+        "unreviewed_to_resolved",
+        "reviewed_to_resolved"
+      ],
+      "training_outcomes_recensored_at": "2026-03-02T00:00:00+00:00",
+      "holdout_created_from": "2026-03-30T00:00:00+00:00",
+      "final_observation_cutoff": "2026-08-08T00:00:00+00:00",
+      "comparison_population": "prior-week-CI-eligible rows only",
+      "ties": "Efron; exact zero-duration intervals receive one second and are flagged",
+      "claim": "prediction and conditional association, not causation"
+    },
+    "checks": {
+      "unreviewed_to_reviewed": {
+        "development_training": {
+          "baseline": {
+            "rows": 2160,
+            "events": 1663,
+            "missing_rows": 0,
+            "features": 6,
+            "matrix_rank": 6,
+            "condition_number": 7.202172303700319,
+            "zero_duration_adjustments": 0
+          },
+          "ci_context": {
+            "rows": 2160,
+            "events": 1663,
+            "missing_rows": 0,
+            "features": 11,
+            "matrix_rank": 11,
+            "condition_number": 10.326378726490269,
+            "zero_duration_adjustments": 0
+          }
+        },
+        "development_temporal_holdout": {
+          "baseline": {
+            "rows": 1757,
+            "events": 1257,
+            "missing_rows": 0,
+            "features": 6,
+            "matrix_rank": 6,
+            "condition_number": 6.673113887186893,
+            "zero_duration_adjustments": 0
+          },
+          "ci_context": {
+            "rows": 1757,
+            "events": 1257,
+            "missing_rows": 0,
+            "features": 11,
+            "matrix_rank": 11,
+            "condition_number": 9.719423174306524,
+            "zero_duration_adjustments": 0
+          }
+        },
+        "external_evaluation": {
+          "baseline": {
+            "rows": 3510,
+            "events": 2713,
+            "missing_rows": 0,
+            "features": 6,
+            "matrix_rank": 6,
+            "condition_number": 5.410976078539121,
+            "zero_duration_adjustments": 0
+          },
+          "ci_context": {
+            "rows": 3510,
+            "events": 2713,
+            "missing_rows": 0,
+            "features": 11,
+            "matrix_rank": 11,
+            "condition_number": 6.8434312108940425,
+            "zero_duration_adjustments": 0
+          }
+        }
+      },
+      "unreviewed_to_resolved": {
+        "development_training": {
+          "baseline": {
+            "rows": 2160,
+            "events": 352,
+            "missing_rows": 0,
+            "features": 6,
+            "matrix_rank": 6,
+            "condition_number": 7.202172303700319,
+            "zero_duration_adjustments": 0
+          },
+          "ci_context": {
+            "rows": 2160,
+            "events": 352,
+            "missing_rows": 0,
+            "features": 11,
+            "matrix_rank": 11,
+            "condition_number": 10.326378726490269,
+            "zero_duration_adjustments": 0
+          }
+        },
+        "development_temporal_holdout": {
+          "baseline": {
+            "rows": 1757,
+            "events": 260,
+            "missing_rows": 0,
+            "features": 6,
+            "matrix_rank": 6,
+            "condition_number": 6.673113887186893,
+            "zero_duration_adjustments": 0
+          },
+          "ci_context": {
+            "rows": 1757,
+            "events": 260,
+            "missing_rows": 0,
+            "features": 11,
+            "matrix_rank": 11,
+            "condition_number": 9.719423174306524,
+            "zero_duration_adjustments": 0
+          }
+        },
+        "external_evaluation": {
+          "baseline": {
+            "rows": 3510,
+            "events": 500,
+            "missing_rows": 0,
+            "features": 6,
+            "matrix_rank": 6,
+            "condition_number": 5.410976078539121,
+            "zero_duration_adjustments": 0
+          },
+          "ci_context": {
+            "rows": 3510,
+            "events": 500,
+            "missing_rows": 0,
+            "features": 11,
+            "matrix_rank": 11,
+            "condition_number": 6.8434312108940425,
+            "zero_duration_adjustments": 0
+          }
+        }
+      },
+      "reviewed_to_resolved": {
+        "development_training": {
+          "baseline": {
+            "rows": 1663,
+            "events": 1562,
+            "missing_rows": 0,
+            "features": 6,
+            "matrix_rank": 6,
+            "condition_number": 7.101864149662523,
+            "zero_duration_adjustments": 0
+          },
+          "ci_context": {
+            "rows": 1663,
+            "events": 1562,
+            "missing_rows": 0,
+            "features": 11,
+            "matrix_rank": 11,
+            "condition_number": 10.357440726499672,
+            "zero_duration_adjustments": 0
+          }
+        },
+        "development_temporal_holdout": {
+          "baseline": {
+            "rows": 1257,
+            "events": 1130,
+            "missing_rows": 0,
+            "features": 6,
+            "matrix_rank": 6,
+            "condition_number": 6.7000041843299885,
+            "zero_duration_adjustments": 0
+          },
+          "ci_context": {
+            "rows": 1257,
+            "events": 1130,
+            "missing_rows": 0,
+            "features": 11,
+            "matrix_rank": 11,
+            "condition_number": 9.861795805973376,
+            "zero_duration_adjustments": 0
+          }
+        },
+        "external_evaluation": {
+          "baseline": {
+            "rows": 2713,
+            "events": 2496,
+            "missing_rows": 0,
+            "features": 6,
+            "matrix_rank": 6,
+            "condition_number": 5.466973737717917,
+            "zero_duration_adjustments": 0
+          },
+          "ci_context": {
+            "rows": 2713,
+            "events": 2496,
+            "missing_rows": 0,
+            "features": 11,
+            "matrix_rank": 11,
+            "condition_number": 6.9348669486458885,
+            "zero_duration_adjustments": 0
+          }
+        }
+      }
+    }
+  },
+  "model_metadata": {
+    "scalers": {
+      "unreviewed_to_reviewed": {
+        "means": {
+          "log_author_prior_pr_count": 4.253956099500521,
+          "author_newcomer": 0.10925925925925926,
+          "draft": 0.05787037037037037,
+          "log_repo_open_prs": 4.718995794981611,
+          "log_repo_pr_arrivals_28d": 4.4650633395812465,
+          "log_repo_merges_28d": 4.143043165986782,
+          "log_prior_week_ci_attempts": 5.906364696314273,
+          "prior_week_ci_failure_rate": 0.21881546409856348,
+          "prior_week_ci_rerun_rate": 0.05452444007317745,
+          "prior_week_ci_latency_log": 0.03492168407718448,
+          "prior_week_ci_workflow_concentration_hhi": 0.25261523708440253
+        },
+        "scales": {
+          "log_author_prior_pr_count": 2.321634376516679,
+          "author_newcomer": 0.31196421834142646,
+          "draft": 0.23349815974342608,
+          "log_repo_open_prs": 0.6699546405711222,
+          "log_repo_pr_arrivals_28d": 0.518576135277465,
+          "log_repo_merges_28d": 0.5266876258628297,
+          "log_prior_week_ci_attempts": 0.8345230351705311,
+          "prior_week_ci_failure_rate": 0.0782942584623121,
+          "prior_week_ci_rerun_rate": 0.07119468604283101,
+          "prior_week_ci_latency_log": 0.09837754424306813,
+          "prior_week_ci_workflow_concentration_hhi": 0.044392451294416144
+        }
+      },
+      "unreviewed_to_resolved": {
+        "means": {
+          "log_author_prior_pr_count": 4.253956099500521,
+          "author_newcomer": 0.10925925925925926,
+          "draft": 0.05787037037037037,
+          "log_repo_open_prs": 4.718995794981611,
+          "log_repo_pr_arrivals_28d": 4.4650633395812465,
+          "log_repo_merges_28d": 4.143043165986782,
+          "log_prior_week_ci_attempts": 5.906364696314273,
+          "prior_week_ci_failure_rate": 0.21881546409856348,
+          "prior_week_ci_rerun_rate": 0.05452444007317745,
+          "prior_week_ci_latency_log": 0.03492168407718448,
+          "prior_week_ci_workflow_concentration_hhi": 0.25261523708440253
+        },
+        "scales": {
+          "log_author_prior_pr_count": 2.321634376516679,
+          "author_newcomer": 0.31196421834142646,
+          "draft": 0.23349815974342608,
+          "log_repo_open_prs": 0.6699546405711222,
+          "log_repo_pr_arrivals_28d": 0.518576135277465,
+          "log_repo_merges_28d": 0.5266876258628297,
+          "log_prior_week_ci_attempts": 0.8345230351705311,
+          "prior_week_ci_failure_rate": 0.0782942584623121,
+          "prior_week_ci_rerun_rate": 0.07119468604283101,
+          "prior_week_ci_latency_log": 0.09837754424306813,
+          "prior_week_ci_workflow_concentration_hhi": 0.044392451294416144
+        }
+      },
+      "reviewed_to_resolved": {
+        "means": {
+          "log_author_prior_pr_count": 4.4264301887295545,
+          "author_newcomer": 0.08779314491882141,
+          "draft": 0.01984365604329525,
+          "log_repo_open_prs": 4.699822872348349,
+          "log_repo_pr_arrivals_28d": 4.462198075285981,
+          "log_repo_merges_28d": 4.147917591861393,
+          "log_prior_week_ci_attempts": 5.886448064726397,
+          "prior_week_ci_failure_rate": 0.21546526591517007,
+          "prior_week_ci_rerun_rate": 0.0543831717478002,
+          "prior_week_ci_latency_log": 0.033933704696133125,
+          "prior_week_ci_workflow_concentration_hhi": 0.2502457054587173
+        },
+        "scales": {
+          "log_author_prior_pr_count": 2.202880113451569,
+          "author_newcomer": 0.2829938314240864,
+          "draft": 0.13946284579819332,
+          "log_repo_open_prs": 0.6522941392206274,
+          "log_repo_pr_arrivals_28d": 0.5071755535185845,
+          "log_repo_merges_28d": 0.5193483035077997,
+          "log_prior_week_ci_attempts": 0.8474484307905984,
+          "prior_week_ci_failure_rate": 0.07759381219759806,
+          "prior_week_ci_rerun_rate": 0.0697455765388343,
+          "prior_week_ci_latency_log": 0.10149052737874345,
+          "prior_week_ci_workflow_concentration_hhi": 0.044823588240767466
+        }
+      }
+    },
+    "likelihood_ratio_tests": {
+      "unreviewed_to_reviewed": {
+        "statistic": 109.8816785772724,
+        "degrees_of_freedom": 5,
+        "p_value": 4.3401593106641875e-22,
+        "interpretation": "training incremental fit only; external predictive performance is primary"
+      },
+      "unreviewed_to_resolved": {
+        "statistic": 25.7422863330803,
+        "degrees_of_freedom": 5,
+        "p_value": 0.00010011361704012605,
+        "interpretation": "training incremental fit only; external predictive performance is primary"
+      },
+      "reviewed_to_resolved": {
+        "statistic": 33.35852710891049,
+        "degrees_of_freedom": 5,
+        "p_value": 3.1941822633279135e-06,
+        "interpretation": "training incremental fit only; external predictive performance is primary"
+      }
+    }
+  },
+  "input_hashes": {
+    "rq2_pr_cohort.csv": "fbfe6a28ced42f11653609c9e196e0b5596429d7b7467c8c3277c3f17bc43663",
+    "rq2_transition_events.csv": "96a66d0273570a63b63600a572d1358362c4dbe7caa8aa1f5ab07c3359aa6f76",
+    "rq2_preparation_audit.json": "0afe13857ff574ba6d4c7faf5181fb3579a70811de59c87fae99e6aadd83baf5"
+  }
+}

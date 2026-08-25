@@ -1,0 +1,49 @@
+{
+  "created_at_utc": "2026-08-25T22:19:26.901404+00:00",
+  "declarations": {
+    "claim_scope": "controlled perturbation responsiveness; not real-world ground truth",
+    "detector_refitted": false,
+    "independent_validation_passed": true,
+    "rerun_or_overwrite_authorized": false,
+    "results_are_read_only_inputs_for_reporting": true,
+    "stage_b_execution_complete": true
+  },
+  "files": {
+    "analysis_outputs\\RQ2_STAGE_B_PROTOCOL_FROZEN.json": {
+      "bytes": 1822,
+      "sha256": "f497e208726361488e981078a842b9dc0147cc6f0335034a82a610aeb60e9ba6"
+    },
+    "analysis_outputs\\rq2_stage_b\\rq2_stage_b_detector_results.csv.gz": {
+      "bytes": 2922658,
+      "sha256": "dafa4b8355f3173707c4234c2e768301b13f8ece0c70a67230e0132448cc36e0"
+    },
+    "analysis_outputs\\rq2_stage_b\\rq2_stage_b_metadata.json": {
+      "bytes": 1057,
+      "sha256": "7fe9a65f1053a98671da7d400693b4992c0617b7c8c13d9a64990792970b0932"
+    },
+    "analysis_outputs\\rq2_stage_b\\rq2_stage_b_paired_week_results.csv.gz": {
+      "bytes": 37590870,
+      "sha256": "16591a5e23aac555bf588cc7980ff5b6d2dbf9bdae584655270ad43e9a197786"
+    },
+    "analysis_outputs\\rq2_stage_b\\rq2_stage_b_primary_summary.csv": {
+      "bytes": 699131,
+      "sha256": "6bb10cc5af7a7213b31f70915de31617e7b648678209b0884f10ef92a66e2496"
+    },
+    "analysis_outputs\\rq2_stage_b\\rq2_stage_b_scenarios.csv": {
+      "bytes": 9846211,
+      "sha256": "b17550141accf12d8b01729baa7dc48e8fb7a63d226d747639bbbce6e2f17937"
+    },
+    "analysis_outputs\\rq2_stage_b\\rq2_stage_b_validation_status.json": {
+      "bytes": 401,
+      "sha256": "d5255b27404acd8113ae8b810e2cfa22b4a1c3507efc6dcf1519455df54e7c4d"
+    },
+    "validate_rq2_stage_b.py": {
+      "bytes": 9903,
+      "sha256": "d82240adddec30cacf92a0f7cd5e0593b5f8fbb570460efa168f437d6b33a871"
+    }
+  },
+  "manifest_version": 1,
+  "protocol_manifest_sha256": "f497e208726361488e981078a842b9dc0147cc6f0335034a82a610aeb60e9ba6",
+  "source_validation_status": "PASS",
+  "status": "FROZEN"
+}

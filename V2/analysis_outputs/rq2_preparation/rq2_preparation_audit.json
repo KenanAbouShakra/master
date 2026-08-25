@@ -1,0 +1,107 @@
+{
+  "status": "PASS",
+  "claim_scope": "prediction and conditional association; not causation",
+  "rq1_freeze": {
+    "manifest_sha256": "d871b9c08870c57486985e601d448466c0baecbbd505679dce767ddf385bf55d",
+    "files_verified": 6
+  },
+  "administrative_censor_at": "2026-08-08T00:00:00+00:00",
+  "review_state_contract": [
+    "APPROVED",
+    "CHANGES_REQUESTED",
+    "COMMENTED"
+  ],
+  "state_contract": {
+    "0": "open_without_qualified_human_review",
+    "1": "qualified_human_review_received",
+    "2": "merged_absorbing",
+    "3": "closed_unmerged_absorbing"
+  },
+  "pull_requests": 14283,
+  "transition_rows": 25266,
+  "prior_week_ci_context_rows": 7773,
+  "prior_week_ci_context_coverage": 0.5442134005461038,
+  "event_type_counts": {
+    "merged": 10260,
+    "closed_unmerged": 2869,
+    "censored": 1154
+  },
+  "transition_counts": {
+    "0->1": 10983,
+    "1->2": 9583,
+    "0->3": 1969,
+    "1->3": 900,
+    "0->2": 677,
+    "0->censored": 654,
+    "1->censored": 500
+  },
+  "per_repository": [
+    {
+      "repo_full": "containerd/containerd",
+      "pull_requests": 1615,
+      "merged": 1094,
+      "closed_unmerged": 279,
+      "right_censored": 242,
+      "qualified_review_observed": 1287,
+      "prior_week_ci_context_rows": 1527,
+      "prior_week_ci_context_coverage": 0.9455108359133126
+    },
+    {
+      "repo_full": "docker/cli",
+      "pull_requests": 1938,
+      "merged": 1681,
+      "closed_unmerged": 126,
+      "right_censored": 131,
+      "qualified_review_observed": 1748,
+      "prior_week_ci_context_rows": 857,
+      "prior_week_ci_context_coverage": 0.4422084623323013
+    },
+    {
+      "repo_full": "helm/helm",
+      "pull_requests": 1883,
+      "merged": 1158,
+      "closed_unmerged": 544,
+      "right_censored": 181,
+      "qualified_review_observed": 1471,
+      "prior_week_ci_context_rows": 1091,
+      "prior_week_ci_context_coverage": 0.5793945831120553
+    },
+    {
+      "repo_full": "prometheus/prometheus",
+      "pull_requests": 4506,
+      "merged": 3021,
+      "closed_unmerged": 1110,
+      "right_censored": 375,
+      "qualified_review_observed": 3260,
+      "prior_week_ci_context_rows": 2007,
+      "prior_week_ci_context_coverage": 0.44540612516644473
+    },
+    {
+      "repo_full": "pytest-dev/pytest",
+      "pull_requests": 1899,
+      "merged": 1461,
+      "closed_unmerged": 319,
+      "right_censored": 119,
+      "qualified_review_observed": 1512,
+      "prior_week_ci_context_rows": 892,
+      "prior_week_ci_context_coverage": 0.4697209057398631
+    },
+    {
+      "repo_full": "tektoncd/pipeline",
+      "pull_requests": 2442,
+      "merged": 1845,
+      "closed_unmerged": 491,
+      "right_censored": 106,
+      "qualified_review_observed": 1705,
+      "prior_week_ci_context_rows": 1399,
+      "prior_week_ci_context_coverage": 0.5728910728910729
+    }
+  ],
+  "leakage_declarations": {
+    "final_additions_deletions_changed_files_commits": "retained for descriptive/sensitivity use only; excluded from the creation-time primary model unless timestamped history proves availability",
+    "contributor_history": "uses only PR information observable before focal PR creation",
+    "repository_workload": "uses only earlier creations and resolutions",
+    "ci_context": "latest fully completed prior repository week",
+    "direct_pr_ci": "not yet included; secondary time-varying linked-subset stage"
+  }
+}

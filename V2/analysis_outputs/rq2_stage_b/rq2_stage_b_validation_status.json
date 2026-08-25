@@ -1,0 +1,14 @@
+{
+  "actual_detector_rows": 252018,
+  "detector_row_count_matches": true,
+  "expected_detector_rows": 252018,
+  "expected_scenario_rows": 42003,
+  "outputs_present": [
+    "rq2_stage_b_scenarios.csv",
+    "rq2_stage_b_paired_week_results.csv.gz",
+    "rq2_stage_b_detector_results.csv.gz",
+    "rq2_stage_b_primary_summary.csv",
+    "rq2_stage_b_metadata.json"
+  ],
+  "status": "PASS"
+}
