@@ -1,0 +1,10 @@
+repository,role,period,planned_weeks,attempt_records,eligible_outcomes,failure_outcomes,logical_runs,rerun_logical_runs,additional_attempts,low_outcome_support_weeks,low_latency_support_weeks,missing_core_metric_weeks,latency_valid_weeks,latency_support_count,failure_rate_valid_weeks,failure_rate_support_count,rerun_rate_valid_weeks,rerun_rate_support_count
+docker/cli,development,development_holdout,19,4956,3952,618,4211,729,745,0,0,0,19,3945,19,3952,19,4211
+prometheus/prometheus,development,development_holdout,19,14680,11949,1859,14435,218,245,0,0,0,19,11946,19,11949,19,14435
+tektoncd/pipeline,development,development_holdout,19,16242,14758,2071,14868,1210,1374,0,0,0,19,14062,19,14758,19,14868
+containerd/containerd,external,external_calibration,13,6333,6282,1632,6038,212,295,0,0,0,13,6280,13,6282,13,6038
+helm/helm,external,external_calibration,13,1853,1601,182,1596,255,257,0,0,0,13,1593,13,1601,13,1596
+pytest-dev/pytest,external,external_calibration,13,280,203,41,276,3,4,0,0,0,13,203,13,203,13,276
+containerd/containerd,external,external_evaluation,46,21049,20767,4878,19862,985,1187,0,0,0,46,20754,46,20767,46,19862
+helm/helm,external,external_evaluation,46,6412,5431,493,5822,586,590,0,0,0,46,5422,46,5431,46,5822
+pytest-dev/pytest,external,external_evaluation,46,2618,1777,261,2571,43,47,0,0,0,46,1776,46,1777,46,2571

@@ -1,0 +1,7 @@
+repo_full,planned_weeks,attempt_records,eligible_outcomes,latency_support,logical_runs,additional_attempts
+containerd/containerd,46,21049,20767,20754,19862,1187
+docker/cli,19,4956,3952,3945,4211,745
+helm/helm,46,6412,5431,5422,5822,590
+prometheus/prometheus,19,14680,11949,11946,14435,245
+pytest-dev/pytest,46,2618,1777,1776,2571,47
+tektoncd/pipeline,19,16242,14758,14062,14868,1374

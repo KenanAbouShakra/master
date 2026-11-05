@@ -1,0 +1,48 @@
+{
+  "direct_files_checked": {
+    "weekly_measurement_panel": {
+      "path": "V2/analysis_outputs/repository_week_panel_audited.csv",
+      "sha256": "73e06ac4ad67c5c8ff01fbc298544f41b3fe4a2ad5f1c2d07d3a1fd254e78061",
+      "bytes": 114931
+    },
+    "intermediate_scores": {
+      "path": "V2/analysis_outputs/baseline_results.csv",
+      "sha256": "cf79206ee7f3fe7d601c43b4719df0ca9ac7f7715053e1830a1733fcbe4f131f",
+      "bytes": 433149
+    },
+    "figure_script": {
+      "path": "V2/visualize_rq2_results.py",
+      "sha256": "cfebd3560c90705e322a74518b5279d41823788edb6e824c608394d1d05286c8"
+    },
+    "mad_source": {
+      "path": "V2/03_fit_baselines.py",
+      "sha256": "02d4155f4b9594f703b24430d378a29400b29a5f72c80f6e9691cf0f3ed6d9fd"
+    },
+    "visualization_manifest": {
+      "path": "V2/analysis_outputs/rq2_stage_b_visualizations/rq2_visualization_manifest.json",
+      "sha256": "de245b522efad8cf1d8633c3eaeae76305a4815dc95fa8040c1d9ec2b7d65171"
+    }
+  },
+  "reconstructed_evaluation_support_totals": {
+    "planned_weeks": 195,
+    "attempt_records": 65957,
+    "eligible_outcomes": 58634,
+    "latency_support": 57905,
+    "logical_runs": 61769,
+    "additional_attempts": 4188
+  },
+  "diagnostic_rows": 1170,
+  "diagnostic_unavailable_rows": 132,
+  "reconstructed_mad_scores_matched": 546,
+  "reconstructed_mad_scores_compared": 546,
+  "figure_assets_matching_manifest": 15,
+  "figure_assets_listed_in_manifest": 15,
+  "rq2_analysis_csvs_matching_metadata": 7,
+  "rq2_analysis_csvs_listed_in_metadata": 7,
+  "scope": "read-only reconstruction from stored panels/intermediates and source code; no detector refit or RQ2 regeneration",
+  "limitations": [
+    "RQ1 baseline weekly output is permission-denied in this session; its intermediate baseline_results.csv is readable.",
+    "Named main study note and corrected MEWMA methods note are not present in the inspected repository.",
+    "The RQ2 visualization manifest records output/data hashes but does not hash the generation script itself."
+  ]
+}

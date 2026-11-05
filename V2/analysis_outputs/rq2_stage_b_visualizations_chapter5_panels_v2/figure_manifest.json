@@ -1,0 +1,165 @@
+{
+  "analysis_metadata_sha256": "0e7e0162624642bbe2951d007a74e2d38c1bee8470546f3f374a32d91938650a",
+  "created_on": "2026-10-23",
+  "frozen_results_manifest_sha256": "3edd5fb241ba6828b0db44ba80b9316a71693f3467b3990c22b671d2dfe6d4e7",
+  "inputs": {
+    "analysis_metadata": {
+      "bytes": 1965,
+      "path": "analysis_outputs/rq2_stage_b_analysis/rq2_analysis_metadata.json",
+      "sha256": "0e7e0162624642bbe2951d007a74e2d38c1bee8470546f3f374a32d91938650a"
+    },
+    "data_quality_contrasts": {
+      "bytes": 4680474,
+      "path": "analysis_outputs/rq2_stage_b_analysis/rq2_data_quality_contrasts.csv",
+      "sha256": "96e900c842fe33194b721ea1a45bc3ddd8b078ed8314518990b87e6895e845cb"
+    },
+    "detector_results": {
+      "bytes": 2922658,
+      "path": "analysis_outputs/rq2_stage_b/rq2_stage_b_detector_results.csv.gz",
+      "sha256": "dafa4b8355f3173707c4234c2e768301b13f8ece0c70a67230e0132448cc36e0"
+    },
+    "duration_profiles": {
+      "bytes": 457355,
+      "path": "analysis_outputs/rq2_stage_b_analysis/rq2_duration_profiles.csv",
+      "sha256": "f946c823e5e7a9da5c634f6bc63c6d0e0202be6109f1577318605c9bc938ea3e"
+    },
+    "magnitude_profiles": {
+      "bytes": 334871,
+      "path": "analysis_outputs/rq2_stage_b_analysis/rq2_magnitude_profiles.csv",
+      "sha256": "91c97bbbcd66277be3c5f51f64338836a80bc44bf7386e82ce32b19eca2301a1"
+    },
+    "old_visualization_manifest": {
+      "bytes": 2850,
+      "path": "analysis_outputs/rq2_stage_b_visualizations/rq2_visualization_manifest.json",
+      "sha256": "de245b522efad8cf1d8633c3eaeae76305a4815dc95fa8040c1d9ec2b7d65171"
+    },
+    "operating_profiles": {
+      "bytes": 2134240,
+      "path": "analysis_outputs/rq2_stage_b_analysis/rq2_operating_profiles.csv",
+      "sha256": "38e1909e972bc829643b9b764f523923d68b4a7cf0717b1d02b813f532c31ab3"
+    },
+    "paired_week_results": {
+      "bytes": 37590870,
+      "path": "analysis_outputs/rq2_stage_b/rq2_stage_b_paired_week_results.csv.gz",
+      "sha256": "16591a5e23aac555bf588cc7980ff5b6d2dbf9bdae584655270ad43e9a197786"
+    },
+    "protocol_freeze": {
+      "bytes": 1822,
+      "path": "analysis_outputs/RQ2_STAGE_B_PROTOCOL_FROZEN.json",
+      "sha256": "f497e208726361488e981078a842b9dc0147cc6f0335034a82a610aeb60e9ba6"
+    },
+    "reference_alarm_burden": {
+      "bytes": 2756,
+      "path": "analysis_outputs/rq2_stage_b_analysis/rq2_reference_alarm_burden.csv",
+      "sha256": "52abc4388d9fb034f5c60dfe46a6b9c1cd6b2122534e4c477aead3e12fc94aff"
+    },
+    "results_freeze": {
+      "bytes": 2063,
+      "path": "analysis_outputs/RQ2_STAGE_B_RESULTS_FROZEN.json",
+      "sha256": "3edd5fb241ba6828b0db44ba80b9316a71693f3467b3990c22b671d2dfe6d4e7"
+    },
+    "scenario_registry": {
+      "bytes": 9846211,
+      "path": "analysis_outputs/rq2_stage_b/rq2_stage_b_scenarios.csv",
+      "sha256": "b17550141accf12d8b01729baa7dc48e8fb7a63d226d747639bbbce6e2f17937"
+    }
+  },
+  "mewma_interpretation": "positive-state score without covariance adjustment",
+  "outputs": {
+    "captions.md": {
+      "bytes": 2362,
+      "sha256": "5d958bcfc357072e989c613ef983ca0e975b2daab4dbe042121171264539ae60"
+    },
+    "existing_export_hash_audit.csv": {
+      "bytes": 2766,
+      "sha256": "42730dc0eadfaaaa4871ffff461f31b2c19361c35fd696ee46dff50f6efa3423"
+    },
+    "figure_config.json": {
+      "bytes": 1994,
+      "sha256": "747624258cc4dd03591c2dc07418f105a99ca4d7a8efa967c8283f6ba385c933"
+    },
+    "figure_data_controlled_missingness.csv": {
+      "bytes": 53984,
+      "sha256": "ec90e9417dd2d5d6242b58094763782e029a77c654ea1cb88d4416c1c40fa2fb"
+    },
+    "figure_data_duration.csv": {
+      "bytes": 1688,
+      "sha256": "91e0b20f6ef81cfc8d7ab860b8445f4bc1b182659abfdaf2c974da035fc2451b"
+    },
+    "figure_data_magnitude.csv": {
+      "bytes": 1359,
+      "sha256": "b49c6bcd3539294f15284b7625dc6d5763a6e894e365c5f95835f1d9d672c7a2"
+    },
+    "figure_data_operating_tradeoff.csv": {
+      "bytes": 1976,
+      "sha256": "2893c92cd3ccfb0a46331abe84bc131137b39b9f633299c2d7f5ecc3c6fe5664"
+    },
+    "figure_data_repository.csv": {
+      "bytes": 1575,
+      "sha256": "bf2f65d56ba01c696f697d4f1a756a45fbd5102302ddb3f88b320b43f1f5c6fd"
+    },
+    "figure_rq2_1_detection_reference_alarm_burden.pdf": {
+      "bytes": 15055,
+      "sha256": "ddeed1abc20396cd6eb3870ab50fb0d20dede64c0aa8a3eebde62ba30f3d4912"
+    },
+    "figure_rq2_1_detection_reference_alarm_burden.png": {
+      "bytes": 144441,
+      "sha256": "52580dc996298a143b4174f367b75246c53c03ca7240af946d3472327eeda319"
+    },
+    "figure_rq2_2_detection_by_duration.pdf": {
+      "bytes": 24401,
+      "sha256": "d6baefae0a0ec084cd6b3dcf992adbc63e472dab7182501824dbc2a9ad22a45a"
+    },
+    "figure_rq2_2_detection_by_duration.png": {
+      "bytes": 205695,
+      "sha256": "dbda023e394653df91245737573b6410ab2fcdc26bdfb7846d09727e5e7687cb"
+    },
+    "figure_rq2_3_detection_by_magnitude.pdf": {
+      "bytes": 28602,
+      "sha256": "9ac0165a48d7de7ffc4987050e4276a25692985129056ce9e21645676f8fcfe2"
+    },
+    "figure_rq2_3_detection_by_magnitude.png": {
+      "bytes": 213563,
+      "sha256": "46272e28113ac8d3cedcfc5b851aa60bb473e9568e1ef1919934ad5edf00b9fb"
+    },
+    "figure_rq2_4_detection_by_repository.pdf": {
+      "bytes": 21493,
+      "sha256": "a8d82dbcae6108f324f6dae421bf41490960070ed87c51ced32a155b6a51f7b5"
+    },
+    "figure_rq2_4_detection_by_repository.png": {
+      "bytes": 142064,
+      "sha256": "a3f7b5987ff6fd592ff564958f3720223a01d379417a42e594597c3a3fce507d"
+    },
+    "figure_rq2_5_controlled_missingness_contrast.pdf": {
+      "bytes": 25919,
+      "sha256": "e93d38293363f0ae52e379227e7edcdde6b58f0451b805b472a5bb5547333cd8"
+    },
+    "figure_rq2_5_controlled_missingness_contrast.png": {
+      "bytes": 141268,
+      "sha256": "c1a238cf5634a6a8f35d8716459c749a6421e004f1e214e1d2f215e093d22780"
+    },
+    "verification_report.md": {
+      "bytes": 4527,
+      "sha256": "f0d7c91d931d9651fded9d882f739e8b39164b551b29eced8253768a5c999f6f"
+    }
+  },
+  "plot_script_path": "build_chapter5_rq2_figures.py",
+  "plot_script_sha256": "29b050a5b650c521a07417451050a396f88753a83386a90876f3e72cafdce621",
+  "protocol_manifest_sha256": "f497e208726361488e981078a842b9dc0147cc6f0335034a82a610aeb60e9ba6",
+  "purpose": "Chapter 5 RQ2 figures; point estimates only",
+  "status": "PASS",
+  "uncertainty": "not plotted; only point estimates",
+  "verification": {
+    "denominators_checked": {
+      "duration": 6300,
+      "magnitude": 8400,
+      "medium_missingness_each_condition": 8400,
+      "repo": 8400
+    },
+    "figure_rendering_available": true,
+    "no_detector_rerun": true,
+    "primary_scenarios": 25200,
+    "rq2_analysis_csvs_verified": 7,
+    "scenario_outcomes_missing": 0
+  }
+}

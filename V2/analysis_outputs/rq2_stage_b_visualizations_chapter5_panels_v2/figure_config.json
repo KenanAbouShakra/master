@@ -1,0 +1,40 @@
+{
+  "primary_condition": {
+    "scenario_type": "metric_shift",
+    "volume_condition": "observed",
+    "missingness_condition": "none"
+  },
+  "denominators": {
+    "overall_per_detector": 25200,
+    "repository_per_detector": 8400,
+    "duration_per_detector": 6300,
+    "magnitude_per_detector": 8400,
+    "medium_missingness_per_condition_detector": 8400,
+    "missingness_design_cells_per_detector": 84
+  },
+  "detector_order": [
+    "MEWMA",
+    "MAD latency",
+    "MAD union",
+    "MAD two-of-three",
+    "MAD failure",
+    "MAD rerun"
+  ],
+  "colors_hex": {
+    "MEWMA": "#0173b2",
+    "MAD latency": "#de8f05",
+    "MAD union": "#029e73",
+    "MAD two-of-three": "#d55e00",
+    "MAD failure": "#cc78bc",
+    "MAD rerun": "#ca9161"
+  },
+  "uncertainty": "point estimates only; scenario-level intervals omitted because scenarios are nested in three repositories and do not quantify project-population uncertainty",
+  "detection_estimator": "number of true strict_incremental_episode_detected scenario outcomes / all planned scenarios; missing outputs cause a hard error and are not converted to false",
+  "reference_alarm_burden": "for each scenario, sum(reference_alarm on pair-evaluable weeks) / pair-evaluable weeks; average defined scenario ratios equally across planned primary scenarios",
+  "pair_week_unavailability": "mean over scenarios of pair_unevaluable_weeks / all 46 external-evaluation weeks",
+  "missingness_estimator": "within each of 84 repo \u00d7 affected-metric-combination \u00d7 duration design cells, controlled-medium detection proportion minus observed-medium proportion; mean equally over cells; profiles independently seeded",
+  "marker_area": "90 + 500 * mean pair-week unavailability proportion, in points squared; 90 pt^2 visible minimum at zero",
+  "notes_found": [],
+  "no_detector_rerun": true,
+  "mewma_label": "implemented positive-state MEWMA score without covariance adjustment; no recalibration or refitting"
+}

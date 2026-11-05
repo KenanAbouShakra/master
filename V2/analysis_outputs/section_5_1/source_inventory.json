@@ -1,0 +1,86 @@
+{
+  "scope": "stored-output reconstruction; no detector fit or complete analysis rerun",
+  "notes": {
+    "Master_CI_Monitoring_Study_Note": "not found in repository",
+    "MEWMA_Checked_Methods_Note_EN": "not found in repository"
+  },
+  "sources": [
+    {
+      "path": "V2/analysis_outputs/MEASUREMENT_FROZEN.json",
+      "exists": true,
+      "bytes": 4248,
+      "sha256": "df6b047fcb9b7203596e236f503238d139ea6d7698645ce4ae56e413ae88c2c9",
+      "readable": true
+    },
+    {
+      "path": "V2/analysis_outputs/measurement_metadata.json",
+      "exists": true,
+      "bytes": 1617,
+      "sha256": "4b0e4283f2d40f4791e8b66a2ddcfcb36d9a8cc11d13d28a0e9fc976dd3ab4e6",
+      "readable": true
+    },
+    {
+      "path": "V2/analysis_outputs/repository_week_panel_audited.csv",
+      "exists": true,
+      "bytes": 114931,
+      "sha256": "73e06ac4ad67c5c8ff01fbc298544f41b3fe4a2ad5f1c2d07d3a1fd254e78061",
+      "readable": true
+    },
+    {
+      "path": "V2/analysis_outputs/attempt_measurements.csv.gz",
+      "exists": true,
+      "bytes": 4640802,
+      "sha256": "9c704760d24733df07d324a8d99ab846479a5c66dccfa2256969a21a9866f8f7",
+      "readable": true
+    },
+    {
+      "path": "V2/analysis_outputs/RQ1_BASELINES_FROZEN.json",
+      "exists": true,
+      "bytes": 8409,
+      "sha256": "d871b9c08870c57486985e601d448466c0baecbbd505679dce767ddf385bf55d",
+      "readable": true
+    },
+    {
+      "path": "V2/analysis_outputs/rq1_baseline_week_results.csv",
+      "exists": true,
+      "bytes": 416355,
+      "sha256": null,
+      "readable": false
+    },
+    {
+      "path": "V2/analysis_outputs/rq1_baseline_summary.csv",
+      "exists": true,
+      "bytes": 14638,
+      "sha256": null,
+      "readable": false
+    },
+    {
+      "path": "V2/analysis_outputs/RQ2_STAGE_B_PROTOCOL_FROZEN.json",
+      "exists": true,
+      "bytes": 1822,
+      "sha256": "f497e208726361488e981078a842b9dc0147cc6f0335034a82a610aeb60e9ba6",
+      "readable": true
+    },
+    {
+      "path": "V2/analysis_outputs/RQ2_STAGE_B_RESULTS_FROZEN.json",
+      "exists": true,
+      "bytes": 2063,
+      "sha256": "3edd5fb241ba6828b0db44ba80b9316a71693f3467b3990c22b671d2dfe6d4e7",
+      "readable": true
+    },
+    {
+      "path": "V2/analysis_outputs/rq2_stage_b/rq2_stage_b_scenarios.csv",
+      "exists": true,
+      "bytes": 9846211,
+      "sha256": "b17550141accf12d8b01729baa7dc48e8fb7a63d226d747639bbbce6e2f17937",
+      "readable": true
+    },
+    {
+      "path": "V2/analysis_outputs/rq2_stage_b/rq2_stage_b_paired_week_results.csv.gz",
+      "exists": true,
+      "bytes": 37590870,
+      "sha256": "16591a5e23aac555bf588cc7980ff5b6d2dbf9bdae584655270ad43e9a197786",
+      "readable": true
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+repository,detector_id,paired_week_rows,paired_week_evaluable,paired_week_unavailable,paired_week_unavailability_proportion,interpretation
+containerd/containerd,mad:failure_rate,644046,612864,31182,0.04841579638721458,paired-week availability; not an excluded-scenario proportion
+containerd/containerd,mad:latency_log,644046,613683,30363,0.04714414808880111,paired-week availability; not an excluded-scenario proportion
+containerd/containerd,mad:rerun_rate,644046,613016,31030,0.04817978840020744,paired-week availability; not an excluded-scenario proportion
+containerd/containerd,mad:two_of_three,644046,590578,53468,0.08301891479801132,paired-week availability; not an excluded-scenario proportion
+containerd/containerd,mad:union,644046,590578,53468,0.08301891479801132,paired-week availability; not an excluded-scenario proportion
+containerd/containerd,mewma:mewma,644046,644039,7,1.0868788875328781e-05,paired-week availability; not an excluded-scenario proportion
+helm/helm,mad:failure_rate,644046,613434,30612,0.04753076643593781,paired-week availability; not an excluded-scenario proportion
+helm/helm,mad:latency_log,644046,613530,30516,0.0473817087599333,paired-week availability; not an excluded-scenario proportion
+helm/helm,mad:rerun_rate,644046,613077,30969,0.04808507466857957,paired-week availability; not an excluded-scenario proportion
+helm/helm,mad:two_of_three,644046,590407,53639,0.08328442378339436,paired-week availability; not an excluded-scenario proportion
+helm/helm,mad:union,644046,590407,53639,0.08328442378339436,paired-week availability; not an excluded-scenario proportion
+helm/helm,mewma:mewma,644046,644033,13,2.0184893625610594e-05,paired-week availability; not an excluded-scenario proportion
+pytest-dev/pytest,mad:failure_rate,644046,612818,31228,0.04848721985696674,paired-week availability; not an excluded-scenario proportion
+pytest-dev/pytest,mad:latency_log,644046,613404,30642,0.047577346959689217,paired-week availability; not an excluded-scenario proportion
+pytest-dev/pytest,mad:rerun_rate,644046,80750,563296,0.8746207569024573,paired-week availability; not an excluded-scenario proportion
+pytest-dev/pytest,mad:two_of_three,644046,77239,566807,0.8800722308654972,paired-week availability; not an excluded-scenario proportion
+pytest-dev/pytest,mad:union,644046,77239,566807,0.8800722308654972,paired-week availability; not an excluded-scenario proportion
+pytest-dev/pytest,mewma:mewma,644046,644038,8,1.242147300037575e-05,paired-week availability; not an excluded-scenario proportion
