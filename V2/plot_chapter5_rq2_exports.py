@@ -101,7 +101,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--figure", choices=[*FILES, "all"], default="all")
     parser.add_argument("--data-dir", type=Path, default=ROOT / "analysis_outputs" / "rq2_stage_b_visualizations_chapter5_panels_v2")
-    parser.add_argument("--out-dir", type=Path, default=ROOT.parent / "figures")
+    parser.add_argument("--out-dir", type=Path, default=ROOT / "Figures")
     parser.add_argument("--check-only", action="store_true")
     args = parser.parse_args()
     for key in FILES if args.figure == "all" else [args.figure]:
